@@ -37,3 +37,4 @@ mkdir ~/.i3 2> /dev/null
 ln -s ~/.files/i3config ~/.i3/config 2> /dev/null
 ln -s ~/.files/i3status.conf ~/.i3status.conf 2> /dev/null
 ln -s ~/.files/zshrc ~/.zshrc 2> /dev/null
+ln -s ~/.files/xinitrc ~/.xinitrc 2> /dev/null

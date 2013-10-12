@@ -24,3 +24,4 @@ rm ~/.vimrc 2> /dev/null
 rm ~/.i3/config 2> /dev/null
 rm ~/.i3status.conf 2> /dev/null
 rm ~/.zshrc 2> /dev/null
+rm ~/.xinitrc 2> /dev/null
