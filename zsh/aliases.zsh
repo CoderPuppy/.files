@@ -4,3 +4,4 @@ function mcd() {
 }
 
 alias ls='ls --color'
+alias git=hub
