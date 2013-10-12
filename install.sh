@@ -1,9 +1,17 @@
 #!/bin/sh
 
+echo Creating bin dir
+mkdir ~/bin 2> /dev/null
+
+echo Linking files to bin dir
+for file in $(ls ~/.files/bin); do
+	echo Linking ~/bin/$file to ~/.files/bin/$file
+	ln -s ~/.files/bin/$file ~/bin/;
+done
+
 echo Installing Vundle
 mkdir -p ~/.vim/bundle 2> /dev/null
 git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-
 
 echo Installing Powerline Font
 mkdir ~/.fonts 2> /dev/null
@@ -29,5 +37,3 @@ mkdir ~/.i3 2> /dev/null
 ln -s ~/.files/i3config ~/.i3/config 2> /dev/null
 ln -s ~/.files/i3status.conf ~/.i3status.conf 2> /dev/null
 ln -s ~/.files/zshrc ~/.zshrc 2> /dev/null
-ln -s ~/.files/bin ~/bin 2> /dev/null
-
