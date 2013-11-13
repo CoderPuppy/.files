@@ -10,6 +10,7 @@
 		Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 		Bundle 'scrooloose/nerdtree'
 		Bundle 'tpope/vim-fugitive'
+		Bundle 'tomtom/tcomment_vim'
 	" }
 	
 	filetype plugin indent on
@@ -43,6 +44,12 @@ end
 	
 	vmap <C-S-k> [egv
 	vmap <C-S-j> ]egv
+
+	" Commenting
+	nmap <leader>c gcc
+
+	" Visual Commenting
+	vmap <leader>c gc
 	
 	" NERDTree
 	nmap <silent> <leader>n :NERDTreeToggle<cr>
