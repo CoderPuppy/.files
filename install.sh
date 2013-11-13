@@ -9,6 +9,15 @@ for file in $(ls ~/.files/bin); do
 	ln -s ~/.files/bin/$file ~/bin/;
 done
 
+echo Creating completion dir
+mkdir ~/.zcompletion 2> /dev/null
+
+echo Linking files to completion dir
+for file in $(ls ~/.files/zsh/completion); do
+	echo Linking ~/.zcompletion/$file to ~/.files/zsh/completion/$file
+	ln -s ~/.files/zsh/completion/$file ~/.zcompletion/;
+done
+
 echo Installing Vundle
 mkdir -p ~/.vim/bundle 2> /dev/null
 git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
