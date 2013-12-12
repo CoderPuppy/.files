@@ -42,6 +42,7 @@ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-bu
 echo Linking config files
 ln -s ~/.files/tmux.conf ~/.tmux.conf 2> /dev/null
 ln -s ~/.files/vimrc ~/.vimrc 2> /dev/null
+ln -s ~/.files/bashrc ~/.bashrc 2> /dev/null
 mkdir ~/.i3 2> /dev/null
 ln -s ~/.files/i3config ~/.i3/config 2> /dev/null
 ln -s ~/.files/i3status.conf ~/.i3status.conf 2> /dev/null
