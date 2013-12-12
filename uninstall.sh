@@ -20,6 +20,12 @@ done
 # echo Removing Nave
 # rm ~/bin/nave 2> /dev/null
 
+echo Removing Nodenv
+rm -rf ~/.nodenv
+
+echo Removing Pyenv
+rm -rf ~/.pyenv
+
 echo Removing RBEnv
 rm -rf ~/.rbenv
 

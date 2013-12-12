@@ -33,10 +33,16 @@ wget -O ~/.config/fontconfig/conf.d/10-powerline-symbols.conf https://github.com
 # wget -O ~/bin/nave https://github.com/isaacs/nave/raw/master/nave.sh
 # chmod +x ~/bin/nave 2> /dev/null
 
-echo Installing rbenv
+echo Installing Nodenv
+git clone git://github.com/wfarr/nodenv.git ~/.nodenv
+
+echo Installing Pyenv
+git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+
+echo Installing RBEnv
 git clone git://github.com/sstephenson/rbenv ~/.rbenv
 
-echo Installing ruby-build
+echo Installing Ruby-Build
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 echo Linking config files
