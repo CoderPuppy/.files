@@ -1,3 +1,4 @@
+export PATH=~/.cabal/bin:$PATH
 export PATH=~/bin:$PATH:/usr/bin:/usr/sbin
 export PATH=~/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
