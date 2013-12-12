@@ -1,1 +1,2 @@
 source ~/.files/profilerc
+source ~/.files/shell/aliases.sh
