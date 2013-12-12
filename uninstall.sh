@@ -17,8 +17,8 @@ for file in "$(ls ~/.files/zsh/completion)"; do
 	rm ~/.zcompletion/$file;
 done
 
-echo Removing Nave
-rm ~/bin/nave 2> /dev/null
+# echo Removing Nave
+# rm ~/bin/nave 2> /dev/null
 
 echo Removing RBEnv
 rm -rf ~/.rbenv

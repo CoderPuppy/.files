@@ -29,9 +29,9 @@ fc-cache -vf ~/.fonts 2> /dev/null
 mkdir -p ~/.config/fontconfig/conf.d/ 2> /dev/null
 wget -O ~/.config/fontconfig/conf.d/10-powerline-symbols.conf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
 
-echo Installing Nave
-wget -O ~/bin/nave https://github.com/isaacs/nave/raw/master/nave.sh
-chmod +x ~/bin/nave 2> /dev/null
+# echo Installing Nave
+# wget -O ~/bin/nave https://github.com/isaacs/nave/raw/master/nave.sh
+# chmod +x ~/bin/nave 2> /dev/null
 
 echo Installing rbenv
 git clone git://github.com/sstephenson/rbenv ~/.rbenv
