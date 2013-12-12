@@ -34,92 +34,92 @@ bindsym $Mod+Return exec i3-sensible-terminal
 bindsym $Mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $Mod+d exec dmenu_run
+bindsym $Mod+d exec launcher
 
 # change focus
-bindsym $Mod+h focus left
-bindsym $Mod+j focus down
-bindsym $Mod+k focus up
-bindsym $Mod+l focus right
+bindsym $Mod+j focus left
+bindsym $Mod+k focus down
+bindsym $Mod+l focus up
+bindsym $Mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod4+Left focus left
-bindsym Mod4+Down focus down
-bindsym Mod4+Up focus up
-bindsym Mod4+Right focus right
+bindsym $Mod+Left focus left
+bindsym $Mod+Down focus down
+bindsym $Mod+Up focus up
+bindsym $Mod+Right focus right
 
 # move focused window
-bindsym Mod4+Shift+h move left
-bindsym Mod4+Shift+j move down
-bindsym Mod4+Shift+k move up
-bindsym Mod4+Shift+l move right
+bindsym $Mod+Shift+j move left
+bindsym $Mod+Shift+k move down
+bindsym $Mod+Shift+l move up
+bindsym $Mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod4+Shift+Left move left
-bindsym Mod4+Shift+Down move down
-bindsym Mod4+Shift+Up move up
-bindsym Mod4+Shift+Right move right
+bindsym $Mod+Shift+Left move left
+bindsym $Mod+Shift+Down move down
+bindsym $Mod+Shift+Up move up
+bindsym $Mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod4+b split 
+bindsym $Mod+h split h
 
 # split in vertical orientation
-bindsym Mod4+v split v
+bindsym $Mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym Mod4+f fullscreen
+bindsym $Mod+f fullscreen
 
 # change container layout (stacked, tabbed, default)
-bindsym Mod4+s layout stacking
-bindsym Mod4+w layout tabbed
-bindsym Mod4+e layout default
+bindsym $Mod+s layout stacking
+bindsym $Mod+w layout tabbed
+bindsym $Mod+e layout default
 
 # toggle tiling / floating
-bindsym Mod4+Shift+space floating toggle
+bindsym $Mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym Mod4+space focus mode_toggle
+bindsym $Mod+space focus mode_toggle
 
 # focus the parent container
-bindsym Mod4+a focus parent
+bindsym $Mod+a focus parent
 
 # focus the child container
-#bindsym Mod4+d focus child
+#bindsym $Mod+d focus child
 
 # switch to workspace
-bindsym Mod4+1 workspace 1
-bindsym Mod4+2 workspace 2
-bindsym Mod4+3 workspace 3
-bindsym Mod4+4 workspace 4
-bindsym Mod4+5 workspace 5
-bindsym Mod4+6 workspace 6
-bindsym Mod4+7 workspace 7
-bindsym Mod4+8 workspace 8
-bindsym Mod4+9 workspace 9
-bindsym Mod4+0 workspace 10
+bindsym $Mod+1 workspace 1
+bindsym $Mod+2 workspace 2
+bindsym $Mod+3 workspace 3
+bindsym $Mod+4 workspace 4
+bindsym $Mod+5 workspace 5
+bindsym $Mod+6 workspace 6
+bindsym $Mod+7 workspace 7
+bindsym $Mod+8 workspace 8
+bindsym $Mod+9 workspace 9
+bindsym $Mod+0 workspace 10
 
 # switch workspaces
 bindsym $Mod+Tab workspace next_on_output
 bindsym $Mod+Shift+Tab workspace prev_on_output
 
 # move focused container to workspace
-bindsym Mod4+Shift+1 move container to workspace 1
-bindsym Mod4+Shift+2 move container to workspace 2
-bindsym Mod4+Shift+3 move container to workspace 3
-bindsym Mod4+Shift+4 move container to workspace 4
-bindsym Mod4+Shift+5 move container to workspace 5
-bindsym Mod4+Shift+6 move container to workspace 6
-bindsym Mod4+Shift+7 move container to workspace 7
-bindsym Mod4+Shift+8 move container to workspace 8
-bindsym Mod4+Shift+9 move container to workspace 9
-bindsym Mod4+Shift+0 move container to workspace 10
+bindsym $Mod+Shift+1 move container to workspace 1
+bindsym $Mod+Shift+2 move container to workspace 2
+bindsym $Mod+Shift+3 move container to workspace 3
+bindsym $Mod+Shift+4 move container to workspace 4
+bindsym $Mod+Shift+5 move container to workspace 5
+bindsym $Mod+Shift+6 move container to workspace 6
+bindsym $Mod+Shift+7 move container to workspace 7
+bindsym $Mod+Shift+8 move container to workspace 8
+bindsym $Mod+Shift+9 move container to workspace 9
+bindsym $Mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindsym Mod4+Shift+c reload
+bindsym $Mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym Mod4+Shift+r restart
+bindsym $Mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym Mod4+Shift+e exit
+bindsym $Mod+Shift+e exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -129,10 +129,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h           resize shrink width 10 px or 10 ppt
-        bindsym j           resize grow height 10 px or 10 ppt
-        bindsym k           resize shrink height 10 px or 10 ppt
-        bindsym l   resize grow width 10 px or 10 ppt
+        bindsym j           resize shrink width 10 px or 10 ppt
+        bindsym k           resize grow height 10 px or 10 ppt
+        bindsym l           resize shrink height 10 px or 10 ppt
+        bindsym semicolon   resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left        resize shrink width 10 px or 10 ppt
@@ -145,7 +145,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym Mod4+r mode "resize"
+bindsym $Mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
