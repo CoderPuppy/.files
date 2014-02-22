@@ -60,8 +60,18 @@ end
 	map <C-Left> <C-w>h
 	map <C-Right> <C-w>l
 
+	map <M-Up> <C-w>k
+	map <M-Down> <C-w>j
+	map <M-Left> <C-w>h
+	map <M-Right> <C-w>l
+
 	map <C-k> <C-w>k
 	map <C-j> <C-w>j
 	map <C-h> <C-w>h
 	map <C-l> <C-w>l
+
+	map <M-k> <C-w>k
+	map <M-j> <C-w>j
+	map <M-h> <C-w>h
+	map <M-l> <C-w>l
 " }
