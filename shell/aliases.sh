@@ -7,8 +7,20 @@ view() {
 	pygmentize $1 | less -R
 }
 
+fe() {
+	local file="`find -type f -name \*$*\*`"
+	echo $file
+	# expr length "$file"
+	if [ $(expr length "$file") = 0 ]; then
+		echo "No file found"
+	else
+		echo "$file" | xargs $EDITOR
+	fi
+}
+
 alias ls='ls --color'
 alias l='less -R'
 alias v=view
-alias e="eval $EDITOR"
-alias rehash='nodenv rehash; rbenv rehash; pyenv rehash; hash -rf'
+alias e='eval $EDITOR'
+alias rehash='nodenv rehash; rbenv rehash; pyenv rehash; luaenv rehash; hash -rf'
+alias :q=exit
