@@ -45,6 +45,12 @@ git clone git://github.com/sstephenson/rbenv ~/.rbenv
 echo Installing Ruby-Build
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
+echo Installing LuaEnv
+git clone https://github.com/cehoffman/luaenv.git ~/.luaenv
+
+echo Install Lua-Build
+git clone git://github.com/cehoffman/lua-build.git ~/.luaenv/plugins/lua-build
+
 echo Linking config files
 ln -s ~/.files/tmux.conf ~/.tmux.conf 2> /dev/null
 ln -s ~/.files/vimrc ~/.vimrc 2> /dev/null
