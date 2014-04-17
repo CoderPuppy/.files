@@ -1,0 +1,2 @@
+#!/bin/sh
+xautolock -locker lock -notify 10 -notifier bell -time 15
