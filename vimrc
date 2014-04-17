@@ -11,6 +11,7 @@
 		Bundle 'scrooloose/nerdtree'
 		Bundle 'tpope/vim-fugitive'
 		Bundle 'tomtom/tcomment_vim'
+		Bundle 'kien/ctrlp.vim'
 	" }
 	
 	filetype plugin indent on
