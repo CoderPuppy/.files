@@ -2,24 +2,24 @@
 
 export VGA1=/sys/class/drm/card0-VGA-1/
 
-function update-VGA1 {
+updateVGA1() {
 	local status="$(cat $VGA1/status)"
 	echo $status
 
 	if [ "${status}" = disconnected ]; then
 		xrandr --output VGA1 --off
 	elif [ "${status}" = connected ]; then
-		if grep "ViewSonic" $VGA/edid; then
+		if grep "ViewSonic" $VGA1/edid; then
 			xrandr --output VGA1 --auto --left-of LVDS1
 		else
 			xrandr --auto
-			cat $VGA/edid
+			cat $VGA1/edid
 		fi
 	fi
 }
 
-function update {
-	update-VGA1
+update() {
+	updateVGA1
 	xrandr --output LVDS1 --mode 1366x768
 }
 
