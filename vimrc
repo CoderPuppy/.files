@@ -27,6 +27,10 @@ set wrap linebreak nolist
 syntax on
 colorscheme desert
 
+if has('mouse')
+	set mouse=a
+end
+
 if has('autocmd')
 	
 end
