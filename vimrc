@@ -12,6 +12,7 @@
 		Bundle 'tpope/vim-fugitive'
 		Bundle 'tomtom/tcomment_vim'
 		Bundle 'kien/ctrlp.vim'
+		Bundle 'gkz/vim-ls'
 	" }
 	
 	filetype plugin indent on
