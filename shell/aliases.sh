@@ -18,6 +18,13 @@ fe() {
 	fi
 }
 
+suspend() {
+	sudo pm-suspend-hybrid
+	if which lock > /dev/null 2>&1; then
+		lock
+	fi
+}
+
 alias ls='ls --color'
 alias l='less -R'
 alias v=view
