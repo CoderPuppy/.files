@@ -76,11 +76,13 @@ right_prompt() {
 
 	spacer '[ '
 
-	nowidth $JOBS_COLOR
-	echo -n $(jobs -l | wc -l)
-	nowidth $RESET
+	if [[ $(jobs -l | wc -l) -gt 0 ]]; then
+		nowidth $JOBS_COLOR
+		echo -n $(jobs -l | wc -l)
+		nowidth $RESET
 
-	spacer ' : '
+		spacer ' : '
+	fi
 
 	nowidth $TIME_COLOR
 	echo -n '%*'
