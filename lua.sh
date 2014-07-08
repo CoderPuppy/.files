@@ -1,7 +1,7 @@
 export PATH="$HOME/.luaenv/bin:$PATH"
-export PATH="/home/cpup/.luaenv/shims:${PATH}"
+export PATH="$HOME/.luaenv/shims:${PATH}"
 export LUAENV_SHELL=zsh
-source '/home/cpup/.luaenv/completions/luaenv.zsh'
+source '$HOME/.luaenv/completions/luaenv.zsh'
 luaenv rehash 2>/dev/null
 luaenv() {
   local command
