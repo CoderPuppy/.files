@@ -1,4 +1,5 @@
 export PATH=~/bin:~/.local/bin:$PATH:/usr/bin:/usr/sbin
+export LD_LIBRARY_PATH=~/.local/lib:$LD_LIBRARY_PATH
 
 source ~/.files/go.sh
 source ~/.files/haskell.sh
