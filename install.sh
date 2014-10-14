@@ -1,15 +1,16 @@
 #!/bin/sh
 
 echo Creating bin dir
-mkdir ~/bin 2> /dev/null
+mkdir -p ~/.local/bin 2> /dev/null
 
 echo Linking files to bin dir
 for file in $(ls ~/.files/bin); do
 	echo Linking ~/bin/$file to ~/.files/bin/$file
-	ln -s ~/.files/bin/$file ~/bin/;
+	ln -s ~/.files/bin/$file ~/.local/bin/;
 done
 
 echo Creating completion dir
+mkdir ~/.z 2> /dev/null
 mkdir ~/.zcompletion 2> /dev/null
 
 echo Linking files to completion dir

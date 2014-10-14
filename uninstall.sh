@@ -9,12 +9,12 @@ rm ~/.fonts/PowerlineSymbols.otf 2> /dev/null
 
 echo Unlinking executables
 for file in "$(ls ~/.files/bin)"; do
-	rm ~/bin/$file;
+	rm -- ~/.local/bin/$file;
 done
 
 echo Unlinking completions
 for file in "$(ls ~/.files/zsh/completion)"; do
-	rm ~/.zcompletion/$file;
+	rm -- ~/.zcompletion/$file;
 done
 
 # echo Removing Nave
@@ -32,7 +32,7 @@ rm -rf ~/.rbenv
 echo Unlinking configs
 rm ~/.tmux.conf 2> /dev/null
 rm ~/.vimrc 2> /dev/null
-rm ~/.i3/config 2> /dev/null
+rm ~/.i3/config.base 2> /dev/null
 rm ~/.i3status.conf 2> /dev/null
 rm ~/.bashrc 2> /dev/null
 rm ~/.zshrc 2> /dev/null
