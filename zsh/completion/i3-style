@@ -1,0 +1,2 @@
+#compdef i3-style
+_arguments '1: :(`ls --color=no /usr/share/j4-make-config-git/themes`)'

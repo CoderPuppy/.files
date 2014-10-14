@@ -164,4 +164,7 @@ bindsym $Mod+r mode "resize"
 # finds out, if available)
 bar {
 	status_command i3status
+	# $i3-theme-bar
 }
+
+# $i3-theme-window
