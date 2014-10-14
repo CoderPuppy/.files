@@ -11,5 +11,7 @@ setopt hist_ignore_space
 
 setopt prompt_subst
 
+unsetopt MULTIBYTE
+
 # this is disabled so that when i press up in a shell i don't get random other commands
 # setopt shared_history
