@@ -53,7 +53,7 @@ bindsym $Mod+Shift+q kill
 # start dmenu (a program launcher)
 bindsym $Mod+d exec $HOME/.local/bin/launcher
 
-bindsym $Mod+l exec /bin/quickswitch.py
+bindsym $Mod+p exec /bin/quickswitch.py
 
 bindsym $Mod+x exec lock
 
@@ -62,8 +62,8 @@ bindsym $Mod+f fullscreen
 bindsym $Mod+c [con_mark="entert"] focus
 bindsym $Mod+Shift+c mark entert
 
-bindsym $Mod+a [con_mark="browser-main"] focus
-bindsym $Mod+Shift+a mark browser-main
+bindsym $Mod+a [con_mark="browser"] focus
+bindsym $Mod+Shift+a mark browser
 
 bindsym $Mod+w [con_mark="irc"] focus
 bindsym $Mod+Shift+w mark irc
@@ -74,7 +74,8 @@ bindsym $Mod+Shift+e mark terminal
 bindsym $Mod+s [con_mark="work"] focus
 bindsym $Mod+Shift+s mark work
 
-bindsym $Mod+m exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
+# bindsym $Mod+m exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
+bindsym $Mod+m exec i3-marked-menu
 bindsym $Mod+Shift+m exec i3-input -F 'mark %s' -P 'Mark name: '
 
 bindsym $Mod+z workspace 8
@@ -99,6 +100,7 @@ bindsym $Mod+Shift+Right move right
 
 # alternatively, you can use the cursor keys:
 bindsym $Mod+Up scratchpad show
+bindsym $Mod+Down move container to scratchpad
 
 bindsym $AMod+Tab focus right
 bindsym $AMod+Shift+Tab focus left
