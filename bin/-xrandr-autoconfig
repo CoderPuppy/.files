@@ -25,6 +25,8 @@ update() {
 
 update
 
-while inotifywait -e modify,create,delete,open,close,close_write,access $VGA1/status; do
+# while inotifywait -e modify,create,delete,open,close,close_write,access $VGA1/status; do
+while true; do
 	update
+	sleep 5
 done
