@@ -1,5 +1,3 @@
-# echo zshenv running
-
 source ~/.files/zsh/colors.zsh
 source ~/.files/zsh/opts.zsh
 source ~/.files/zsh/prompt.zsh

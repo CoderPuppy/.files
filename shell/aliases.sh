@@ -19,7 +19,14 @@ fe() {
 }
 
 suspend() {
-	sudo pm-suspend-hybrid
+	systemctl suspend
+	if which lock > /dev/null 2>&1; then
+		lock
+	fi
+}
+
+hibernate() {
+	systemctl hibernate
 	if which lock > /dev/null 2>&1; then
 		lock
 	fi

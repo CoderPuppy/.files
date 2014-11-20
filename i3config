@@ -13,8 +13,8 @@ set $Mod Mod4
 set $AMod Mod1
 set $HOME /home/cpup
 
-# Auto put workspace 8 (the hardest to reach) on VGA1
-workspace 8 output VGA1
+# Assign workspace 9 (the hardest to reach) on VGA1
+workspace 9 output VGA1
 
 focus_follows_mouse no
 workspace_auto_back_and_forth yes
@@ -30,7 +30,7 @@ for_window [class="^Xfce4-notifyd$" instance="^xfce4-notifyd$"] floating enable
 exec -- -xrandr-autoconfig
 exec volti
 exec --no-startup-id quasselcore
-exec --no-startup-id xset dpms 600
+#exec --no-startup-id xset dpms 600
 exec --no-startup-id xautolock -time 10 -locker lock
 # exec -xautolock
 
@@ -55,7 +55,7 @@ bindsym $Mod+d exec $HOME/.local/bin/launcher
 
 bindsym $Mod+p exec /bin/quickswitch.py
 
-bindsym $Mod+x exec lock
+bindsym $Mod+q exec i3-exit
 
 bindsym $Mod+f fullscreen
 
@@ -78,7 +78,7 @@ bindsym $Mod+Shift+s mark work
 bindsym $Mod+m exec i3-marked-menu
 bindsym $Mod+Shift+m exec i3-input -F 'mark %s' -P 'Mark name: '
 
-bindsym $Mod+z workspace 8
+bindsym $Mod+z workspace 9
 
 # change focus
 bindsym $Mod+j focus left
@@ -126,7 +126,7 @@ bindsym $Mod+space focus mode_toggle
 bindsym $Mod+slash focus parent
 
 # focus the child container
-bindsym $Mod+Down focus child
+bindsym $Mod+$AMod+Down focus child
 
 # switch to workspace
 bindsym $Mod+1 workspace 1
@@ -161,7 +161,8 @@ bindsym $Mod+n reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $Mod+Shift+n restart
 # exit i3 (logs you out of your X session)
-bindsym $Mod+Shift+x exit
+bindsym $Mod+x exec lock
+bindsym $Mod+Shift+x exec i3-exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -187,12 +188,14 @@ mode "resize" {
 	bindsym Escape mode "default"
 }
 
-bindsym $Mod+s mode "resize"
+bindsym $Mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 	status_command i3status
+	tray_output LVDS1
+	strip_workspace_numbers yes
 	# $i3-theme-bar
 }
 

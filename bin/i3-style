@@ -1,2 +1,2 @@
 #!/bin/sh
-j4-make-config $1 && i3-msg reload
+j4-make-config $@ && i3-msg reload
