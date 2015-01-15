@@ -39,3 +39,5 @@ rm ~/.zshrc 2> /dev/null
 rm ~/.zshenv 2> /dev/null
 rm ~/.xinitrc 2> /dev/null
 rm ~/.xmodmaprc 2> /dev/null
+rm ~/.config/bspwm 2> /dev/null
+rm ~/.config/sxhkd 2> /dev/null

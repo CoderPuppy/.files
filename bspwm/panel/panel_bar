@@ -1,0 +1,49 @@
+#! /bin/sh
+
+source $(dirname $0)/config
+
+while read -r line ; do
+    case $line in
+        S*)
+            sys_infos="%{r}${line#?}"
+            ;;
+        T*)
+            title=" %{F$COLOR_ICON}%{F-} bspwm"
+            ;;
+        W*)
+            wm_infos="%{c}"
+            IFS=':'
+            set -- ${line#?}
+            while [ $# -gt 0 ] ; do
+                item=$1
+                name=${item#?}
+                case $item in
+                    [OFU]*)
+                        # active desktop
+                        wm_infos="$wm_infos %{A:bspc desktop $name -f:}%{U$COLOR_ACTIVE}%{+u} * %{-u}%{A}"
+                        ;;
+                    o*)
+                        # inactive but occupied desktop
+                        wm_infos="$wm_infos %{A:bspc desktop $name -f:}%{U$COLOR_OCCUPIED}%{+u} * %{-u}%{A}"
+                        ;;
+                    f*)
+                        # inactive desktop
+                        wm_infos="$wm_infos %{A:bspc desktop $name -f:} * %{A}"
+                        ;;
+                    u*)
+                        # urgent desktop
+                        wm_infos="$wm_infos %{A:bspc desktop $name -f:}%{U$COLOR_URGENT}%{+u} * %{-u}%{A}"
+                        ;;
+                    L*)
+                        # layout
+#                        layout=$(printf "%s" "${name}" | sed 's/\(.\).*/\U\1/')
+                        wm_infos="$wm_infos $layout"
+                        ;;
+                esac
+                shift
+            done
+						wm_infos="$wm_infos"
+            ;;
+    esac
+    printf "%s\n" "$title$wm_infos$sys_infos"
+done
