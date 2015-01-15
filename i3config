@@ -45,7 +45,7 @@ floating_modifier $Mod
 workspace_layout tabbed
 
 # start a terminal
-bindsym $Mod+Return exec terminology
+bindsym $Mod+Return exec tabbed -r 2 st -w '' -e tmux
 
 # kill focused window
 bindsym $Mod+Shift+q kill
