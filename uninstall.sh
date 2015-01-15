@@ -38,3 +38,4 @@ rm ~/.bashrc 2> /dev/null
 rm ~/.zshrc 2> /dev/null
 rm ~/.zshenv 2> /dev/null
 rm ~/.xinitrc 2> /dev/null
+rm ~/.xmodmaprc 2> /dev/null
