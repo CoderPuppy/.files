@@ -1,10 +1,11 @@
 #!/bin/zsh
-opt="$((echo Lock && echo Shutdown && echo Reboot && echo Suspend && echo Logout && echo Hibernate) | xboomx_sort.py session-exit | dmenu -i | xboomx_update.py session-exit)" &&
+opt="$((echo Lock && echo Shutdown && echo Reboot && echo Suspend && echo Logout && echo Hibernate && echo Sleep) | xboomx_sort.py session-exit | dmenu -i | xboomx_update.py session-exit)" &&
 case "$opt" in
 	(Lock) lock;;
 	(Shutdown) systemctl poweroff;;
 	(Reboot) systemctl reboot;;
-	(Suspend) suspend;;
+	(Suspend) suspend suspend;;
+	(Sleep) suspend hybrid-sleep;;
 	(Logout) i3-msg exit;;
-	(Hibernate) hibernate;;
+	(Hibernate) suspend hibernate;;
 esac

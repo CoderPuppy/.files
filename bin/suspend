@@ -1,0 +1,6 @@
+#!/bin/sh
+CMD=${1:-hybrid-sleep}
+systemctl $CMD
+if [[ ! -z $DISPLAY ]]; then
+	lock
+fi

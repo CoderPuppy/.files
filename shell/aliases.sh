@@ -18,20 +18,6 @@ fe() {
 	fi
 }
 
-suspend() {
-	systemctl suspend
-	if which lock > /dev/null 2>&1; then
-		lock
-	fi
-}
-
-hibernate() {
-	systemctl hibernate
-	if which lock > /dev/null 2>&1; then
-		lock
-	fi
-}
-
 alias ls='ls --color'
 alias l='less -R'
 alias v=view
