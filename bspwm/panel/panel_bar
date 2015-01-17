@@ -22,6 +22,8 @@ while read -r line ; do
                 item=$1
                 name=${item#?}
                 case $item in
+										[OFUofu]\#*)
+												;;
                     [OFU]*)
                         # active desktop
                         wm_infos[$monitor]="${wm_infos[$monitor]} %{A:bspc desktop $name -f:}%{U$COLOR_ACTIVE}%{+u} $name %{-u}%{A}"

@@ -80,6 +80,13 @@ super + {a,w,e,c}
 super + shift + {a,w,e,c}
 	bspc window -d {W,I,T,C}
 
+super + Down
+	bspc window -d \#
+
+super + Up
+	bspc window "$(bspc query -W -d \# | tail -n 1)" -d $(bspc query -D -d)
+	# bspc window "$(bspc query -W -d \#$(bspc query -D -d) | tail -n 1)" -d $(bspc query -D -d)
+
 ~button1
 	bspc pointer -g focus
 
