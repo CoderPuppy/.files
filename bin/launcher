@@ -1,4 +1,4 @@
 #!/bin/sh
 #exe=`dmenu_path | yeganesh -- ${1+"$@"}` && exec $exe
 #exe=`xboomx_path.py | xboomx_sort.py | dmenu -i` && exec $exe
-j4-dmenu-desktop --dmenu='xboomx_sort.py launchers | dmenu -i | xboomx_update.py launchers'
+j4-dmenu-desktop --dmenu='xboomx_sort.py launchers | dmenu -i -sf \#af865a -sb \#4A3637 -nf \#c0b18b -nb \#1f1f1f | xboomx_update.py launchers'
