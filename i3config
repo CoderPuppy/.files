@@ -55,7 +55,7 @@ bindsym $Mod+d exec $HOME/.local/bin/launcher
 
 bindsym $Mod+p exec /bin/quickswitch.py
 
-bindsym $Mod+q exec i3-exit
+bindsym $Mod+q exec exit-menu
 
 bindsym $Mod+f fullscreen
 

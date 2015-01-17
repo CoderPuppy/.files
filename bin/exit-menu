@@ -1,4 +1,5 @@
 #!/bin/zsh
+WM_EXIT=${WM_EXIT:-i3-msg exit}
 opt="$((echo Lock && echo Shutdown && echo Reboot && echo Suspend && echo Logout && echo Hibernate && echo Sleep) | xboomx_sort.py session-exit | dmenu -i | xboomx_update.py session-exit)" &&
 case "$opt" in
 	(Lock) lock;;
@@ -6,6 +7,6 @@ case "$opt" in
 	(Reboot) systemctl reboot;;
 	(Suspend) suspend suspend;;
 	(Sleep) suspend hybrid-sleep;;
-	(Logout) i3-msg exit;;
+	(Logout) eval "$WM_EXIT";;
 	(Hibernate) suspend hibernate;;
 esac
