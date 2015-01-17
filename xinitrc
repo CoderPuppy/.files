@@ -6,5 +6,5 @@ source ~/.files/profilerc
 #exec i3
 xset +fp /usr/share/fonts/local
 xset fp rehash
-SXHKD_SHELL=sh sxhkd &
+SXHKD_SHELL=bash sxhkd &
 exec bspwm
