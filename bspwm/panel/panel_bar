@@ -2,6 +2,8 @@
 
 source $(dirname $0)/config
 
+typeset -A wm_infos
+
 while read -r line ; do
     case $line in
         S*)
@@ -11,7 +13,9 @@ while read -r line ; do
             title=" %{F$COLOR_ICON}%{F-} bspwm"
             ;;
         W*)
-            wm_infos="%{c}"
+						unset wm_infos
+						typeset -A wm_infos
+						monitor="LVDS1"
             IFS=':'
             set -- ${line#?}
             while [ $# -gt 0 ] ; do
@@ -20,30 +24,42 @@ while read -r line ; do
                 case $item in
                     [OFU]*)
                         # active desktop
-                        wm_infos="$wm_infos %{A:bspc desktop $name -f:}%{U$COLOR_ACTIVE}%{+u} * %{-u}%{A}"
+                        wm_infos[$monitor]="${wm_infos[$monitor]} %{A:bspc desktop $name -f:}%{U$COLOR_ACTIVE}%{+u} $name %{-u}%{A}"
                         ;;
                     o*)
                         # inactive but occupied desktop
-                        wm_infos="$wm_infos %{A:bspc desktop $name -f:}%{U$COLOR_OCCUPIED}%{+u} * %{-u}%{A}"
+                        wm_infos[$monitor]="${wm_infos[$monitor]} %{A:bspc desktop $name -f:}%{U$COLOR_OCCUPIED}%{+u} $name %{-u}%{A}"
                         ;;
                     f*)
                         # inactive desktop
-                        wm_infos="$wm_infos %{A:bspc desktop $name -f:} * %{A}"
+                        # wm_infos[$monitor]="${wm_infos[$monitor]} %{A:bspc desktop $name -f:} $name %{A}"
                         ;;
                     u*)
                         # urgent desktop
-                        wm_infos="$wm_infos %{A:bspc desktop $name -f:}%{U$COLOR_URGENT}%{+u} * %{-u}%{A}"
+                        wm_infos[$monitor]="${wm_infos[$monitor]} %{A:bspc desktop $name -f:}%{U$COLOR_URGENT}%{+u} $name %{-u}%{A}"
                         ;;
                     L*)
                         # layout
 #                        layout=$(printf "%s" "${name}" | sed 's/\(.\).*/\U\1/')
-                        wm_infos="$wm_infos $layout"
+                        wm_infos[$monitor]="${wm_infos[$monitor]} $layout"
                         ;;
+										[Mm]*)
+												monitor=$name
+												;;
+										*)
+												echo $item >&2
+												;;
                 esac
                 shift
             done
-						wm_infos="$wm_infos"
+						LVDS1_infos="${wm_infos[LVDS1]}"
+						VGA1_infos="${wm_infos[VGA1]}"
+						#wm_infos="$wm_infos"
             ;;
     esac
-    printf "%s\n" "$title$wm_infos$sys_infos"
+    printf "%s" "%{Sl}$LVDS1_infos$sys_infos"
+		if [[ "$(cat /sys/class/drm/card0-VGA-1/status)" = "connected" ]]; then
+			printf "%s" "%{Sf}%{l}$VGA1_infos$sys_infos"
+		fi
+		printf "\n"
 done

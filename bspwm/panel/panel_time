@@ -1,0 +1,4 @@
+#!/bin/bash
+source $(dirname $0)/config
+echo %{F$COLOR_ICON}%{F-} $(date +'%H:%M')
+# $(date +%d)$(date +'%a %b' | sed -r 's/(.)[^\s]* (.)[^\s]*/\1\2/')

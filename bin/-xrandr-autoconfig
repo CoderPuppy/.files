@@ -1,31 +1,64 @@
-#!/bin/sh
+#!/bin/zsh
 
-export VGA1=/sys/class/drm/card0-VGA-1/
+typeset -ga cards
+typeset -gA paths prevStatuss prevEDIDs
+cards+=( VGA1 )
+paths[VGA1]=/sys/class/drm/card0-VGA-1/
 
-updateVGA1() {
-	local status="$(cat $VGA1/status)"
-	echo $status
+updateCard() {
+	local card=$1
+	local cardPath=$paths[$card]
+	local cardStatus="$(cat $cardPath/status)"
+	local prevStatus="$prevStatuss[$card]"
+	local edid="$(cat $cardPath/edid)"
+	local prevEDID="$prevEDIDs[$card]"
+	echo $card $cardStatus
+	local changed=$([[ "$cardStatus" != "$prevStatus" || "$edid" != "$prevEDID" ]] && echo "YES")
 
-	if [ "${status}" = disconnected ]; then
-		xrandr --output VGA1 --off
-	elif [ "${status}" = connected ]; then
-		if grep "ViewSonic" $VGA1/edid; then
-			xrandr --output VGA1 --auto --left-of LVDS1
+	if [[ "${cardStatus}" = disconnected ]]; then
+		xrandr --output $card --off
+		if [[ "$changed" ]] && echo "$prevEDID" | grep "ViewSonic"; then
+			bspc monitor LVDS1 -a tmp
+			bspc query -W -d C | xargs printf "bspc window %s -d tmp\n" | sh
+			bspc monitor VGA1 -r C
+			bspc monitor LVDS1 -a C
+			bspc query -W -d tmp | xargs printf "bspc window %s -d C\n" | sh
+			bspc monitor LVDS1 -r tmp
+		fi
+	elif [[ "${cardStatus}" = connected ]]; then
+		if grep "ViewSonic" $cardPath/edid; then
+			xrandr --output $card --auto --left-of LVDS1
+			if [[ "$changed" ]]; then
+				bspc monitor LVDS1 -a tmp
+				bspc query -W -d C | xargs printf "bspc window %s -d tmp\n" | sh
+				bspc monitor LVDS1 -r C
+				bspc monitor VGA1 -a C
+				bspc query -W -d tmp | xargs printf "bspc window %s -d C\n" | sh
+				bspc monitor LVDS1 -r tmp
+			fi
 		else
 			xrandr --auto
-			cat $VGA1/edid
+			cat $cardPath/edid
 		fi
 	fi
+	if [[ "$changed" ]]; then
+		pkill -KILL panel
+		nohup sh -c ~/.files/bspwm/panel/panel &
+		disown
+	fi
+
+	prevStatuss[$card]="$cardStatus"
+	prevEDIDs[$card]="$edid"
 }
 
 update() {
-	updateVGA1
+	updateCard VGA1
 	xrandr --output LVDS1 --mode 1366x768
 }
 
 update
 
-# while inotifywait -e modify,create,delete,open,close,close_write,access $VGA1/status; do
+# while inotifywait -e modify,create,delete,open,close,close_write,access $VGA1/cardStatus; do
 while true; do
 	update
 	sleep 5
