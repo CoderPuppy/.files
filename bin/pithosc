@@ -1,0 +1,34 @@
+#!/bin/bash
+
+DBUS_BASE="qdbus net.kevinmehall.Pithos /net/kevinmehall/Pithos"
+
+cmd=$1
+shift
+case $cmd in
+	p|play|pause)
+		$DBUS_BASE PlayPause
+		;;
+	
+	l|love)
+		$DBUS_BASE LoveCurrentSong
+		;;
+	
+	b|ban|h|hate)
+		$DBUS_BASE BanCurrentSong
+		;;
+
+	c|curr|current)
+		if (( $# == 0 )); then
+			$DBUS_BASE GetCurrentSong
+		else
+			$DBUS_BASE GetCurrentSong | grep $1 | sed "s/^$1: //"
+		fi
+		;;
+	
+	*)
+		echo "SYNOPSIS"
+		echo "	pithosc p|play|pause"
+		echo "	pithosc l|love"
+		echo "	pithosc b|ban|h|hate"
+		;;
+esac
