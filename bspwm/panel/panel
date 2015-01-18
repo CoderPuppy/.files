@@ -16,6 +16,7 @@ mkfifo "$PANEL_FIFO"
 echo "T" > "$PANEL_FIFO" &
 bspc control --subscribe > "$PANEL_FIFO" &
 conky -c ./panel_conky > "$PANEL_FIFO" &
+#dbus-monitor "type='signal', path='/net/kevinhmehall/Pithos'" > "$PANEL_FIFO" &
 
 cat "$PANEL_FIFO" |\
 	./panel_bar |\
