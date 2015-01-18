@@ -1,0 +1,37 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes (bindsym) and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+#
+
+set $Mod Mod4
+set $AMod Mod1
+set $HOME /home/cpup
+
+# Assign workspace 9 (the hardest to reach) on VGA1
+workspace !C output VGA1
+
+focus_follows_mouse no
+workspace_auto_back_and_forth yes
+
+exec ~/.files/i3/start
+
+# floating hangouts
+for_window [class="Google\-chrome" instance="crx"] floating enable
+for_window [class="^Xfce4-notifyd$" instance="^xfce4-notifyd$"] floating enable
+
+# font for window titles. ISO 10646 = Unicode
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+# use Mouse+$Mod to drag floating windows to their wanted position
+floating_modifier $Mod
+
+workspace_layout tabbed
+
+
+# $i3-theme-window

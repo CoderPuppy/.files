@@ -1,0 +1,49 @@
+#!/bin/bash
+
+source $(dirname $0)/config
+
+while read -r line ; do
+    case $line in
+        S*)
+            sys_infos="%{r}${line#?}"
+            ;;
+        change:*)
+						unset wm_infos
+						typeset -A wm_infos
+						for item in `~/.files/i3/i3-workspaces`; do
+							# echo $item
+							name=$(echo "$item" | cut -d '|' -f 1)
+							raw_name=$name
+							name=${name#?:}
+							name=${name#!}
+							active=$(echo "$item" | cut -d '|' -f 2)
+							urgent=$(echo "$item" | cut -d '|' -f 3)
+							monitor=$(echo "$item" | cut -d '|' -f 4)
+							case $active$urgent in
+									TF)
+											# active desktop
+											wm_infos[$monitor]="${wm_infos[$monitor]} %{A:i3-msg workspace $raw_name:}%{U$COLOR_ACTIVE}%{+u} $name %{-u}%{A}"
+											;;
+									FF)
+											# inactive but occupied desktop
+											wm_infos[$monitor]="${wm_infos[$monitor]} %{A:i3-msg workspace $raw_name:} $name %{A}"
+											;;
+									?T)
+											# urgent desktop
+											wm_infos[$monitor]="${wm_infos[$monitor]} %{A:i3-msg workspace $raw_name:}%{U$COLOR_URGENT}%{+u} $name %{-u}%{A}"
+											;;
+									*)
+											echo $item >&2
+											;;
+							esac
+						done
+						LVDS1_infos="${wm_infos[LVDS1]}"
+						VGA1_infos="${wm_infos[VGA1]}"
+            ;;
+    esac
+    printf "%s" "%{Sl}$LVDS1_infos$sys_infos"
+		if [[ "$(cat /sys/class/drm/card0-VGA-1/status)" = "connected" ]]; then
+			printf "%s" "%{Sf}%{l}$VGA1_infos$sys_infos"
+		fi
+		printf "\n"
+done

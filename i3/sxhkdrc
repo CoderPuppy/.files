@@ -1,0 +1,54 @@
+#
+# bspwm hotkeys
+#
+
+super + q
+	exit-menu
+
+super + shift + q
+	i3-msg kill
+
+super + {space,f}
+	i3-msg {floating toggle,fullscreen}
+
+super + {_, shift + } Tab
+	i3-msg workspace {next,prev}_on_output
+
+super + {_,shift + }{j,k,l,semicolon}
+	i3-msg {focus,move} {left,down,up,right}
+
+alt + {_,shift + } Tab
+	i3-msg focus {right,left}
+
+super + {1-9,0}
+	i3-msg workspace ^{1-9,0}
+
+super + shift + {1-9,0}
+	i3-msg move container to workspace ^{1-9,0}
+
+super + {a,w,e,c}
+	i3-msg workspace {0:A,1:I,2:T,!C}
+
+super + shift + {a,w,e,c}
+	i3-msg move container to workspace {0:A,1:I,2:T,!C}
+
+super + Down
+	i3-msg move container to scratchpad
+
+super + Up
+	i3-msg scratchpad show
+
+#
+# wm independent hotkeys
+#
+
+super + Return
+	tabbed -r 2 st -w '' -e tmux
+
+super + d
+	launcher
+
+# make sxhkd reload its configuration files:
+super + n
+	pkill -USR1 -x sxhkd;\
+	i3-msg restart

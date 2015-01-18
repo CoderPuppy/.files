@@ -1,0 +1,6 @@
+#!/bin/sh
+i3-msg -t get_workspaces |\
+	jshon -a -e name -u -p -e focused -u -p -e urgent -u -p -e output -u |\
+	sed -e 's/true/T/' -e's/false/F/' |\
+	paste -s -d '   \n' |\
+	sed -e 's/ /|/g'

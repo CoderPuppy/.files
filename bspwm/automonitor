@@ -1,0 +1,77 @@
+#!/bin/zsh
+
+typeset -ga cards
+typeset -gA paths prevStatuss prevEDIDs
+cards+=( VGA1 )
+paths[VGA1]=/sys/class/drm/card0-VGA-1/
+
+moveWorkspace() {
+	local workspace=$1
+	local from=$2
+	local to=$3
+
+	echo moving $workspace from $from to $to
+
+	bspc monitor $to -a tmp
+	bspc query -W -d $workspace | xargs printf "bspc window %s -d tmp\n" | sh
+	bspc monitor $from -r $workspace
+	bspc monitor $to -a $workspace
+	bspc query -W -d tmp | xargs printf "bspc window %s -d $workspace\n" | sh
+	bspc monitor $to -r tmp
+
+	# bspc monitor $to -a tmp
+	# bspc query -W -d \#$workspace | xargs printf "bspc window %s -d tmp\n" | sh
+	# bspc monitor $from -r $workspace
+	# bspc monitor $to -a \#$workspace
+	# bspc query -W -d tmp | xargs printf "bspc window %s -d \\#$workspace\n" | sh
+	# bspc monitor $to -r tmp
+}
+
+updateCard() {
+	local card=$1
+	local cardPath=$paths[$card]
+	local cardStatus="$(cat $cardPath/status)"
+	local prevStatus="$prevStatuss[$card]"
+	local edid="$(cat $cardPath/edid)"
+	local prevEDID="$prevEDIDs[$card]"
+	echo $card $cardStatus
+	local changed=$([[ "$cardStatus" != "$prevStatus" || "$edid" != "$prevEDID" ]] && echo "YES")
+
+	if [[ "${cardStatus}" = disconnected ]]; then
+		xrandr --output $card --off
+		if [[ "$changed" ]]; then #&& echo "$prevEDID" | grep "ViewSonic"; then
+			moveWorkspace C VGA1 LVDS1
+		fi
+	elif [[ "${cardStatus}" = connected ]]; then
+		if grep "ViewSonic" $cardPath/edid; then
+			xrandr --output $card --auto --left-of LVDS1
+			if [[ "$changed" ]]; then
+				moveWorkspace C LVDS1 VGA1
+			fi
+		else
+			xrandr --auto
+			cat $cardPath/edid
+		fi
+	fi
+	if [[ "$changed" ]]; then
+		pkill -f -KILL bspwm/panel
+		nohup sh -c ~/.files/bspwm/panel/panel &
+		disown
+	fi
+
+	prevStatuss[$card]="$cardStatus"
+	prevEDIDs[$card]="$edid"
+}
+
+update() {
+	updateCard VGA1
+	xrandr --output LVDS1 --mode 1366x768
+}
+
+update
+
+# while inotifywait -e modify,create,delete,open,close,close_write,access $VGA1/cardStatus; do
+while true; do
+	update
+	sleep 5
+done

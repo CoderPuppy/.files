@@ -32,7 +32,7 @@ rm -rf ~/.rbenv
 echo Unlinking configs
 rm ~/.tmux.conf 2> /dev/null
 rm ~/.vimrc 2> /dev/null
-rm ~/.i3/config.base 2> /dev/null
+rm ~/.i3 2> /dev/null
 rm ~/.i3status.conf 2> /dev/null
 rm ~/.bashrc 2> /dev/null
 rm ~/.zshrc 2> /dev/null
@@ -40,4 +40,3 @@ rm ~/.zshenv 2> /dev/null
 rm ~/.xinitrc 2> /dev/null
 rm ~/.xmodmaprc 2> /dev/null
 rm ~/.config/bspwm 2> /dev/null
-rm ~/.config/sxhkd 2> /dev/null

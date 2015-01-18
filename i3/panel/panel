@@ -3,7 +3,7 @@
 cd $(dirname $0)
 source $(dirname $0)/config
 
-if [ $(pgrep -cf bspwm/panel) -gt 1 ] ; then
+if [ $(pgrep -cf i3/panel) -gt 1 ] ; then
     printf "%s\n" "The panel is already running." >&2
     exit 1
 fi
@@ -13,8 +13,8 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
-echo "T" > "$PANEL_FIFO" &
-bspc control --subscribe > "$PANEL_FIFO" &
+echo "change:" > "$PANEL_FIFO" &
+../i3-subscribe > "$PANEL_FIFO" &
 conky -c ./panel_conky > "$PANEL_FIFO" &
 #dbus-monitor "type='signal', path='/net/kevinhmehall/Pithos'" > "$PANEL_FIFO" &
 

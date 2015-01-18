@@ -18,5 +18,6 @@ bspc monitor VGA1 -d C
 
 xsetroot -cursor_name left_ptr
 
+SXHKD_SHELL=bash sxhkd -c ~/.files/bspwm/sxhkdrc &
 #~/.config/bspwm/panel/panel &
 ~/.files/bin/-xrandr-autoconfig &

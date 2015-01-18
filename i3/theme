@@ -1,0 +1,8 @@
+# 4A3637
+
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused          #5A3637 #2f1f1f #ededed #dddddd
+client.focused_inactive #333333 #1f1f1f #c0b18b #292d2e
+client.unfocused        #333333 #1f1f1f #c0b18b #292d2e
+client.urgent           #d17b49 #3f1f1f #ffffff #900000

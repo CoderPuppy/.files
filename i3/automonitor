@@ -5,26 +5,6 @@ typeset -gA paths prevStatuss prevEDIDs
 cards+=( VGA1 )
 paths[VGA1]=/sys/class/drm/card0-VGA-1/
 
-moveWorkspace() {
-	local workspace=$1
-	local from=$2
-	local to=$3
-
-	bspc monitor $to -a tmp
-	bspc query -W -d $workspace | xargs printf "bspc window %s -d tmp\n" | sh
-	bspc monitor $from -r $workspace
-	bspc monitor $to -a $workspace
-	bspc query -W -d tmp | xargs printf "bspc window %s -d $workspace\n" | sh
-	bspc monitor $to -r tmp
-
-	bspc monitor $to -a tmp
-	bspc query -W -d \#$workspace | xargs printf "bspc window %s -d tmp\n" | sh
-	bspc monitor $from -r $workspace
-	bspc monitor $to -a \#$workspace
-	bspc query -W -d tmp | xargs printf "bspc window %s -d \\#$workspace\n" | sh
-	bspc monitor $to -r tmp
-}
-
 updateCard() {
 	local card=$1
 	local cardPath=$paths[$card]
@@ -37,23 +17,18 @@ updateCard() {
 
 	if [[ "${cardStatus}" = disconnected ]]; then
 		xrandr --output $card --off
-		if [[ "$changed" ]] && echo "$prevEDID" | grep "ViewSonic"; then
-			moveWorkspace C VGA1 LVDS1
-		fi
 	elif [[ "${cardStatus}" = connected ]]; then
 		if grep "ViewSonic" $cardPath/edid; then
 			xrandr --output $card --auto --left-of LVDS1
-			if [[ "$changed" ]]; then
-				moveWorkspace C LVDS1 VGA1
-			fi
 		else
 			xrandr --auto
 			cat $cardPath/edid
 		fi
 	fi
 	if [[ "$changed" ]]; then
-		pkill -KILL panel
-		nohup sh -c ~/.files/bspwm/panel/panel &
+		echo $DISPLAY
+		pkill -f -KILL i3/panel
+		nohup sh -c ~/.files/i3/panel/panel &
 		disown
 	fi
 
