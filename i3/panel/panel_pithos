@@ -1,7 +1,7 @@
 #!/bin/bash
 source $(dirname $0)/config
 
-if pgrep pithos &> /dev/null; then
+if pgrep -cx pithos &> /dev/null; then
 	echo -n "%{A:pithosc p:}%{F$COLOR_ICON}%{F-}%{A} "
 	echo -n "$(pithosc c title)"
 	echo -n "%{F$COLOR_ICON}"

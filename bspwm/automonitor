@@ -54,7 +54,7 @@ updateCard() {
 		fi
 	fi
 	if [[ "$changed" ]]; then
-		pkill -f -KILL bspwm/panel
+		pkill -KILL -f bspwm/panel
 		nohup sh -c ~/.files/bspwm/panel/panel &
 		disown
 	fi

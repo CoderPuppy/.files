@@ -1,7 +1,7 @@
 #!/bin/sh
 
-echo Removing Vundle
-rm -rf ~/.vim/bundle/vundle/ 2> /dev/null
+echo Removing vim-plug
+rm ~/.nvim/autoload/plug.vim 2> /dev/null
 
 echo Removing Powerline Font
 rm ~/.config/fontconfig/conf.d/10-powerline-symbols.conf 2> /dev/null
@@ -31,7 +31,7 @@ rm -rf ~/.rbenv
 
 echo Unlinking configs
 rm ~/.tmux.conf 2> /dev/null
-rm ~/.vimrc 2> /dev/null
+rm ~/.nvimrc 2> /dev/null
 rm ~/.i3 2> /dev/null
 rm ~/.i3status.conf 2> /dev/null
 rm ~/.bashrc 2> /dev/null

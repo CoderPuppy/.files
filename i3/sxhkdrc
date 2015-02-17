@@ -21,16 +21,16 @@ alt + {_,shift + } Tab
 	i3-msg focus {right,left}
 
 super + {1-9,0}
-	i3-msg workspace ^{1-9,0}
+	i3-msg workspace !{1-9,0}
 
 super + shift + {1-9,0}
-	i3-msg move container to workspace ^{1-9,0}
+	i3-msg move container to workspace !{1-9,0}
 
 super + {a,w,e,c}
-	i3-msg workspace {0:A,1:I,2:T,!C}
+	i3-msg workspace {0:A,1:I,2:T,_C}
 
 super + shift + {a,w,e,c}
-	i3-msg move container to workspace {0:A,1:I,2:T,!C}
+	i3-msg move container to workspace {0:A,1:I,2:T,_C}
 
 super + Down
 	i3-msg move container to scratchpad
@@ -52,3 +52,7 @@ super + d
 super + n
 	pkill -USR1 -x sxhkd;\
 	i3-msg restart
+
+XF86MonBrightness{Up,Down}
+	xbacklight -steps 1 -time 1 {+,-} 10;\
+	notify-send -t 700 "brightness: $(printf \%d $(xbacklight -get))%"

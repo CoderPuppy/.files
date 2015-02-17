@@ -19,9 +19,9 @@ for file in $(ls ~/.files/zsh/completion); do
 	ln -s ~/.files/zsh/completion/$file ~/.zcompletion/;
 done
 
-echo Installing Vundle
-mkdir -p ~/.vim/bundle 2> /dev/null
-git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+echo Installing vim-plug
+curl -fLo ~/.nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo Installing Powerline Font
 mkdir ~/.fonts 2> /dev/null
@@ -54,7 +54,7 @@ git clone git://github.com/cehoffman/lua-build.git ~/.luaenv/plugins/lua-build
 
 echo Linking config files
 ln -s ~/.files/tmux.conf ~/.tmux.conf 2> /dev/null
-ln -s ~/.files/vimrc ~/.vimrc 2> /dev/null
+ln -s ~/.files/nvimrc ~/.nvimrc 2> /dev/null
 ln -s ~/.files/bashrc ~/.bashrc 2> /dev/null
 ln -s ~/.files/i3 ~/.i3 2> /dev/null
 ln -s ~/.files/i3/status.conf ~/.i3status.conf 2> /dev/null

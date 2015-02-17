@@ -14,6 +14,7 @@ updateCard() {
 	local prevEDID="$prevEDIDs[$card]"
 	echo $card $cardStatus
 	local changed=$([[ "$cardStatus" != "$prevStatus" || "$edid" != "$prevEDID" ]] && echo "YES")
+	echo $changed
 
 	if [[ "${cardStatus}" = disconnected ]]; then
 		xrandr --output $card --off
@@ -26,9 +27,14 @@ updateCard() {
 		fi
 	fi
 	if [[ "$changed" ]]; then
-		echo $DISPLAY
-		pkill -f -KILL i3/panel
-		nohup sh -c ~/.files/i3/panel/panel &
+		# jobs
+		# kill %$(jobs | grep -Eo '^\[([0-9]+)\]' | sed -e 's/\[//' -e 's/\]//')
+		# # kill %1
+		# # kill %1
+		# # kill %3
+		# jobs
+		pkill -KILL panel
+		nohup ~/.files/i3/panel/panel &
 		disown
 	fi
 
