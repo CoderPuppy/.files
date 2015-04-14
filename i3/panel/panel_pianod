@@ -1,0 +1,24 @@
+#!/bin/bash
+source $(dirname $0)/config
+
+if pgrep -cx pianod &> /dev/null; then
+	echo -n "%{A:pianoc p:}"
+	if pianoc c status > /dev/null; then
+		echo -n "%{F$COLOR_URGENT}"
+	else
+		echo -n "%{F$COLOR_ICON}"
+	fi
+	echo -n "%{F-}%{A} "
+	echo -n "$(pianoc c title)"
+	if [[ "$(pianoc c rating)" = "good" ]]; then
+		echo -n "%{F$COLOR_URGENT}"
+		echo -n " %{A:pianoc ok:}%{A}"
+	else
+		echo -n "%{F$COLOR_ICON}"
+		echo -n " %{A:pianoc love:}%{A}"
+	fi
+	echo -n "%{F-}"
+	echo -n "%{F$COLOR_ICON}"
+	echo -n " %{A:pianoc ban:}%{A}"
+	echo -n "%{F-}"
+fi

@@ -1,0 +1,56 @@
+#!/bin/bash
+
+user=admin
+pass=admin
+server=127.0.0.1
+port=4445
+
+send-cmd() {
+	echo as user "\"$user\"" "\"$pass\"" $@ | nc "$server" "$port"
+}
+
+cmd=$1
+shift
+case $cmd in
+	p|play|pause)
+		send-cmd playpause > /dev/null
+		;;
+
+	o|ok)
+		send-cmd rate neutral > /dev/null
+		;;
+	
+	l|love)
+		send-cmd rate good > /dev/null
+		;;
+	
+	b|ban|h|hate)
+		send-cmd rate bad > /dev/null
+		send-cmd skip > /dev/null
+		;;
+
+	c|curr|current)
+		if (( $# == 0 )); then
+			echo "$(send-cmd status | ag "^114 Title: " | tail -n1 | sed 's/^114 Title: //') by $(send-cmd status | ag "^113 Artist: " | tail -n1 | sed 's/^113 Artist: //')"
+		elif echo "$1" | ag -i '^status$' > /dev/null; then
+			if (( $(send-cmd | ag Playing | wc -l) >= 1 )); then
+				echo playing
+				exit 0
+			else
+				echo paused
+				exit 1
+			fi
+		else
+			send-cmd status | ag -i "^\d+ $1: " | tail -n1 | sed -r "s/^[0-9]+ $1: //I"
+		fi
+		;;
+	
+	*)
+		echo "SYNOPSIS"
+		echo "	pithosc p|play|pause"
+		echo "	pithosc c|curr|current"
+		echo "	pithosc o|ok"
+		echo "	pithosc l|love"
+		echo "	pithosc b|ban|h|hate"
+		;;
+esac

@@ -18,6 +18,9 @@
 		Plug 'sjl/gundo.vim'
 		Plug 'danro/rename.vim'
 		Plug 'Lokaltog/vim-easymotion'
+		Plug 'tfnico/vim-gradle'
+		Plug 'elixir-lang/vim-elixir'
+		Plug 'rking/ag.vim'
 	" }
 	
 	call plug#end()

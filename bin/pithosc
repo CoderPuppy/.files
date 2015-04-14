@@ -28,6 +28,7 @@ case $cmd in
 	*)
 		echo "SYNOPSIS"
 		echo "	pithosc p|play|pause"
+		echo "	pithosc c|curr|current"
 		echo "	pithosc l|love"
 		echo "	pithosc b|ban|h|hate"
 		;;

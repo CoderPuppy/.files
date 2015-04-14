@@ -32,4 +32,4 @@ CLIP="/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
 BAR_LENGTH=20
 BAR_CHAR='='
 
-PANEL_FIFO="/tmp/bspwm-panel.fifo"
+PANEL_FIFO="/tmp/i3-panel.fifo"

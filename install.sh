@@ -55,7 +55,7 @@ git clone git://github.com/cehoffman/lua-build.git ~/.luaenv/plugins/lua-build
 echo Linking config files
 ln -s ~/.files/tmux.conf ~/.tmux.conf 2> /dev/null
 ln -s ~/.files/nvimrc ~/.nvimrc 2> /dev/null
-ln -s ~/.files/bashrc ~/.bashrc 2> /dev/null
+echo source ~/.files/bashrc > ~/.bashrc 2>/dev/null
 ln -s ~/.files/i3 ~/.i3 2> /dev/null
 ln -s ~/.files/i3/status.conf ~/.i3status.conf 2> /dev/null
 ln -s ~/.files/zshenv ~/.zshenv 2> /dev/null

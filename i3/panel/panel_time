@@ -1,4 +1,18 @@
 #!/bin/bash
 source $(dirname $0)/config
-echo "%{F$COLOR_ICON}%{F-} $(date +'%H:%M') "
-# $(date +%d)$(date +'%a %b' | sed -r 's/(.)[^\s]* (.)[^\s]*/\1\2/')
+echo -n "%{F$COLOR_ICON}%{F-} $(date +'%H:%M %b %d %a') "
+
+# case $(date +%b) in
+# esac
+#
+# echo -n $(date +%d)
+#
+# case $(date +%a) in
+# 	Sun) echo -n s;;
+# 	Mon) echo -n M;;
+# 	Tue) echo -n t;;
+# 	Wed) echo -n W;;
+# 	Thu) echo -n T;;
+# 	Fri) echo -n F;;
+# 	Sat) echo -n S;;
+# esac

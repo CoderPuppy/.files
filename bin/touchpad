@@ -1,0 +1,53 @@
+#!/bin/bash
+id=`xinput list | ag -o 'TouchPad\s*id\=[0-9]+' | ag -o '[0-9]+'`
+if xinput list-props $id | ag 'Device Enabled \([0-9]+\):\s*1' > /dev/null; then
+	enabled=on
+else
+	enabled=off
+fi
+
+usage() {
+	cat << EOF
+Usage: touchpad <command>
+  enable
+  disable
+  toggle
+EOF
+}
+
+enable() {
+	xinput enable $id
+	kill $(cat /tmp/`whoami`-unclutter.pid)
+	rm /tmp/`whoami`-unclutter.pid
+	echo Enabled TouchPad
+}
+
+disable() {
+	xinput disable $id
+	unclutter -idle 0.01 &
+	echo $! > /tmp/`whoami`-unclutter.pid
+	echo Disabled TouchPad
+}
+
+case $1 in
+	enable)
+		enable
+		;;
+
+	disable)
+		disable
+		;;
+
+	toggle)
+		if [[ $enabled = on ]]; then
+			disable
+		else
+			enable
+		fi
+		;;
+
+	*)
+		echo Unknown command: $1
+		usage
+		;;
+esac

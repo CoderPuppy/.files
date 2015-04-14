@@ -56,3 +56,6 @@ super + n
 XF86MonBrightness{Up,Down}
 	xbacklight -steps 1 -time 1 {+,-} 10;\
 	notify-send -t 700 "brightness: $(printf \%d $(xbacklight -get))%"
+
+XF86TouchpadToggle
+	touchpad toggle

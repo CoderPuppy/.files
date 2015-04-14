@@ -2,3 +2,4 @@
 SXHKD_SHELL=bash sxhkd -c $HOME/.files/i3/sxhkdrc &
 feh --bg-scale $HOME/Downloads/Lightful\ arch_1920.png
 $HOME/.files/i3/automonitor &
+dunst -conf $HOME/.files/i3/dunstrc &
