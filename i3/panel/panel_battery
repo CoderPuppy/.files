@@ -5,6 +5,7 @@ source $(dirname $0)/config
 #      
 
 BAT=`acpi -b | awk '{gsub(/%,/,""); print $4}' | sed 's/%//g'`
+TIME=`acpi -b | ag -o '\d{2}:\d{2}'`
 STATUS=`acpi -b | awk '{gsub(/,/,""); print $3}'`
 
 # Set Icon
@@ -63,4 +64,4 @@ case $BAT in
 esac
 
 # Create Bar
-echo "%{F$COLOR_ICON}$icon%{F-} "
+echo "%{F$COLOR_ICON}$icon%{F-} $BAT $TIME"

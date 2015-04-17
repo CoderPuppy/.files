@@ -1,4 +1,5 @@
 #include <i3ipc-glib/i3ipc-glib.h>
+#include <i3ipc-glib/i3ipc-con.h>
 #include <glib/gprintf.h>
 #include <stdio.h>
 

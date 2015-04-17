@@ -8,3 +8,5 @@ source ~/.files/zsh/z.zsh
 WORDCHARS=''
 
 source ~/.files/shellrc
+# echo zshenv done
+# echo PATH: $PATH

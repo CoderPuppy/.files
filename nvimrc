@@ -26,6 +26,7 @@
 	call plug#end()
 " }
 
+let g:python_host_prog='/usr/bin/python2'
 let mapleader = ','
 set nocompatible
 set hidden

@@ -33,3 +33,5 @@ BAR_LENGTH=20
 BAR_CHAR='='
 
 PANEL_FIFO="/tmp/i3-panel.fifo"
+
+export WIRELESS=`iw dev | ag -o 'Interface .+' | sed 's/^Interface //'`

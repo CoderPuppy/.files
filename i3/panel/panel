@@ -15,16 +15,17 @@ mkfifo "$PANEL_FIFO"
 
 echo "change:" > "$PANEL_FIFO" &
 ../i3-subscribe > "$PANEL_FIFO" &
-conky -c ./panel_conky > "$PANEL_FIFO" &
+while true; do echo "update"; sleep 1; done > "$PANEL_FIFO" &
+# conky -c ./panel_conky > "$PANEL_FIFO" &
 #dbus-monitor "type='signal', path='/net/kevinhmehall/Pithos'" > "$PANEL_FIFO" &
 
 cat "$PANEL_FIFO" |\
 	$(dirname $0)/panel_bar |\
-	bar \
-		-f "$FONT1","$FONT2"\
-		-F "$COLOR_FOREGROUND"\
-		-B "$COLOR_BACKGROUND"\
-		-g "$PANEL_GEOMETRY"\
-		-u $LINEHEIGHT |\
-	sh -s &
+	 bar \
+	 	-f "$FONT1","$FONT2"\
+	 	-F "$COLOR_FOREGROUND"\
+	 	-B "$COLOR_BACKGROUND"\
+	 	-g "$PANEL_GEOMETRY"\
+	 	-u $LINEHEIGHT |\
+	 sh -s &
 wait
