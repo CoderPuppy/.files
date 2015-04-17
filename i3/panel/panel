@@ -21,7 +21,7 @@ while true; do echo "update"; sleep 1; done > "$PANEL_FIFO" &
 
 cat "$PANEL_FIFO" |\
 	$(dirname $0)/panel_bar |\
-	 bar \
+	 lemonbar \
 	 	-f "$FONT1","$FONT2"\
 	 	-F "$COLOR_FOREGROUND"\
 	 	-B "$COLOR_BACKGROUND"\

@@ -1,0 +1,12 @@
+#!/bin/bash
+max=$1
+current=$2
+char=${3:-=}
+out=
+if (( $current > 0 )); then
+	out="$out$(eval "printf $char%.0s {1..$current}")"
+fi
+if (( $current < $max )); then
+	out="$out$(eval "printf ' '%.0s {1..$(($max - $current))}")"
+fi
+echo "$out"

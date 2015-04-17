@@ -54,8 +54,13 @@ super + n
 	i3-msg restart
 
 XF86MonBrightness{Up,Down}
-	xbacklight -steps 1 -time 1 {+,-} 10;\
-	notify-send -t 700 "brightness: $(printf \%d $(xbacklight -get))%"
+	brightness {+,-}
+
+XF86Audio{Raise,Lower}Volume
+	volume {+,-}
+
+XF86AudioMute
+	volume m
 
 XF86TouchpadToggle
 	touchpad toggle

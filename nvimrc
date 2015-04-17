@@ -35,6 +35,7 @@ set relativenumber
 " set spell
 set wrap linebreak nolist
 set foldmethod=indent foldignore= foldlevelstart=9999
+set timeoutlen=1000 ttimeoutlen=0
 syntax on
 colorscheme lumberjack
 

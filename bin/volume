@@ -1,0 +1,43 @@
+#!/bin/bash
+sink=$(pacmd list-sinks | ag '\* index' | sed 's/^  \* index: //')
+mute=$(pactl list sinks | perl -000ne 'if(/Sink #$sink/){/(Mute:.*)/; print "$1\n"}' | sed 's/^Mute: //')
+volume=$(pactl list sinks | perl -000ne 'if(/Sink #$sink/){/(Volume:.*)/; print "$1\n"}' | ag -o '\d+%' | tail -n1 | ag -o '\d+')
+volume=$(($volume / 2 - 3))
+
+case $1 in
+	+)
+		volume=$((volume + 1))
+		;;
+
+	-)
+		volume=$((volume - 1))
+		;;
+
+	m)
+		if [[ "$mute" = "yes" ]]; then
+			pactl set-sink-mute $sink no
+			mute=no
+		else
+			pactl set-sink-mute $sink yes
+			mute=yes
+		fi
+		;;
+
+	*)
+		if [[ "$1" != "" ]]; then
+			volume=$1
+		fi
+		;;
+esac
+(( $volume > 47 )) && volume=47
+(( $volume < 0 )) && volume=0
+pactl set-sink-volume $sink $(($volume * 2 + 6))%
+out="Volume "
+if [[ "$mute" = "yes" ]]; then
+	out="Muted "
+fi
+out="$out[$(bar 47 $volume)]"
+echo "$out"
+id=/run/user/$(id -u)/$DISPLAY-volume.notify-id
+[[ -f $id ]] || echo 0 > $id
+notify-send -t 2000 -p -r $(cat $id) "$out" > $id
