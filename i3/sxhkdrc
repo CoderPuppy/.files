@@ -1,9 +1,6 @@
 #
-# bspwm hotkeys
+# i3 hotkeys
 #
-
-super + q
-	exit-menu
 
 super + shift + q
 	i3-msg kill
@@ -32,26 +29,37 @@ super + {a,w,e,c}
 super + shift + {a,w,e,c}
 	i3-msg move container to workspace {0:A,1:I,2:T,_C}
 
+super + h
+	i3-msg split horizontal
+
 super + Down
 	i3-msg move container to scratchpad
 
 super + Up
 	i3-msg scratchpad show
 
+super + n
+	pkill -USR1 -x sxhkd;\
+	i3-msg restart
+
 #
 # wm independent hotkeys
 #
 
+super + q
+	exit-menu
+
 super + Return
 	tabbed -r 2 st -w '' -e tmux
+
+super + shift + Return
+	tabbed -r 2 st -w ''
 
 super + d
 	launcher
 
-# make sxhkd reload its configuration files:
-super + n
-	pkill -USR1 -x sxhkd;\
-	i3-msg restart
+super + grave
+	daily-reminder-notify
 
 XF86MonBrightness{Up,Down}
 	brightness {+,-}
@@ -64,3 +72,10 @@ XF86AudioMute
 
 XF86TouchpadToggle
 	touchpad toggle
+
+XF86ScreenSaver
+	lock
+
+XF86Sleep
+	systemctl suspend;\
+	lock

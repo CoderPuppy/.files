@@ -3,7 +3,9 @@
 	
 	" Plugins {
 		Plug 'tpope/vim-unimpaired'
-		Plug 'jeffkreeftmeijer/vim-numbertoggle'
+		" Disabled because I usually don't look at the linenumbers so I can just
+		" use relativenumber
+		" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 		Plug 'scrooloose/nerdtree'
 		Plug 'tpope/vim-fugitive'
 		Plug 'tpope/vim-surround'
@@ -21,6 +23,8 @@
 		Plug 'tfnico/vim-gradle'
 		Plug 'elixir-lang/vim-elixir'
 		Plug 'rking/ag.vim'
+		Plug 'rust-lang/rust.vim'
+		Plug 'JuliaLang/julia-vim'
 	" }
 	
 	call plug#end()
@@ -31,13 +35,14 @@ let mapleader = ','
 set nocompatible
 set hidden
 set tabstop=2 shiftwidth=2
-set relativenumber
+set relativenumber number
 " set spell
 set wrap linebreak nolist
 set foldmethod=indent foldignore= foldlevelstart=9999
 set timeoutlen=1000 ttimeoutlen=0
 syntax on
 colorscheme lumberjack
+hi LineNr ctermfg=darkgrey
 
 if has('mouse')
 	set mouse=a
@@ -62,18 +67,22 @@ end
 	noremap <C-l> <C-w>k
 	noremap <C-;> <C-w>l
 
+	noremap <C-w>j <C-w>h
+	noremap <C-w>k <C-w>j
+	noremap <C-w>l <C-w>k
+	noremap <C-w>; <C-w>l
+
 	noremap ; l
 	noremap l k
 	noremap k j
 	noremap j h
 
-	nnoremap gp :CtrlP<cr>
-	map gu <Plug>(easymotion-prefix)
-	map gi <Plug>(easymotion-s2)
-	map gj <Plug>(easymotion-linebackward)
-	map gk <Plug>(easymotion-j)
-	map gl <Plug>(easymotion-k)
-	map g; <Plug>(easymotion-lineforward)
+	" nnoremap gp :CtrlP<cr>
+	map hu <Plug>(easymotion-prefix)
+	map hj <Plug>(easymotion-linebackward)
+	map hk <Plug>(easymotion-j)
+	map hl <Plug>(easymotion-k)
+	map h; <Plug>(easymotion-lineforward)
 	map / <Plug>(easymotion-sn)
 	omap / <Plug>(easymotion-tn)
 

@@ -33,6 +33,7 @@ updateCard() {
 		# # kill %1
 		# # kill %3
 		# jobs
+		{sleep 20; source ~/.fehbg} &
 		pkill -KILL panel
 		nohup ~/.files/i3/panel/panel &
 		disown

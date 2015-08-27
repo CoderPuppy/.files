@@ -1,0 +1,2 @@
+#!/bin/zsh
+REMIND_DAY=0 rem | {read;read;notify-send "Reminders - $(date +"%b %_d %a")" "$(cat)"}

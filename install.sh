@@ -5,8 +5,10 @@ mkdir -p ~/.local/bin 2> /dev/null
 
 echo Linking files to bin dir
 for file in $(ls ~/.files/bin); do
-	echo Linking ~/bin/$file to ~/.files/bin/$file
-	ln -s ~/.files/bin/$file ~/.local/bin/;
+	if [[ -x ~/.files/bin/$file ]]; then
+		echo Linking ~/bin/$file to ~/.files/bin/$file
+		ln -s ~/.files/bin/$file ~/.local/bin/;
+	fi
 done
 
 echo Creating completion dir
@@ -34,8 +36,8 @@ wget -O ~/.config/fontconfig/conf.d/10-powerline-symbols.conf https://github.com
 # wget -O ~/bin/nave https://github.com/isaacs/nave/raw/master/nave.sh
 # chmod +x ~/bin/nave 2> /dev/null
 
-echo Installing Nodenv
-git clone git://github.com/wfarr/nodenv.git ~/.nodenv
+# echo Installing Nodenv
+# git clone git://github.com/wfarr/nodenv.git ~/.nodenv
 
 echo Installing Pyenv
 git clone git://github.com/yyuu/pyenv.git ~/.pyenv

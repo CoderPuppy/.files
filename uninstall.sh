@@ -9,7 +9,9 @@ rm ~/.fonts/PowerlineSymbols.otf 2> /dev/null
 
 echo Unlinking executables
 for file in "$(ls ~/.files/bin)"; do
-	rm -- ~/.local/bin/$file;
+	if [[ -x ~/.files/bin/$file ]]; then
+		rm -- ~/.local/bin/$file;
+	fi
 done
 
 echo Unlinking completions

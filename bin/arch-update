@@ -1,9 +1,6 @@
 #!/bin/sh
-date=`date +%Y-%m-%d-%H:%m`
-sudo btrfs subvolume snapshot / /snaps/$date-preupdate
-sudo pacman -Syu
-sudo btrfs subvolume snapshot / /snaps/$date-postupdate
-date=`date +%Y-%m-%d-%H:%m`
-sudo btrfs subvolume snapshot / /snaps/$date-preupdate-aur
-yaourt -Syua
-sudo btrfs subvolume snapshot / /snaps/$date-postupdate-aur
+date=`date +%Y.%m.%d-%H:%m`
+sudo sh -c "btrfs subvolume snapshot / /snaps/$date-preupdate;\
+pacman -Syu;\
+btrfs subvolume snapshot / /snaps/$date-postupdate;\
+"

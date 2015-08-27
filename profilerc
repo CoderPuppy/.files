@@ -1,8 +1,10 @@
-export PATH=$HOME/.local/bin:$PATH:/usr/bin:/usr/sbin
+export PATH=$HOME/.local/bin:$PATH:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 export LD_LIBRARY_PATH=$HOME/.local/lib:$LD_LIBRARY_PATH
 
 export SHELL=`which zsh`
+which google-chrome-stable 2>&1 >/dev/null && export BROWSER=google-chrome-stable
 
+source ~/.profile
 source ~/.files/go.sh
 source ~/.files/haskell.sh
 source ~/.files/ruby.sh

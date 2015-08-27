@@ -2,6 +2,18 @@
 
 source $(dirname $0)/config
 
+panel_cd() {
+	disk=/dev/sr?
+	echo -n "%{A:eject $disk:}"
+	if [[ "$(cd-status $disk)" = "disk ok" ]]; then
+		echo -n "%{F$COLOR_URGENT}"
+	else
+		echo -n "%{F$COLOR_ICON}"
+	fi
+	echo -n ""
+	echo -n "%{F-}%{A}"
+}
+
 panel_pianod() {
 	if pgrep -cx pianod &> /dev/null; then
 		echo -n "%{A:pianoc p:}"
@@ -11,7 +23,7 @@ panel_pianod() {
 			echo -n "%{F$COLOR_ICON}"
 		fi
 		echo -n "%{F-}%{A} "
-		echo -n "$(pianoc c title)"
+		echo -n "$(pianoc c title) by $(pianoc c artist)"
 		if [[ "$(pianoc c rating)" = "good" ]]; then
 			echo -n "%{F$COLOR_URGENT}"
 			echo -n " %{A:pianoc ok:}%{A}"
@@ -111,6 +123,8 @@ panel_time() {
 }
 
 sysinfo() {
+	panel_cd
+	echo -n " "
 	panel_pianod
 	panel_pithos
 	echo -n "  "

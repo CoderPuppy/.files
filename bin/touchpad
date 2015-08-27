@@ -17,15 +17,15 @@ EOF
 
 enable() {
 	xinput enable $id
-	kill $(cat /tmp/`whoami`-unclutter.pid)
-	rm /tmp/`whoami`-unclutter.pid
+	# kill $(cat /tmp/`whoami`-unclutter.pid)
+	# rm /tmp/`whoami`-unclutter.pid
 	echo Enabled TouchPad
 }
 
 disable() {
 	xinput disable $id
-	unclutter -idle 0.01 &
-	echo $! > /tmp/`whoami`-unclutter.pid
+	# unclutter -idle 0.01 &
+	# echo $! > /tmp/`whoami`-unclutter.pid
 	echo Disabled TouchPad
 }
 
