@@ -64,7 +64,7 @@ super + shift + Return
 super + d
 	launcher
 
-super + grave
+super + shift + grave
 	daily-reminder-notify
 
 super + grave
