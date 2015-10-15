@@ -25,6 +25,7 @@
 		Plug 'rking/ag.vim'
 		Plug 'rust-lang/rust.vim'
 		Plug 'JuliaLang/julia-vim'
+		Plug 'lambdatoast/elm.vim'
 	" }
 	
 	call plug#end()
