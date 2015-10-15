@@ -14,6 +14,9 @@ super + {_, shift + } Tab
 super + {_,shift + }{j,k,l,semicolon}
 	i3-msg {focus,move} {left,down,up,right}
 
+super + shift + 6
+	i3-msg focus parent
+
 alt + {_,shift + } Tab
 	i3-msg focus {right,left}
 
@@ -42,6 +45,9 @@ super + n
 	pkill -USR1 -x sxhkd;\
 	i3-msg restart
 
+super + shift + d
+	dmenu_path | xboomx_sort.py shell | dmenu | xboomx_update.py shell | zsh
+
 #
 # wm independent hotkeys
 #
@@ -60,6 +66,9 @@ super + d
 
 super + grave
 	daily-reminder-notify
+
+super + grave
+	i3-msg '[class="tabbed"]' scratchpad show
 
 XF86MonBrightness{Up,Down}
 	brightness {+,-}
