@@ -18,16 +18,16 @@ alt + {_,shift + } Tab
 	i3-msg focus {right,left}
 
 super + {1-9,0}
-	i3-msg workspace !{1-9,0}
+	i3-msg workspace 3:{1-9,0}
 
 super + shift + {1-9,0}
-	i3-msg move container to workspace !{1-9,0}
+	i3-msg move container to workspace 3:{1-9,0}
 
 super + {a,w,e,c}
-	i3-msg workspace {0:A,1:I,2:T,_C}
+	i3-msg workspace {0:A,1:I,2:T,9:C}
 
 super + shift + {a,w,e,c}
-	i3-msg move container to workspace {0:A,1:I,2:T,_C}
+	i3-msg move container to workspace {0:A,1:I,2:T,9:C}
 
 super + h
 	i3-msg split horizontal

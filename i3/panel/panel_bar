@@ -140,13 +140,13 @@ while read -r line ; do
         change:*)
 						unset wm_infos
 						typeset -A wm_infos
-						for item in `~/.files/i3/i3-workspaces`; do
+						for item in `~/.files/i3/i3-workspaces | sort`; do
 							# echo $item
 							name=$(echo "$item" | cut -d '|' -f 1)
 							raw_name=$name
 							name=${name#?:}
-							name=${name#_}
-							name=${name#!}
+							# name=${name#_}
+							# name=${name#!}
 							active=$(echo "$item" | cut -d '|' -f 2)
 							urgent=$(echo "$item" | cut -d '|' -f 3)
 							monitor=$(echo "$item" | cut -d '|' -f 4)
