@@ -5,6 +5,8 @@ autoload colors; colors
 for COLOR in RED GREEN YELLOW BLUE MAGENTA CYAN BLACK WHITE; do
 	export FG_$COLOR="$fg_no_bold[${(L)COLOR}]"
 	export FG_BOLD_$COLOR="$fg_bold[${(L)COLOR}]"
+	export BG_$COLOR="$bg_no_bold[${(L)COLOR}]"
+	export BG_BOLD_$COLOR="$bg_bold[${(L)COLOR}]"
 done
 
 export RESET="$reset_color"

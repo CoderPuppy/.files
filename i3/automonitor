@@ -20,7 +20,7 @@ updateCard() {
 		xrandr --output $card --off
 	elif [[ "${cardStatus}" = connected ]]; then
 		if grep "ViewSonic" $cardPath/edid; then
-			xrandr --output $card --auto --left-of LVDS1
+			xrandr --output $card --mode 1280x1024_66.00 --left-of LVDS1
 		else
 			xrandr --auto
 			cat $cardPath/edid

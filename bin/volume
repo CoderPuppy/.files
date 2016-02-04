@@ -1,4 +1,7 @@
 #!/bin/bash
+(
+flock -en 200 || exit
+
 sink=$(pacmd list-sinks | ag '\* index' | sed 's/^  \* index: //')
 mute=$(pacmd list-sinks | grep -A15 '* index' | ag '^\s*muted: ' | sed 's/^\s*muted:\s*//')
 volume=$(pacmd list-sinks | grep -A15 '* index' | ag '^\s*volume: ' | ag -o '\d+%' | ag -o '\d+' | tail -n1)
@@ -39,5 +42,7 @@ fi
 out="$out[$(bar 50 $volume)]"
 echo "$out"
 id=/run/user/$(id -u)/$DISPLAY-volume.notify-id
-[[ -f $id && "$(cat $id)" != "" ]] || echo 0 > $id
-notify-send -t 2000 -p -r $(cat $id) "$out" > $id
+[[ -f $id ]] || echo 0 > $id
+ag '^\d' $id || echo 0 > $id
+notify-send.sh -t 2000 -p -r $(cat $id) "$out" > $id
+) 200>/run/user/$(id -u)/$DISPLAY-volume.lock

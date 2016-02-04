@@ -50,34 +50,36 @@ panel_pithos() {
 }
 
 panel_wifi() {
-	local QUAL=`iwconfig $WIRELESS | grep 'Link Quality=' | awk '{gsub(/[=/]/," "); print $3}'`
-	local MAX=`iwconfig $WIRELESS | grep 'Link Quality=' | awk '{gsub(/[=/]/," "); print $4}'`
-	local PERC=`echo $QUAL*100/$MAX | bc`
-	local SSID=`iw dev wlp3s0 link | ag -o 'SSID: .+' | sed 's/^SSID: //'`
+	if ip link show wlp3s0 | ag UP > /dev/null; then
+		local QUAL=`iwconfig $WIRELESS | grep 'Link Quality=' | awk '{gsub(/[=/]/," "); print $3}'`
+		local MAX=`iwconfig $WIRELESS | grep 'Link Quality=' | awk '{gsub(/[=/]/," "); print $4}'`
+		local PERC=`echo $QUAL*100/$MAX | bc`
+		local SSID=`iw dev wlp3s0 link | ag -o 'SSID: .+' | sed 's/^SSID: //'`
 
-	local icon=""
-	case $PERC in
-		[0-4])
-			icon=""
-		;;
-		[4-9])
-			icon=""
-		;;
-		[2-3]*)
-			icon=""
-		;;
-		[4-5]*)
-			icon=""
-		;;
-		[6-7]*)
-			icon=""
-		;;
-		*)
-			icon=""
-		;;
-	esac
+		local icon=""
+		case $PERC in
+			[0-4])
+				icon=""
+			;;
+			[4-9])
+				icon=""
+			;;
+			[2-3]*)
+				icon=""
+			;;
+			[4-5]*)
+				icon=""
+			;;
+			[6-7]*)
+				icon=""
+			;;
+			*)
+				icon=""
+			;;
+		esac
 
-	echo -n "%{F$COLOR_ICON}$icon%{F-} $SSID"
+		echo -n "%{F$COLOR_ICON}$icon%{F-} $SSID"
+	fi
 }
 
 panel_battery() {
@@ -140,16 +142,21 @@ while read -r line ; do
         change:*)
 						unset wm_infos
 						typeset -A wm_infos
-						for item in `~/.files/i3/i3-workspaces | sort`; do
+						for item in `~/.files/i3/i3-workspaces`; do
 							# echo $item
 							name=$(echo "$item" | cut -d '|' -f 1)
 							raw_name=$name
-							name=${name#?:}
+							name=${name#??:}
+							name=${name#2}
 							# name=${name#_}
 							# name=${name#!}
 							active=$(echo "$item" | cut -d '|' -f 2)
 							urgent=$(echo "$item" | cut -d '|' -f 3)
 							monitor=$(echo "$item" | cut -d '|' -f 4)
+							# echo $active
+							# echo $urgent
+							# echo $monitor
+							# echo $name
 							case $active$urgent in
 									TF)
 											# active desktop

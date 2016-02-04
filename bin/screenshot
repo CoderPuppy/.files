@@ -1,0 +1,8 @@
+#!/bin/bash
+file="$(date +%F-%T)"
+while [[ -f "$HOME/screenshots/${file}.png" ]]; do
+	file="${file}-"
+done
+maim "$@" "$HOME/screenshots/${file}.png"
+notify-send "Saved ~/screenshots/${file}.png"
+echo "$HOME/screenshots/${file}.png" | xclip -i -selection clipboard

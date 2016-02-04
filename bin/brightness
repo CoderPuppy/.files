@@ -1,4 +1,7 @@
 #!/bin/bash
+(
+flock -xn 200 || exit
+
 from() {
 	case $1 in
 		0.*) echo 0;;
@@ -63,5 +66,7 @@ out="☀ [$(bar 15 $current)]"
 echo "$out"
 id=/run/user/$(id -u)/$DISPLAY-backlight.notify-id
 [[ -f $id ]] || echo 0 > $id
-notify-send -t 2000 -p -r $(cat $id) "$out" > $id
+ag '^\d' $id || echo 0 > $id
+notify-send.sh -t 2000 -p -r "$(cat $id)" "$out" > $id
+) 200>/run/user/$(id -u)/$DISPLAY-backlight.lock
 

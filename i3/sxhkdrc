@@ -21,16 +21,16 @@ alt + {_,shift + } Tab
 	i3-msg focus {right,left}
 
 super + {1-9,0}
-	i3-msg workspace 3:{1-9,0}
+	i3-msg workspace 2{1-9,0}
 
 super + shift + {1-9,0}
-	i3-msg move container to workspace 3:{1-9,0}
+	i3-msg move container to workspace 2{1-9,0}
 
 super + {a,w,e,c}
-	i3-msg workspace {0:A,1:I,2:T,9:C}
+	i3-msg workspace {10:A,11:I,12:T,99:C}
 
 super + shift + {a,w,e,c}
-	i3-msg move container to workspace {0:A,1:I,2:T,9:C}
+	i3-msg move container to workspace {10:A,11:I,12:T,99:C}
 
 super + h
 	i3-msg split horizontal
@@ -69,6 +69,12 @@ super + shift + grave
 
 super + grave
 	i3-msg '[class="tabbed"]' scratchpad show
+
+Print
+	screenshot
+
+super + Print
+	screenshot -s
 
 XF86MonBrightness{Up,Down}
 	brightness {+,-}

@@ -1,6 +1,6 @@
 #!/bin/zsh
 WM_EXIT=${WM_EXIT:-i3-msg exit}
-opt="$((echo Lock && echo Shutdown && echo Reboot && echo Suspend && echo Logout && echo Hibernate && echo Sleep) | xboomx_sort.py session-exit | dmenu -i | xboomx_update.py session-exit)" &&
+opt="$( {echo Lock && echo Shutdown && echo Reboot && echo Suspend && echo Logout && echo Hibernate && echo Sleep } | eval "yeganesh -p session-exit -f -- $dmenu_opts $dmenu_colors")" &&
 case "$opt" in
 	(Lock) lock;;
 	(Shutdown) systemctl poweroff;;

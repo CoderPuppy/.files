@@ -18,12 +18,17 @@ fe() {
 	fi
 }
 
+e() {
+	$EDITOR "$@"
+}
+
 alias ls='ls --color'
 alias l='less -R'
 alias v=view
-alias e='eval $EDITOR'
 alias rehash='rbenv rehash; pyenv rehash; luaenv rehash; hash -rf'
 alias :q=exit
 alias :Q=exit
-alias dmenu='dmenu -i -sf \#af865a -sb \#4A3637 -nf \#c0b18b -nb \#1f1f1f'
+export dmenu_colors='-sf \#af865a -sb \#4A3637 -nf \#c0b18b -nb \#1f1f1f'
+export dmenu_opts="-i"
+alias dmenu="dmenu $dmenu_colors $dmenu_opts"
 alias gh=hub
