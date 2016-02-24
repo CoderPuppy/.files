@@ -14,12 +14,12 @@
 		Plug 'gkz/vim-ls'
 		Plug 'terryma/vim-multiple-cursors'
 		Plug 'yamafaktory/lumberjack.vim'
-		Plug 'sjl/gundo.vim'
 		Plug 'danro/rename.vim'
 		Plug 'Lokaltog/vim-easymotion'
 		Plug 'tfnico/vim-gradle'
 		Plug 'rking/ag.vim'
 		Plug 'scrooloose/syntastic'
+		Plug 'simnalamburt/vim-mundo'
 		" Plug 'godlygeek/tabular'
 
 		Plug 'elixir-lang/vim-elixir'
