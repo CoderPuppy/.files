@@ -1,0 +1,27 @@
+# include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+<Multi_key> <i> <g> <s> : "ʔ"
+<Multi_key> <i> <s> <h> : "ʃ"
+<Multi_key> <i> <j> : "ʒ"
+<Multi_key> <i> <t> <h> : "θ"
+<Multi_key> <i> <v> <t> <h> : "ð"
+<Multi_key> <i> <f> <r> : "ɾ"
+<Multi_key> <i> <d> <c> : "ǀ"
+<Multi_key> <i> <s> <u> : "ə"
+<Multi_key> <i> <c> : "ɔ"
+<Multi_key> <i> <s> <l> : "ɬ"
+<Multi_key> <i> <z> <l> : "ɮ"
+<Multi_key> <i> <m> <l> : "ː"
+
+<Multi_key> <g> <t> : "θ"
+<Multi_key> <g> <D> : "Δ"
+
+<Multi_key> <f> <v> : "ʌ"
+<Multi_key> <f> <r> <r> : "ɹ"
+
+<Multi_key> <l> <a> : "ɑ"
+<Multi_key> <r> <l> <a> : "ɒ"
+<Multi_key> <l> <o> <e> : "ɛ"
+<Multi_key> <l> <e> <n> : "ŋ"
+<Multi_key> <l> <u> : "ʊ"
+
+<Multi_key> <p> <i> : "π"

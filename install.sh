@@ -66,3 +66,4 @@ ln -s ~/.files/xinitrc ~/.xinitrc 2> /dev/null
 ln -s ~/.files/xmodmaprc ~/.xmodmaprc 2> /dev/null
 mkdir ~/.config 2> /dev/null
 ln -s ~/.files/bspwm ~/.config/bspwm 2> /dev/null
+ln -s ~/.files/XCompose ~/.XCompose 2> /dev/null
