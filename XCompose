@@ -1,4 +1,6 @@
-# include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+
+# IPA
 <Multi_key> <i> <g> <s> : "ʔ"
 <Multi_key> <i> <s> <h> : "ʃ"
 <Multi_key> <i> <j> : "ʒ"
@@ -12,16 +14,37 @@
 <Multi_key> <i> <z> <l> : "ɮ"
 <Multi_key> <i> <m> <l> : "ː"
 
+# Greek
 <Multi_key> <g> <t> : "θ"
 <Multi_key> <g> <D> : "Δ"
+<Multi_key> <g> <l> : "λ"
 
+# Flipped
 <Multi_key> <f> <v> : "ʌ"
 <Multi_key> <f> <r> <r> : "ɹ"
 
+# Latin
 <Multi_key> <l> <a> : "ɑ"
 <Multi_key> <r> <l> <a> : "ɒ"
 <Multi_key> <l> <o> <e> : "ɛ"
 <Multi_key> <l> <e> <n> : "ŋ"
 <Multi_key> <l> <u> : "ʊ"
 
+# Double Struck
+<Multi_key> <d> <s> <B> : "𝔹"
+<Multi_key> <d> <s> <C> : "ℂ"
+<Multi_key> <d> <s> <F> : "𝔽"
+<Multi_key> <d> <s> <N> : "ℕ"
+<Multi_key> <d> <s> <P> : "ℙ"
+<Multi_key> <d> <s> <S> : "𝕊"
+<Multi_key> <d> <s> <T> : "𝕋"
+<Multi_key> <d> <s> <U> : "𝕌"
+<Multi_key> <d> <s> <Z> : "ℤ"
+
 <Multi_key> <p> <i> : "π"
+<Multi_key> <asciitilde> <equal> : "≈"
+<Multi_key> <equal> <asciitilde> : "≈"
+
+<Multi_key> <asterisk> <asterisk> : "⋅"
+
+<Multi_key> <l> <o> <z> : "◊"
