@@ -1,72 +1,40 @@
 #!/bin/bash
 (
-flock -xn 200 || exit
+	flock -xn 200 || exit
 
-from() {
+	get() {
+		cat /sys/class/backlight/acpi_video0/brightness
+	}
+	change() {
+		echo -n
+	}
+	current=$(get)
+
 	case $1 in
-		0.*) echo 0;;
-		6.*) echo 1;;
-		13.*) echo 2;;
-		20.*) echo 3;;
-		26.*) echo 4;;
-		33.*) echo 5;;
-		40.*) echo 6;;
-		46.*) echo 7;;
-		53.*) echo 8;;
-		60.*) echo 9;;
-		66.*) echo 10;;
-		73.*) echo 11;;
-		80.*) echo 12;;
-		86.*) echo 13;;
-		93.*) echo 14;;
-		100.*) echo 15;;
-	esac
-}
-to() {
-	case $1 in
-		0) echo 0;;
-		1) echo 10;;
-		2) echo 15;;
-		3) echo 20;;
-		4) echo 27;;
-		5) echo 35;;
-		6) echo 40;;
-		7) echo 47;;
-		8) echo 55;;
-		9) echo 60;;
-		10) echo 67;;
-		11) echo 75;;
-		12) echo 80;;
-		13) echo 87;;
-		14) echo 95;;
-		15) echo 100;;
-	esac
-}
-current=$(from $(xbacklight -get))
+		+)
+			current=$(($current + 1))
+			;;
+		
+		-)
+			current=$(($current - 1))
+			;;
 
-case $1 in
-	+)
-		current=$(($current + 1))
-		;;
-	
-	-)
-		current=$(($current - 1))
-		;;
-
-	*)
-		if [[ "$1" != "" ]]; then
-			current=$1
-		fi
-		;;
-esac
-(( $current > 15 )) && current=15
-(( $current < 0 )) && current=0
-xbacklight -steps 1 -time 1 -set $(to $current)
-out="☀ [$(bar 15 $current)]"
-echo "$out"
-id=/run/user/$(id -u)/$DISPLAY-backlight.notify-id
-[[ -f $id ]] || echo 0 > $id
-ag '^\d' $id || echo 0 > $id
-notify-send.sh -t 2000 -p -r "$(cat $id)" "$out" > $id
+		*)
+			if [[ "$1" != "" ]]; then
+				current=$1
+			fi
+			;;
+	esac
+	(( $current > 15 )) && current=15
+	(( $current < 0 )) && current=0
+	change $current
+	out="☀ [$(bar 15 $current)]"
+	echo "$out"
+	id=/run/user/$(id -u)/$DISPLAY-backlight.notify-id
+	[[ -f $id ]] || echo 0 > $id
+	ag '^\d' $id > /dev/null || echo 0 > $id
+	notify-send.sh -t 2000 -p -r "$(cat $id)" "$out" > $id
+	if [[ $(get) != $current ]]; then
+		echo $(get) $current
+	fi
 ) 200>/run/user/$(id -u)/$DISPLAY-backlight.lock
-
