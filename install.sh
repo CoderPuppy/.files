@@ -36,8 +36,12 @@ wget -O ~/.config/fontconfig/conf.d/10-powerline-symbols.conf https://github.com
 # wget -O ~/bin/nave https://github.com/isaacs/nave/raw/master/nave.sh
 # chmod +x ~/bin/nave 2> /dev/null
 
-# echo Installing Nodenv
-# git clone git://github.com/wfarr/nodenv.git ~/.nodenv
+echo Installing Nodenv
+git clone git://github.com/nodenv/nodenv.git ~/.nodenv
+
+echo Installing Node-Build
+mkdir -p ~/.nodenv/plugins/node-build 2> /dev/null
+git clone git://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
 
 echo Installing Pyenv
 git clone git://github.com/yyuu/pyenv.git ~/.pyenv
