@@ -1,4 +1,15 @@
 #!/bin/sh
 #exe=`dmenu_path | yeganesh -- ${1+"$@"}` && exec $exe
 #exe=`xboomx_path.py | xboomx_sort.py | dmenu -i` && exec $exe
-j4-dmenu-desktop --dmenu="yeganesh -p launchers -f -- $dmenu_opts $dmenu_colors"
+set -x
+case $1 in
+app)
+	j4-dmenu-desktop --dmenu="yeganesh -p launchers -f -- $dmenu_opts $dmenu_colors"
+	;;
+shell)
+	dmenu_path | eval yeganesh -p shell -f -- $dmenu_opts $dmenu_colors | zsh
+	;;
+*)
+	echo Invalid profile: $1
+	;;
+esac

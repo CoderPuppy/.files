@@ -45,9 +45,6 @@ super + n
 	pkill -USR1 -x sxhkd;\
 	i3-msg restart
 
-super + shift + d
-	dmenu_path | xboomx_sort.py shell | dmenu | xboomx_update.py shell | zsh
-
 #
 # wm independent hotkeys
 #
@@ -62,7 +59,10 @@ super + shift + Return
 	tabbed -r 2 st -w ''
 
 super + d
-	launcher
+	launcher app
+
+super + shift + d
+	launcher shell
 
 super + shift + grave
 	daily-reminder-notify
