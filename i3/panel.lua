@@ -54,6 +54,7 @@ local function sched_output()
 	if output_scheded then return end
 	output_scheded = true
 	next_tick(function()
+		output_scheded = false
 		local res = {}
 		for _, comp in ipairs(comps) do
 			for _, part in ipairs(comp.output) do
@@ -361,11 +362,13 @@ do -- date
 		}
 		sched_output()
 	end
+	update()
 	timed[#timed + 1] = update
 end
 
+--[[
 do -- fake date
-	local fake_date = {
+	local fake_date = add {
 		name = 'fake_date';
 		input = function() end;
 		output = {};
@@ -391,7 +394,7 @@ do -- fake date
 	end
 	update()
 	timed[#timed + 1] = update
-end
+end --]]
 
 do
 	local tmp

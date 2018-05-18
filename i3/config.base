@@ -50,7 +50,7 @@ workspace_layout tabbed
 show_marks yes
 
 bar {
-	status_command /bin/luajit ~/.files/i3/panel.lua
+	status_command /bin/luajit /home/cpup/.files/i3/panel.lua
 	strip_workspace_numbers yes
 	separator_symbol " "
 	position top
