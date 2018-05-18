@@ -1,5 +1,5 @@
 " vim-plug {
-	call plug#begin('~/.nvim/plugged')
+	call plug#begin('~/.local/share/nvim/site/plugged')
 	
 	" Plugins {
 		Plug 'tpope/vim-unimpaired'
