@@ -13,31 +13,32 @@ set $Mod Mod4
 set $AMod Mod1
 set $HOME /home/cpup
 
-# Assign workspace 9 (the hardest to reach) on VGA1
-workspace 99:C output VGA1
-workspace 10:A output LVDS1
-workspace 11:I output LVDS1
-workspace 12:T output LVDS1
-workspace 21 output LVDS1
-workspace 22 output LVDS1
-workspace 23 output LVDS1
-workspace 24 output LVDS1
-workspace 25 output LVDS1
-workspace 26 output LVDS1
-workspace 27 output LVDS1
-workspace 28 output LVDS1
-workspace 29 output LVDS1
-workspace 20 output LVDS1
+workspace 99:C output LVDS1 # media
+workspace 10:A output VIRTUAL6
+workspace 11:I output VIRTUAL6
+workspace 12:T output VIRTUAL6
+
+workspace 20:1 output LVDS1 # games
+workspace 21:2 output VIRTUAL6
+workspace 22:3 output VIRTUAL6
+workspace 23:4 output VIRTUAL6
+workspace 24:5 output VIRTUAL6
+workspace 25:6 output VIRTUAL6
+workspace 26:7 output VIRTUAL6
+workspace 27:8 output VIRTUAL6
+workspace 28:9 output LVDS1 # external media
+workspace 29:0 output VIRTUAL6
 
 focus_follows_mouse no
 workspace_auto_back_and_forth yes
 
 exec ~/.files/i3/start
 
-# floating hangouts
-for_window [class="Google\-chrome" instance="crx"] floating enable
+# for_window [class="Google\-chrome" instance="crx"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [class="^Xfce4-notifyd$" instance="^xfce4-notifyd$"] floating enable
+for_window [class="google\-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating disable
+assign [class="google\-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] 11:I
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -46,6 +47,25 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $Mod
 
 workspace_layout tabbed
+show_marks yes
+
+bar {
+	status_command lua /home/cpup/code/konk/lua/main.lua
+	strip_workspace_numbers yes
+	separator_symbol " "
+	position top
+	font pango:Misc Stlarch 11px
+	tray_output LVDS-1
+
+colors {
+	background #1f1f1f
+	statusline #c0b18b
+
+	focused_workspace  #af865a #1f1f1f #af865a
+	inactive_workspace #1f1f1f #1f1f1f #c0b18b
+	urgent_workspace   #d17b49 #1f1f1f #d17b49
+}
+}
 
 
 # class                 border  backgr. text    indicator
@@ -53,3 +73,4 @@ client.focused          #5A3637 #2f1f1f #ededed #dddddd
 client.focused_inactive #333333 #1f1f1f #c0b18b #292d2e
 client.unfocused        #333333 #1f1f1f #c0b18b #292d2e
 client.urgent           #d17b49 #3f1f1f #ffffff #900000
+
