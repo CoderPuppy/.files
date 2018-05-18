@@ -19,8 +19,13 @@
 		Plug 'tfnico/vim-gradle'
 		Plug 'rking/ag.vim'
 		Plug 'scrooloose/syntastic'
-		Plug 'simnalamburt/vim-mundo'
+		" Plug 'simnalamburt/vim-mundo'
+		Plug 'mbbill/undotree'
 		" Plug 'godlygeek/tabular'
+		Plug 'floobits/floobits-neovim'
+		Plug 'Shougo/vimproc.vim', {'do': 'make'}
+		Plug 'jpalardy/vim-slime'
+		Plug 'Shougo/deoplete.nvim'
 
 		Plug 'elixir-lang/vim-elixir'
 		Plug 'vim-scripts/nxc.vim'
@@ -32,12 +37,11 @@
 		Plug 'idris-hackers/idris-vim'
 		Plug 'weakish/rcshell.vim'
 		Plug 'cespare/vim-toml'
+		Plug 'wavded/vim-stylus'
+		Plug 'derekelkins/agda-vim'
 
 		" Haskell
 		Plug 'eagletmt/ghcmod-vim'
-		Plug 'Shougo/vimproc.vim'
-		Plug 'jpalardy/vim-slime'
-		Plug 'Shougo/deoplete.nvim'
 		Plug 'eagletmt/neco-ghc'
 	" }
 	
@@ -45,7 +49,9 @@
 " }
 
 let g:python_host_prog='/usr/bin/python2'
+let g:python3_host_prog='/usr/bin/python3'
 let mapleader = ','
+let maplocalleader = "\\"
 set nocompatible
 set hidden
 set tabstop=2 shiftwidth=2
@@ -87,6 +93,10 @@ function! s:unite_my_settings()
 endfunction
 
 autocmd FileType lua setlocal commentstring=--\ %s
+autocmd BufNewFile,BufRead *.ti set filetype=lua
+autocmd BufNewFile,BufRead *.slua set filetype=lua
+
+set exrc secure
 
 if has('mouse')
 	set mouse=a
