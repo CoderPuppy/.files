@@ -19,5 +19,7 @@ source ~/.files/ooc.sh
 export EDITOR=nvim
 #which subl 2>&1 > /dev/null && export EDITOR=subl\ -w
 
+export TERMINAL=st
+
 export SSH_ASKPASS=/usr/lib/ssh/ssh-askpass
 SSH_AUTH_SOCK=/home/cpup/.ssh-agent.sock; export SSH_AUTH_SOCK
