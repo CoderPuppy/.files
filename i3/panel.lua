@@ -62,6 +62,7 @@ local function sched_output()
 			end
 		end
 		print(yajl.to_string(res) .. ',')
+		io.flush()
 	end)
 end
 
