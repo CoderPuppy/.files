@@ -40,6 +40,7 @@
 		Plug 'cespare/vim-toml'
 		Plug 'wavded/vim-stylus'
 		Plug 'derekelkins/agda-vim'
+		Plug 'wlangstroth/vim-racket'
 
 		" Haskell
 		Plug 'eagletmt/ghcmod-vim'
