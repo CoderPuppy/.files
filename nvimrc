@@ -18,7 +18,8 @@
 		Plug 'Lokaltog/vim-easymotion'
 		Plug 'tfnico/vim-gradle'
 		Plug 'rking/ag.vim'
-		Plug 'scrooloose/syntastic'
+		" Plug 'scrooloose/syntastic'
+		Plug 'w0rp/ale'
 		" Plug 'simnalamburt/vim-mundo'
 		Plug 'mbbill/undotree'
 		" Plug 'godlygeek/tabular'
@@ -66,13 +67,13 @@ hi LineNr ctermfg=darkgrey
 let g:rust_recommended_style = 0
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
