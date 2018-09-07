@@ -17,10 +17,11 @@
 		Plug 'danro/rename.vim'
 		Plug 'Lokaltog/vim-easymotion'
 		Plug 'tfnico/vim-gradle'
-		Plug 'rking/ag.vim'
+		Plug 'mileszs/ack.vim'
 		Plug 'scrooloose/syntastic'
 		Plug 'simnalamburt/vim-mundo'
 		" Plug 'godlygeek/tabular'
+		Plug 'sgeb/vim-diff-fold'
 
 		Plug 'elixir-lang/vim-elixir'
 		Plug 'vim-scripts/nxc.vim'
@@ -74,7 +75,11 @@ set completeopt=longest,menuone
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#disable_auto_complete = 1
 
-let g:unite_source_rec_async_command = ['ag', '--hidden', '-g', '', '--nocolor']
+let g:ackrg = 'ag --vimgrep --noaffinity --smart-case'
+cnoreabbrev Ag Ack
+cnoreabbrev ag Ack
+
+let g:unite_source_rec_async_command = ['ag', '--hidden', '-g', '', '--nocolor', '--noaffinity']
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#profile('default', 'context', {'start_insert': 1})
@@ -85,6 +90,8 @@ function! s:unite_my_settings()
 	imap <buffer> <F5> <Plug>(unite_redraw)
 	nmap <buffer> <Esc> :q<Cr>
 endfunction
+
+let g:idris_allow_tabchar = 1
 
 autocmd FileType lua setlocal commentstring=--\ %s
 
@@ -102,6 +109,9 @@ end
 	" NERDTree
 	nmap <silent> <leader>n :NERDTreeToggle<cr>
 	nmap <silent> <leader>m :NERDTreeFind<cr>
+
+	" Undotree
+	nmap <silent> <leader>u :UndotreeToggle<cr>
 	
 	noremap <C-j> <C-w>h
 	noremap <C-k> <C-w>j
