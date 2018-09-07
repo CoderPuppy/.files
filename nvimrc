@@ -25,7 +25,7 @@
 		Plug 'mbbill/undotree'
 		Plug 'godlygeek/tabular'
 		Plug 'junegunn/vim-easy-align'
-		Plug 'sgeb/vim-diff-fold'
+		Plug 'CoderPuppy/vim-diff-fold'
 		Plug 'floobits/floobits-neovim'
 		Plug 'Shougo/vimproc.vim', {'do': 'make'}
 		Plug 'jpalardy/vim-slime'
