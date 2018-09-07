@@ -1,6 +1,6 @@
 #!/bin/sh
 nohup dunst -conf $HOME/.files/i3/dunstrc &
 #feh --bg-scale $HOME/Downloads/Lightful\ arch_1920.png
-nohup $HOME/.files/i3/automonitor &
+# nohup $HOME/.files/i3/automonitor &
 REMIND_INSTANT=0 nohup rem -z -k'notify-send -t 86400000 %s' &
 SXHKD_SHELL=bash sxhkd -c $HOME/.files/i3/sxhkdrc

@@ -18,10 +18,10 @@ case $1 in
 
 	m)
 		if [[ "$mute" = "yes" ]]; then
-			pactl set-sink-mute $sink no
+			pacmd set-sink-mute $sink 0
 			mute=no
 		else
-			pactl set-sink-mute $sink yes
+			pacmd set-sink-mute $sink 1
 			mute=yes
 		fi
 		;;

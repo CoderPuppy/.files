@@ -1,4 +1,7 @@
+! capslock → left control
 keycode 66 = Control_L
 clear Lock
 add Control = Control_L
-keycode 105 = Multi_key
+
+! right alt → multi key
+keycode 108 = Multi_key

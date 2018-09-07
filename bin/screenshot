@@ -4,5 +4,10 @@ while [[ -f "$HOME/screenshots/${file}.png" ]]; do
 	file="${file}-"
 done
 maim "$@" "$HOME/screenshots/${file}.png"
+e=$?
+if [ $e -ne 0 ]; then
+	exit $e
+fi
 notify-send "Saved ~/screenshots/${file}.png"
-echo "$HOME/screenshots/${file}.png" | xclip -i -selection clipboard
+echo -n "$HOME/screenshots/${file}.png" | xclip -i -selection clipboard
+echo "$HOME/screenshots/${file}.png"

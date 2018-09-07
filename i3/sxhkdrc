@@ -14,17 +14,17 @@ super + {_, shift + } Tab
 super + {_,shift + }{j,k,l,semicolon}
 	i3-msg {focus,move} {left,down,up,right}
 
-super + shift + 6
+super + shift + v
 	i3-msg focus parent
 
 alt + {_,shift + } Tab
 	i3-msg focus {right,left}
 
 super + {1-9,0}
-	i3-msg workspace 2{1-9,0}
+	i3-msg workspace {20:1,21:2,22:3,23:4,24:5,25:6,26:7,27:8,28:9,29:0}
 
 super + shift + {1-9,0}
-	i3-msg move container to workspace 2{1-9,0}
+	i3-msg move container to workspace {20:1,21:2,22:3,23:4,24:5,25:6,26:7,27:8,28:9,29:0}
 
 super + {a,w,e,c}
 	i3-msg workspace {10:A,11:I,12:T,99:C}
@@ -32,8 +32,11 @@ super + {a,w,e,c}
 super + shift + {a,w,e,c}
 	i3-msg move container to workspace {10:A,11:I,12:T,99:C}
 
-super + h
+super + backslash
 	i3-msg split horizontal
+
+super + shift + bar
+	i3-msg split vertical
 
 super + Down
 	i3-msg move container to scratchpad
@@ -43,10 +46,7 @@ super + Up
 
 super + n
 	pkill -USR1 -x sxhkd;\
-	i3-msg restart
-
-super + shift + d
-	dmenu_path | xboomx_sort.py shell | dmenu | xboomx_update.py shell | zsh
+	i3-msg reload
 
 #
 # wm independent hotkeys
@@ -62,7 +62,10 @@ super + shift + Return
 	tabbed -r 2 st -w ''
 
 super + d
-	launcher
+	launcher app
+
+super + shift + d
+	launcher shell
 
 super + shift + grave
 	daily-reminder-notify
@@ -76,8 +79,13 @@ Print
 super + Print
 	screenshot -s
 
+super + shift + Print
+	gifify $(rec)
+
+# XF86MonBrightness{Up,Down}
+# 	brightness {+,-}
 XF86MonBrightness{Up,Down}
-	brightness {+,-}
+	sleep 0.1; brightness
 
 XF86Audio{Raise,Lower}Volume
 	volume {+,-}

@@ -1,5 +1,5 @@
 " vim-plug {
-	call plug#begin('~/.nvim/plugged')
+	call plug#begin('~/.local/share/nvim/site/plugged')
 	
 	" Plugins {
 		Plug 'tpope/vim-unimpaired'
@@ -17,11 +17,19 @@
 		Plug 'danro/rename.vim'
 		Plug 'Lokaltog/vim-easymotion'
 		Plug 'tfnico/vim-gradle'
+		" Plug 'rking/ag.vim'
 		Plug 'mileszs/ack.vim'
-		Plug 'scrooloose/syntastic'
-		Plug 'simnalamburt/vim-mundo'
-		" Plug 'godlygeek/tabular'
+		" Plug 'scrooloose/syntastic'
+		Plug 'w0rp/ale'
+		" Plug 'simnalamburt/vim-mundo'
+		Plug 'mbbill/undotree'
+		Plug 'godlygeek/tabular'
+		Plug 'junegunn/vim-easy-align'
 		Plug 'sgeb/vim-diff-fold'
+		Plug 'floobits/floobits-neovim'
+		Plug 'Shougo/vimproc.vim', {'do': 'make'}
+		Plug 'jpalardy/vim-slime'
+		Plug 'Shougo/deoplete.nvim'
 
 		Plug 'elixir-lang/vim-elixir'
 		Plug 'vim-scripts/nxc.vim'
@@ -33,12 +41,12 @@
 		Plug 'idris-hackers/idris-vim'
 		Plug 'weakish/rcshell.vim'
 		Plug 'cespare/vim-toml'
+		Plug 'wavded/vim-stylus'
+		Plug 'derekelkins/agda-vim'
+		Plug 'wlangstroth/vim-racket'
 
 		" Haskell
 		Plug 'eagletmt/ghcmod-vim'
-		Plug 'Shougo/vimproc.vim'
-		Plug 'jpalardy/vim-slime'
-		Plug 'Shougo/deoplete.nvim'
 		Plug 'eagletmt/neco-ghc'
 	" }
 	
@@ -46,7 +54,9 @@
 " }
 
 let g:python_host_prog='/usr/bin/python2'
+let g:python3_host_prog='/usr/bin/python3'
 let mapleader = ','
+let maplocalleader = "\\"
 set nocompatible
 set hidden
 set tabstop=2 shiftwidth=2
@@ -61,13 +71,13 @@ hi LineNr ctermfg=darkgrey
 let g:rust_recommended_style = 0
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
@@ -94,6 +104,10 @@ endfunction
 let g:idris_allow_tabchar = 1
 
 autocmd FileType lua setlocal commentstring=--\ %s
+autocmd BufNewFile,BufRead *.ti set filetype=lua
+autocmd BufNewFile,BufRead *.slua set filetype=lua
+
+set exrc secure
 
 if has('mouse')
 	set mouse=a
