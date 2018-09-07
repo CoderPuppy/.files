@@ -1,6 +1,8 @@
 export PATH=$HOME/.local/bin:$PATH:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 export LD_LIBRARY_PATH=$HOME/.local/lib:$LD_LIBRARY_PATH
 
+export JAVA_HOME=/usr/lib/jvm/default
+
 export SHELL=`which zsh`
 which google-chrome-stable 2>&1 >/dev/null && export BROWSER=google-chrome-stable
 
@@ -19,5 +21,9 @@ source ~/.files/ooc.sh
 export EDITOR=nvim
 #which subl 2>&1 > /dev/null && export EDITOR=subl\ -w
 
+export TERMINAL=st
+
 export SSH_ASKPASS=/usr/lib/ssh/ssh-askpass
 SSH_AUTH_SOCK=/home/cpup/.ssh-agent.sock; export SSH_AUTH_SOCK
+
+export LC_ALL=en_US.UTF-8
