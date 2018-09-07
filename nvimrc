@@ -22,7 +22,8 @@
 		Plug 'w0rp/ale'
 		" Plug 'simnalamburt/vim-mundo'
 		Plug 'mbbill/undotree'
-		" Plug 'godlygeek/tabular'
+		Plug 'godlygeek/tabular'
+		Plug 'junegunn/vim-easy-align'
 		Plug 'floobits/floobits-neovim'
 		Plug 'Shougo/vimproc.vim', {'do': 'make'}
 		Plug 'jpalardy/vim-slime'
