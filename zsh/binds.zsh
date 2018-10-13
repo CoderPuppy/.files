@@ -13,12 +13,9 @@ autoload zkbd
 [[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
 [[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
 
-bindkey ';5D' emacs-backward-word
-bindkey ';5C' emacs-forward-word
 bindkey '^[[1;5D' emacs-backward-word
 bindkey '^[[1;5C' emacs-forward-word
-bindkey '^[[5D' emacs-backward-word
-bindkey '^[[5C' emacs-forward-word
-bindkey '^[OD' emacs-backward-word
-bindkey '^[OC' emacs-forward-word
-bindkey '^[^H' backward-kill-word
+# TODO: wat?
+# bindkey '^[OD' emacs-backward-word
+# bindkey '^[OC' emacs-forward-word
+bindkey '^[^?' backward-kill-word
