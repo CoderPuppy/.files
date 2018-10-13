@@ -32,3 +32,4 @@ export dmenu_colors='-sf \#af865a -sb \#4A3637 -nf \#c0b18b -nb \#1f1f1f'
 export dmenu_opts="-i"
 alias dmenu="dmenu $dmenu_colors $dmenu_opts"
 alias gh=hub
+alias enscript-f1="enscript -fTimes-Roman12 -b '\$D{%Y-%m-%d %H:%M:%S %z}|%H|(\$%/\$=)' --word-wrap --mark-wrapped-lines=arrow -MLetter"
