@@ -79,6 +79,10 @@ set statusline+=%*
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 
+let g:ale_linters = {}
+let g:ale_linters.haskell = ['hdevtools']
+let g:ale_haskell_hdevtools_options = '-g -Wall -g -Wredundant-constraints -g -Wno-tabs -g -Wno-name-shadowing -g -Wno-type-defaults'
+
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 set completeopt=longest,menuone
