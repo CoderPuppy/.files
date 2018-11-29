@@ -12,7 +12,6 @@ for file in $(ls ~/.files/bin); do
 done
 
 echo Creating completion dir
-mkdir ~/.z 2> /dev/null
 mkdir ~/.zcompletion 2> /dev/null
 
 echo Linking files to completion dir

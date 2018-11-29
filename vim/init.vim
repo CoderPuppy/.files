@@ -30,6 +30,7 @@
 		Plug 'Shougo/vimproc.vim', {'do': 'make'}
 		Plug 'jpalardy/vim-slime'
 		Plug 'Shougo/deoplete.nvim'
+		Plug 'rhysd/vim-grammarous'
 
 		Plug 'elixir-lang/vim-elixir'
 		Plug 'vim-scripts/nxc.vim'
