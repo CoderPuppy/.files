@@ -47,7 +47,7 @@
 		Plug 'wlangstroth/vim-racket'
 
 		" Haskell
-		Plug 'eagletmt/ghcmod-vim'
+		" Plug 'eagletmt/ghcmod-vim'
 		Plug 'eagletmt/neco-ghc'
 	" }
 	
