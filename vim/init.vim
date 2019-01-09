@@ -45,6 +45,7 @@
 		Plug 'wavded/vim-stylus'
 		Plug 'derekelkins/agda-vim'
 		Plug 'wlangstroth/vim-racket'
+		Plug 'vito-c/jq.vim'
 
 		" Haskell
 		" Plug 'eagletmt/ghcmod-vim'
