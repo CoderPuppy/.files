@@ -121,6 +121,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <m> <apostrophe> : "′" # prime
 <Multi_key> <m> <asciitilde> <equal> : "≅" # approximately equal to
 <Multi_key> <m> <S> : "∫" # integral
+<Multi_key> <m> <o> <S> : "∮" # line integral
 <Multi_key> <m> <p> <d> : "∂" # partial derivative
 <Multi_key> <m> <d> <e> <l> : "∇" # nabla/del
 
