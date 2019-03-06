@@ -101,6 +101,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <equal> <equal> : "≡"
 
 <Multi_key> <asterisk> <asterisk> : "⋅"
+<Multi_key> <asciicircum> <period> : "˙"
 
 <Multi_key> <l> <o> <z> : "◊"
 
