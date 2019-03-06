@@ -30,11 +30,11 @@ disable() {
 }
 
 case $1 in
-	enable)
+	enable|on)
 		enable
 		;;
 
-	disable)
+	disable|off)
 		disable
 		;;
 
