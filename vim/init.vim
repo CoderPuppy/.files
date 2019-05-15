@@ -10,7 +10,7 @@
 		Plug 'tpope/vim-fugitive'
 		Plug 'tpope/vim-surround'
 		Plug 'tomtom/tcomment_vim'
-		Plug 'Shougo/unite.vim'
+		Plug 'Shougo/denite.nvim'
 		Plug 'gkz/vim-ls'
 		Plug 'terryma/vim-multiple-cursors'
 		Plug 'yamafaktory/lumberjack.vim'
@@ -46,6 +46,11 @@
 		Plug 'derekelkins/agda-vim'
 		Plug 'wlangstroth/vim-racket'
 		Plug 'vito-c/jq.vim'
+		Plug 'fsharp/vim-fsharp', {
+			\ 'for': 'fsharp',
+			\ 'do': 'mark fsautocomplete',
+			\}
+		Plug 'HerringtonDarkholme/yats.vim'
 
 		" Haskell
 		" Plug 'eagletmt/ghcmod-vim'
@@ -95,17 +100,16 @@ let g:ackrg = 'ag --vimgrep --noaffinity --smart-case'
 cnoreabbrev Ag Ack
 cnoreabbrev ag Ack
 
-let g:unite_source_rec_async_command = ['ag', '--hidden', '-g', '', '--nocolor', '--noaffinity']
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-call unite#custom#profile('default', 'context', {'start_insert': 1})
-call unite#custom#source('file_rec/async', 'ignore_globs', ['**/.stack-work/**', '**/node_modules/**', '**/.*.swp', '**/.git/**'])
-
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()
-	imap <buffer> <F5> <Plug>(unite_redraw)
-	nmap <buffer> <Esc> :q<Cr>
-endfunction
+call denite#custom#var('file/rec', 'command', ['ag', '--hidden', '-g', '', '--nocolor', '--noaffinity'])
+call denite#custom#source('file/rec', 'matchers', ['matcher/fuzzy'])
+call denite#custom#source('file/rec', 'sorters', ['sorter/rank'])
+call denite#custom#map('normal', 'k', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('normal', 'l', '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
+call denite#custom#map('normal', '<Esc>', '<denite:quit>', 'noremap')
+call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('_', '<F5>', '<denite:redraw>', 'noremap')
 
 let g:idris_allow_tabchar = 1
 
@@ -157,8 +161,8 @@ end
 	map / <Plug>(easymotion-sn)
 	omap / <Plug>(easymotion-tn)
 
-	nnoremap <C-p> :Unite file_rec/async<cr>
-	nnoremap <C-[> :Unite -quick-match buffer<cr>
+	nnoremap <C-p> :Denite file/rec<cr>
+	nnoremap <C-[> :Denite -quick-match buffer<cr>
 	" nnoremap <C-[> :CtrlPBuffer<CR>
 	
 	nunmap <Esc>
