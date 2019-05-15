@@ -14,11 +14,14 @@ set $AMod Mod1
 set $HOME /home/cpup
 
 workspace 99:C output LVDS1 # media
+# workspace 99:C output VGA1 # media
 workspace 10:A output VIRTUAL6
 workspace 11:I output VIRTUAL6
 workspace 12:T output VIRTUAL6
 
 workspace 20:1 output LVDS1 # games
+# workspace 20:1 output VGA1 # games
+
 workspace 21:2 output VIRTUAL6
 workspace 22:3 output VIRTUAL6
 workspace 23:4 output VIRTUAL6
@@ -27,6 +30,7 @@ workspace 25:6 output VIRTUAL6
 workspace 26:7 output VIRTUAL6
 workspace 27:8 output VIRTUAL6
 workspace 28:9 output LVDS1 # external media
+# workspace 28:9 output VGA1 # external media
 workspace 29:0 output VIRTUAL6
 
 focus_follows_mouse no
