@@ -18,6 +18,7 @@ source ~/.files/python.sh
 source ~/.files/lua.sh
 source ~/.files/ooc.sh
 source ~/.files/dotnet.sh
+source ~/.files/guix.sh
 
 export EDITOR=nvim
 #which subl 2>&1 > /dev/null && export EDITOR=subl\ -w
