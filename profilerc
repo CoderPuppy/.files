@@ -29,3 +29,8 @@ export SSH_ASKPASS=/usr/lib/ssh/ssh-askpass
 SSH_AUTH_SOCK=/home/cpup/.ssh-agent.sock; export SSH_AUTH_SOCK
 
 export LC_ALL=en_US.UTF-8
+
+export SSL_CERT_DIR=/etc/ssl/certs
+export SSL_CERT_FILE=$SSL_CERT_DIR/ca-certificates.crt
+export GIT_SSL_CAINFO=$SSL_CERT_FILE
+export CURL_CA_BUNDLE=$SSL_CERT_FILE
