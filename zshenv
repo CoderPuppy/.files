@@ -4,6 +4,7 @@ source ~/.files/zsh/prompt.zsh
 source ~/.files/zsh/binds.zsh
 source ~/.files/zsh/completion.zsh
 source ~/.files/zsh/z/z.sh
+source ~/.files/zsh/history.zsh
 
 WORDCHARS=''
 
