@@ -7,7 +7,7 @@ echo Linking files to bin dir
 for file in $(ls ~/.files/bin); do
 	if [[ -x ~/.files/bin/$file ]]; then
 		echo Linking ~/bin/$file to ~/.files/bin/$file
-		ln -s ~/.files/bin/$file ~/.local/bin/ 2> /dev/null
+		ln -sT ~/.files/bin/$file ~/.local/bin/$file 2> /dev/null
 	fi
 done
 
@@ -17,7 +17,7 @@ mkdir ~/.zcompletion 2> /dev/null
 echo Linking files to completion dir
 for file in $(ls ~/.files/zsh/completion); do
 	echo Linking ~/.zcompletion/$file to ~/.files/zsh/completion/$file
-	ln -s ~/.files/zsh/completion/$file ~/.zcompletion/ 2> /dev/null
+	ln -sT ~/.files/zsh/completion/$file ~/.zcompletion/$file 2> /dev/null
 done
 
 echo Installing vim-plug
@@ -39,7 +39,6 @@ echo Installing Nodenv
 git clone git://github.com/nodenv/nodenv.git ~/.nodenv
 
 echo Installing Node-Build
-mkdir -p ~/.nodenv/plugins/node-build 2> /dev/null
 git clone git://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
 
 echo Installing Pyenv
@@ -58,16 +57,16 @@ echo Install Lua-Build
 git clone git://github.com/cehoffman/lua-build.git ~/.luaenv/plugins/lua-build
 
 echo Linking config files
-ln -s ~/.files/tmux.conf ~/.tmux.conf 2> /dev/null
-ln -s ~/.files/vim ~/.config/nvim 2> /dev/null
+ln -sT ~/.files/tmux.conf ~/.tmux.conf 2> /dev/null
+ln -sT ~/.files/vim ~/.config/nvim 2> /dev/null
 echo source ~/.files/bashrc > ~/.bashrc 2>/dev/null
-ln -s ~/.files/i3 ~/.i3 2> /dev/null
-ln -s ~/.files/i3/status.conf ~/.i3status.conf 2> /dev/null
-ln -s ~/.files/zshenv ~/.zshenv 2> /dev/null
-ln -s ~/.files/zshrc ~/.zshrc 2> /dev/null
-ln -s ~/.files/xinitrc ~/.xinitrc 2> /dev/null
-ln -s ~/.files/xmodmaprc ~/.xmodmaprc 2> /dev/null
+ln -sT ~/.files/i3 ~/.i3 2> /dev/null
+ln -sT ~/.files/i3/status.conf ~/.i3status.conf 2> /dev/null
+ln -sT ~/.files/zshenv ~/.zshenv 2> /dev/null
+ln -sT ~/.files/zshrc ~/.zshrc 2> /dev/null
+ln -sT ~/.files/xinitrc ~/.xinitrc 2> /dev/null
+ln -sT ~/.files/xmodmaprc ~/.xmodmaprc 2> /dev/null
 mkdir ~/.config 2> /dev/null
-ln -s ~/.files/bspwm ~/.config/bspwm 2> /dev/null
-ln -s ~/.files/XCompose ~/.XCompose 2> /dev/null
-ln -s ~/.files/agignore ~/.agignore 2> /dev/null
+ln -sT ~/.files/bspwm ~/.config/bspwm 2> /dev/null
+ln -sT ~/.files/XCompose ~/.XCompose 2> /dev/null
+ln -sT ~/.files/agignore ~/.agignore 2> /dev/null
