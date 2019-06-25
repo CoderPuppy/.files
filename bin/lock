@@ -1,4 +1,4 @@
 #!/bin/sh
 xset dpms force off
 #i3lock -i "$HOME/Downloads/Lightful arch_1920.png" -b
-i3lock -c 000000 -b -n
+i3lock -c 000000 -b -n || swaylock -c 000000

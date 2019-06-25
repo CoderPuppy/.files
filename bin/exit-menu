@@ -1,12 +1,12 @@
 #!/bin/zsh
 WM_EXIT=${WM_EXIT:-i3-msg exit}
-opt="$( {echo Lock && echo Shutdown && echo Reboot && echo Suspend && echo Logout && echo Hibernate && echo Sleep } | eval "yeganesh -p session-exit -f -- $dmenu_opts $dmenu_colors")" &&
+opt="$( {echo lock && echo shutdown && echo reboot && echo suspend && echo logout && echo hibernate && echo sleep } | $HOME/.guix-profile/bin/rofi -dmenu -p Exit)" &&
 case "$opt" in
-	(Lock) lock;;
-	(Shutdown) systemctl poweroff;;
-	(Reboot) systemctl reboot;;
-	(Suspend) suspend suspend;;
-	(Sleep) suspend hybrid-sleep;;
-	(Logout) eval "$WM_EXIT";;
-	(Hibernate) suspend hibernate;;
+	(lock) $HOME/.files/bin/lock;;
+	(shutdown) systemctl poweroff;;
+	(reboot) systemctl reboot;;
+	(suspend) suspend suspend;;
+	(sleep) suspend hybrid-sleep;;
+	(logout) eval "$WM_EXIT";;
+	(hibernate) suspend hibernate;;
 esac

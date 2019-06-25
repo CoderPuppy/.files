@@ -57,16 +57,20 @@ echo Install Lua-Build
 git clone git://github.com/cehoffman/lua-build.git ~/.luaenv/plugins/lua-build
 
 echo Linking config files
+mkdir ~/.config 2> /dev/null
 ln -sT ~/.files/tmux.conf ~/.tmux.conf 2> /dev/null
 ln -sT ~/.files/vim ~/.config/nvim 2> /dev/null
 echo source ~/.files/bashrc > ~/.bashrc 2>/dev/null
-ln -sT ~/.files/i3 ~/.i3 2> /dev/null
-ln -sT ~/.files/i3/status.conf ~/.i3status.conf 2> /dev/null
+ln -sT ~/.files/i3 ~/.config/i3 2> /dev/null
+mkdir ~/.config/sway 2> /dev/null
+ln -sT ~/.files/sway.conf ~/.config/sway/config 2> /dev/null
+mkdir ~/.config/rofi 2> /dev/null
+ln -sT ~/.files/rofi.conf ~/.config/rofi/config 2> /dev/null
+mkdir ~/.config/mako 2> /dev/null
+ln -sT ~/.files/mako.conf ~/.config/mako/config 2> /dev/null
 ln -sT ~/.files/zshenv ~/.zshenv 2> /dev/null
 ln -sT ~/.files/zshrc ~/.zshrc 2> /dev/null
 ln -sT ~/.files/xinitrc ~/.xinitrc 2> /dev/null
 ln -sT ~/.files/xmodmaprc ~/.xmodmaprc 2> /dev/null
-mkdir ~/.config 2> /dev/null
-ln -sT ~/.files/bspwm ~/.config/bspwm 2> /dev/null
 ln -sT ~/.files/XCompose ~/.XCompose 2> /dev/null
 ln -sT ~/.files/agignore ~/.agignore 2> /dev/null
