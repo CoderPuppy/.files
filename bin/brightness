@@ -2,11 +2,14 @@
 (
 	flock -xn 200 || exit
 
+	# real max = 24242 = 2 * 17 * 23 * 31
+	max=17
+
 	get() {
-		cat /sys/class/backlight/acpi_video0/brightness
+		echo "$(cat /sys/class/backlight/*/brightness) / 2 / 23 / 31" | bc
 	}
 	change() {
-		echo -n
+		echo "$1 * 2 * 23 * 31" | bc > /sys/class/backlight/*/brightness
 	}
 	current=$(get)
 
@@ -25,10 +28,10 @@
 			fi
 			;;
 	esac
-	(( $current > 15 )) && current=15
+	(( $current > $max )) && current=$max
 	(( $current < 0 )) && current=0
 	change $current
-	out="☀ [$(bar 15 $current)]"
+	out="☀ [$(bar $max $current)]"
 	echo "$out"
 	id=/run/user/$(id -u)/$DISPLAY-backlight.notify-id
 	[[ -f $id ]] || echo 0 > $id
