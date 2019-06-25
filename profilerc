@@ -32,6 +32,7 @@ export SSH_AUTH_SOCK=/run/user/$(id -u)/keyring/ssh
 export LC_ALL=en_US.UTF-8
 
 export SSL_CERT_DIR=/etc/ssl/certs
-export SSL_CERT_FILE=$SSL_CERT_DIR/ca-certificates.crt
+[[ -f $SSL_CERT_DIR/ca-certificates.crt ]] && export SSL_CERT_FILE=$SSL_CERT_DIR/ca-certificates.crt
+[[ -f $SSL_CERT_DIR/ca-bundle.crt ]] && export SSL_CERT_FILE=$SSL_CERT_DIR/ca-bundle.crt
 export GIT_SSL_CAINFO=$SSL_CERT_FILE
 export CURL_CA_BUNDLE=$SSL_CERT_FILE
