@@ -26,7 +26,8 @@ export EDITOR=nvim
 export TERMINAL=st
 
 export SSH_ASKPASS=/usr/lib/ssh/ssh-askpass
-SSH_AUTH_SOCK=/home/cpup/.ssh-agent.sock; export SSH_AUTH_SOCK
+mkdir /run/user/$(id -u)/keyring 2>/dev/null
+export SSH_AUTH_SOCK=/run/user/$(id -u)/keyring/ssh
 
 export LC_ALL=en_US.UTF-8
 
