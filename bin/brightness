@@ -5,11 +5,43 @@
 	# real max = 24242 = 2 * 17 * 23 * 31
 	max=17
 
+	# f(i) = x^i ⋅ y + z
+	# x^0 ⋅ y + z = 0
+	# x^1 ⋅ y + z = n
+	# x^17 ⋅ y + z = 24242
+  #
+	# f(0) = 0
+	# y + z = 0
+	# y = -z
+  #
+	# f(1) = f
+	# x ⋅ -z + z = n
+	# z(1 - x) = n
+	# z = n/(1 - x)
+  #
+	# f(i) = x^i ⋅ -z + z
+	# f(i) = z(1 - x^i)
+	# f(i) = n/(1 - x) ⋅ (1 - x^i)
+  #
+	# f(17) = 24242
+	# n/(1 - x) ⋅ (1 - x^17) = 24242
+	# n ⋅ (1 - x^17) = 24242(1 - x)
+	# n - nx^17 = 24242 - 24242x
+	# -nx^17 + 24242x + n - 24242 = 0
+	# nx^17 - 24242x + 24242 - n = 0
+	#
+	# n = 100
+	# x = 1.2836568335833889385
+
+	n=100
+	x=1.2836568335833889385
+	
+
 	get() {
-		echo "$(cat /sys/class/backlight/*/brightness) / 2 / 23 / 31" | bc
+		lua -e "print(math.floor(math.log(1 - $(cat /sys/class/backlight/*/brightness) * (1 - $x)/$n)/math.log($x)))"
 	}
 	change() {
-		echo "$1 * 2 * 23 * 31" | bc > /sys/class/backlight/*/brightness
+		lua -e "print(math.ceil($n/(1 - $x) * (1 - math.pow($x, $1))))" > /sys/class/backlight/*/brightness
 	}
 	current=$(get)
 
