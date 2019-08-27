@@ -74,10 +74,10 @@ super + grave
 	i3-msg '[class="tabbed"]' scratchpad show
 
 Print
-	screenshot
+	screenshot whole
 
 super + Print
-	screenshot -s
+	screenshot sel
 
 super + shift + Print
 	gifify $(rec)

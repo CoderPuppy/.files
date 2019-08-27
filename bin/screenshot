@@ -3,11 +3,26 @@ file="$(date +%F-%T)"
 while [[ -f "$HOME/screenshots/${file}.png" ]]; do
 	file="${file}-"
 done
-maim "$@" "$HOME/screenshots/${file}.png"
+sel="$1"
+if test "x$WAYLAND_DISPLAY" != "x"; then
+	case "$sel" in
+		whole) grim "$HOME/screenshots/${file}.png";;
+		sel) swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp | grim -g - "$HOME/screenshots/${file}.png";;
+	esac
+else
+	case "$sel" in
+		whole) maim "$HOME/screenshots/${file}.png";;
+		sel) maim -s "$HOME/screenshots/${file}.png";;
+	esac
+fi
 e=$?
 if [ $e -ne 0 ]; then
 	exit $e
 fi
 notify-send "Saved ~/screenshots/${file}.png"
-echo -n "$HOME/screenshots/${file}.png" | xclip -i -selection clipboard
+if test "x$WAYLAND_DISPLAY" != "x" ]]; then
+	echo -n "$HOME/screenshots/${file}.png" | wl-copy
+else
+	echo -n "$HOME/screenshots/${file}.png" | xclip -i -selection clipboard
+fi
 echo "$HOME/screenshots/${file}.png"
