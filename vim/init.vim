@@ -17,8 +17,6 @@
 		Plug 'danro/rename.vim'
 		Plug 'Lokaltog/vim-easymotion'
 		Plug 'tfnico/vim-gradle'
-		" Plug 'rking/ag.vim'
-		Plug 'mileszs/ack.vim'
 		" Plug 'scrooloose/syntastic'
 		Plug 'w0rp/ale'
 		" Plug 'simnalamburt/vim-mundo'
@@ -96,20 +94,28 @@ set completeopt=longest,menuone
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#disable_auto_complete = 1
 
-let g:ackrg = 'ag --vimgrep --noaffinity --smart-case'
-cnoreabbrev Ag Ack
-cnoreabbrev ag Ack
-
 call denite#custom#var('file/rec', 'command', ['ag', '--hidden', '-g', '', '--nocolor', '--noaffinity'])
 call denite#custom#source('file/rec', 'matchers', ['matcher/fuzzy'])
 call denite#custom#source('file/rec', 'sorters', ['sorter/rank'])
-call denite#custom#map('normal', 'k', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('normal', 'l', '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
-call denite#custom#map('normal', '<Esc>', '<denite:quit>', 'noremap')
-call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('_', '<F5>', '<denite:redraw>', 'noremap')
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['--smart-case', '--noaffinity', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+command Ag Denite grep
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+	nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
+	nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+	nnoremap <silent><buffer><expr> <Esc> denite#do_map('quit')
+	nnoremap <silent><buffer><expr> <F5> denite#do_map('redraw')
+endfunction
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+function! s:denite_filter_my_settings() abort
+	inoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+	imap <silent><buffer> <Esc> <Plug>(denite_filter_quit)
+endfunction
 
 let g:idris_allow_tabchar = 1
 
@@ -152,7 +158,6 @@ end
 	noremap k j
 	noremap j h
 
-	" nnoremap gp :CtrlP<cr>
 	map hu <Plug>(easymotion-prefix)
 	map hj <Plug>(easymotion-linebackward)
 	map hk <Plug>(easymotion-j)
@@ -161,9 +166,8 @@ end
 	map / <Plug>(easymotion-sn)
 	omap / <Plug>(easymotion-tn)
 
-	nnoremap <C-p> :Denite file/rec<cr>
-	nnoremap <C-[> :Denite -quick-match buffer<cr>
-	" nnoremap <C-[> :CtrlPBuffer<CR>
+	nnoremap <C-p> :Denite -start-filter file/rec<cr>
+	nnoremap <C-[> :Denite buffer<cr>
 	
 	nunmap <Esc>
 	
