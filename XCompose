@@ -136,6 +136,9 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <m> <o> <S> : "∮" # line integral
 <Multi_key> <m> <p> <d> : "∂" # partial derivative
 <Multi_key> <m> <d> <e> <l> : "∇" # nabla/del
+<Multi_key> <m> <s> <s> : "⊂" # strict subset
+<Multi_key> <m> <s> <e> : "⊆" # subset or equal
+<Multi_key> <m> <l> : "ℓ"
 
 <Multi_key> <u> <plus> : "⊎"
 <Multi_key> <bar> <minus> <greater> : "↦"
@@ -150,3 +153,9 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <d> <g> : "°"
 <Multi_key> <c> <m> : "✓"
 <Multi_key> <c> <x> : "✗"
+<Multi_key> <equal> <less> <greater> : "⇔"
+<Multi_key> <minus> <less> <greater> : "↔"
+<Multi_key> <l> <u> <b> : "⊔" # least upper bound
+<Multi_key> <g> <l> <b> : "⊓" # greatest lower bound
+<Multi_key> <o> <period> : "⊙" # circled dot operator
+<Multi_key> <period> <o> : "⊙" # circled dot operator
