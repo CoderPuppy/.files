@@ -15,7 +15,7 @@
 		Plug 'terryma/vim-multiple-cursors'
 		Plug 'yamafaktory/lumberjack.vim'
 		Plug 'danro/rename.vim'
-		Plug 'Lokaltog/vim-easymotion'
+		Plug 'easymotion/vim-easymotion'
 		Plug 'tfnico/vim-gradle'
 		" Plug 'scrooloose/syntastic'
 		Plug 'w0rp/ale'
@@ -29,6 +29,9 @@
 		Plug 'jpalardy/vim-slime'
 		Plug 'Shougo/deoplete.nvim'
 		Plug 'rhysd/vim-grammarous'
+		Plug 'haya14busa/incsearch.vim'
+		Plug 'haya14busa/incsearch-easymotion.vim'
+		Plug 'haya14busa/incsearch-fuzzy.vim'
 
 		Plug 'elixir-lang/vim-elixir'
 		Plug 'vim-scripts/nxc.vim'
@@ -119,6 +122,18 @@ endfunction
 
 let g:idris_allow_tabchar = 1
 
+" set hlsearch
+" let g:incsearch#auto_nohlsearch = 1
+function! s:config_easyfuzzymotion(...) abort
+	return extend(copy({
+	\		'converters': [incsearch#config#fuzzyword#converter()],
+	\		'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+	\		'keymap': {"\<CR>": '<Over>(easymotion)'},
+	\		'is_expr': 0,
+	\		'is_stay': 1
+	\	}), get(a:, 1, {}))
+endfunction
+
 autocmd FileType lua setlocal commentstring=--\ %s
 autocmd BufNewFile,BufRead *.ti set filetype=lua
 autocmd BufNewFile,BufRead *.slua set filetype=lua
@@ -163,8 +178,18 @@ end
 	map hk <Plug>(easymotion-j)
 	map hl <Plug>(easymotion-k)
 	map h; <Plug>(easymotion-lineforward)
-	map / <Plug>(easymotion-sn)
-	omap / <Plug>(easymotion-tn)
+	map /  <Plug>(incsearch-easymotion-/)
+	map ?  <Plug>(incsearch-easymotion-?)
+	map g/ <Plug>(incsearch-easymotion-stay)
+	noremap <silent><expr> z/  incsearch#go(<SID>config_easyfuzzymotion())
+	noremap <silent><expr> z?  incsearch#go(<SID>config_easyfuzzymotion({'command': '?'}))
+	noremap <silent><expr> zg/ incsearch#go(<SID>config_easyfuzzymotion({'is_stay': 1}))
+	" map n <Plug>(incsearch-nohl-n)
+	" map N <Plug>(incsearch-nohl-N)
+	" map * <Plug>(incsearch-nohl-*)
+	" map # <Plug>(incsearch-nohl-#)
+	" map g* <Plug>(incsearch-nohl-g*)
+	" map g# <Plug>(incsearch-nohl-g#)
 
 	nnoremap <C-p> :Denite -start-filter file/rec<cr>
 	nnoremap <C-[> :Denite buffer<cr>
