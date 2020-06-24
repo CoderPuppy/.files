@@ -56,6 +56,9 @@ git clone https://github.com/cehoffman/luaenv.git ~/.luaenv
 echo Install Lua-Build
 git clone git://github.com/cehoffman/lua-build.git ~/.luaenv/plugins/lua-build
 
+echo Install LuaEnv-Luarocks
+git clone git://github.com/xpol/luaenv-luarocks.git ~/.luaenv/plugins/luaenv-luarocks
+
 echo Linking config files
 mkdir ~/.config 2> /dev/null
 ln -sT ~/.files/tmux.conf ~/.tmux.conf 2> /dev/null
