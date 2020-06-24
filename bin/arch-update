@@ -3,7 +3,7 @@ date=`date +%Y.%m.%d-%H:%M`
 sudo sh -c "\
 	btrfs subvolume snapshot / /roots/snaps/$date-preupdate;\
 	curl 'https://www.archlinux.org/mirrorlist/?country=US&protocol=http&protocol=https&ip_version=4&use_mirror_status=on' | sed 's/^#Server/Server/' > /etc/pacman.d/mirrorlist;\
-	pacman -Sy archlinux-keyring
+	pacman -Sy archlinux-keyring;\
 	pacman -Su;\
 	btrfs subvolume snapshot / /roots/snaps/$date-postupdate;\
 "
