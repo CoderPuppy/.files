@@ -10,9 +10,9 @@ client.urgent           #d17b49 #3f1f1f #ffffff #900000
 # $i3-theme-bar
 colors {
 	background #1f1f1f
-	statusline #c0b18b
+	statusline #f0e1bb
 
-	focused_workspace  #af865a #1f1f1f #af865a
-	inactive_workspace #1f1f1f #1f1f1f #c0b18b
+	focused_workspace  #af865a #1f1f1f #dfb68a
+	inactive_workspace #1f1f1f #1f1f1f #e0d1ab
 	urgent_workspace   #d17b49 #1f1f1f #d17b49
 }
