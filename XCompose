@@ -138,6 +138,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <m> <d> <e> <l> : "∇" # nabla/del
 <Multi_key> <m> <s> <s> : "⊂" # strict subset
 <Multi_key> <m> <s> <e> : "⊆" # subset or equal
+<Multi_key> <m> <s> <S> : "⊃" # strict superset
+<Multi_key> <m> <s> <E> : "⊇" # superset or equal
 <Multi_key> <m> <l> : "ℓ"
 
 <Multi_key> <u> <plus> : "⊎"
@@ -155,7 +157,13 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <c> <x> : "✗"
 <Multi_key> <equal> <less> <greater> : "⇔"
 <Multi_key> <minus> <less> <greater> : "↔"
-<Multi_key> <l> <u> <b> : "⊔" # least upper bound
-<Multi_key> <g> <l> <b> : "⊓" # greatest lower bound
+<Multi_key> <s> <u> : "⊔" # least upper bound
+<Multi_key> <s> <a> : "⊓" # greatest lower bound
 <Multi_key> <o> <period> : "⊙" # circled dot operator
 <Multi_key> <period> <o> : "⊙" # circled dot operator
+<Multi_key> <asciicircum> <underscore> : "‾" # overline/overbar
+<Multi_key> <asciicircum> <T> : "ᵀ" # superscript latin capital letter T
+<Multi_key> <underscore> <i> : "ᵢ" # subscript latin small letter i
+<Multi_key> <underscore> <j> : "ⱼ" # subscript latin small letter j
+<Multi_key> <minus> <plus> : "∓" # minus plus
+<Multi_key> <3> <v> <slash> : "∛" # cube root
