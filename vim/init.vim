@@ -2,6 +2,7 @@
 	call plug#begin('~/.local/share/nvim/site/plugged')
 	
 	" Plugins {
+		Plug 'tpope/vim-repeat'
 		Plug 'tpope/vim-unimpaired'
 		" Disabled because I usually don't look at the linenumbers so I can just
 		" use relativenumber
@@ -11,7 +12,6 @@
 		Plug 'tpope/vim-surround'
 		Plug 'tomtom/tcomment_vim'
 		Plug 'Shougo/denite.nvim'
-		Plug 'gkz/vim-ls'
 		Plug 'terryma/vim-multiple-cursors'
 		Plug 'yamafaktory/lumberjack.vim'
 		Plug 'danro/rename.vim'
@@ -52,6 +52,7 @@
 			\ 'do': 'mark fsautocomplete',
 			\}
 		Plug 'HerringtonDarkholme/yats.vim'
+		Plug 'gkz/vim-ls'
 
 		" Haskell
 		" Plug 'eagletmt/ghcmod-vim'
@@ -106,7 +107,7 @@ call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
-command Ag Denite grep
+command! Ag Denite grep
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
 	nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
