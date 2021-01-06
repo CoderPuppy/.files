@@ -161,9 +161,13 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <s> <a> : "⊓" # greatest lower bound
 <Multi_key> <o> <period> : "⊙" # circled dot operator
 <Multi_key> <period> <o> : "⊙" # circled dot operator
+<Multi_key> <o> <plus> : "⊕" # circled plus operator
+<Multi_key> <plus> <o> : "⊕" # circled plus operator
 <Multi_key> <asciicircum> <underscore> : "‾" # overline/overbar
 <Multi_key> <asciicircum> <T> : "ᵀ" # superscript latin capital letter T
 <Multi_key> <underscore> <i> : "ᵢ" # subscript latin small letter i
 <Multi_key> <underscore> <j> : "ⱼ" # subscript latin small letter j
 <Multi_key> <minus> <plus> : "∓" # minus plus
 <Multi_key> <3> <v> <slash> : "∛" # cube root
+<Multi_key> <asciitilde> <greater> : "⇝"
+<Multi_key> <bar> <minus> : "⊢" # right tack (implies)
