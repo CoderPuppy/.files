@@ -38,10 +38,10 @@
 	
 
 	get() {
-		lua -e "print(math.floor(math.log(1 - $(cat /sys/class/backlight/*/brightness) * (1 - $x)/$n)/math.log($x)))"
+		lua -e "print(math.floor(math.log(1 - $(cat /sys/class/backlight/intel_*/brightness) * (1 - $x)/$n)/math.log($x)))"
 	}
 	change() {
-		lua -e "print(math.ceil($n/(1 - $x) * (1 - math.pow($x, $1))))" > /sys/class/backlight/*/brightness
+		lua -e "print(math.ceil($n/(1 - $x) * (1 - math.pow($x, $1))))" > /sys/class/backlight/intel_*/brightness
 	}
 	current=$(get)
 
