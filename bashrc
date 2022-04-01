@@ -1,1 +1,1 @@
-source ~/.files/shellrc
+source ~/.files/simplerc
