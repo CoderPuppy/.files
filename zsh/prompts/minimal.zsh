@@ -90,6 +90,6 @@ right_prompt() {
 
 	spacer ' ]'
 }
- 
+
 PROMPT='%{%f%b%k%}$(left_prompt)'
 RPROMPT='%{%f%b%k%}$(right_prompt)'

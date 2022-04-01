@@ -8,11 +8,11 @@ case $cmd in
 	p|play|pause)
 		$DBUS_BASE PlayPause
 		;;
-	
+
 	l|love)
 		$DBUS_BASE LoveCurrentSong
 		;;
-	
+
 	b|ban|h|hate)
 		$DBUS_BASE BanCurrentSong
 		;;
@@ -24,7 +24,7 @@ case $cmd in
 			$DBUS_BASE GetCurrentSong | grep $1 | sed "s/^$1: //"
 		fi
 		;;
-	
+
 	*)
 		echo "SYNOPSIS"
 		echo "	pithosc p|play|pause"

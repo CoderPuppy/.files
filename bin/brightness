@@ -35,7 +35,7 @@
 
 	n=100
 	x=1.2836568335833889385
-	
+
 
 	get() {
 		lua -e "print(math.floor(math.log(1 - $(cat /sys/class/backlight/*/brightness) * (1 - $x)/$n)/math.log($x)))"
@@ -49,7 +49,7 @@
 		+)
 			current=$(($current + 1))
 			;;
-		
+
 		-)
 			current=$(($current - 1))
 			;;
@@ -64,15 +64,19 @@
 			fi
 			;;
 	esac
+
 	(( $current > $max )) && current=$max
 	(( $current < 0 )) && current=0
 	change $current
+
 	out="☀ [$(bar $max $current)]"
 	echo "$out"
+
 	id=/run/user/$(id -u)/$DISPLAY-backlight.notify-id
 	[[ -f $id ]] || echo 0 > $id
 	ag '^\d' $id > /dev/null || echo 0 > $id
 	notify-send.sh -t 2000 -p -r "$(cat $id)" "$out" > $id
+
 	if [[ $(get) != $current ]]; then
 		echo $(get) $current
 	fi

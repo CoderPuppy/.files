@@ -19,11 +19,11 @@ case $cmd in
 	o|ok)
 		send-cmd rate neutral > /dev/null
 		;;
-	
+
 	l|love)
 		send-cmd rate good > /dev/null
 		;;
-	
+
 	b|ban|h|hate)
 		send-cmd rate bad > /dev/null
 		send-cmd skip > /dev/null
@@ -44,7 +44,7 @@ case $cmd in
 			send-cmd status | ag -i "^\d+ $1: " | tail -n1 | sed -r "s/^[0-9]+ $1: //I"
 		fi
 		;;
-	
+
 	*)
 		echo "SYNOPSIS"
 		echo "	pithosc p|play|pause"
