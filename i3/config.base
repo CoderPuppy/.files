@@ -14,22 +14,22 @@ set $AMod Mod1
 set $HOME /home/cpup
 
 workspace 99:C output eDP-1 # media
-workspace 10:A output HDMI-1
-workspace 11:I output HDMI-1
-workspace 12:T output HDMI-1
+workspace 10:A output HDMI-2
+workspace 11:I output HDMI-2
+workspace 12:T output HDMI-2
 
 workspace 20:1 output eDP-1 # games
 
-workspace 21:2 output HDMI-1
-workspace 22:3 output HDMI-1
-workspace 23:4 output HDMI-1
-workspace 24:5 output HDMI-1
-workspace 25:6 output HDMI-1
-workspace 26:7 output HDMI-1
-workspace 27:8 output HDMI-1
+workspace 21:2 output HDMI-2
+workspace 22:3 output HDMI-2
+workspace 23:4 output HDMI-2
+workspace 24:5 output HDMI-2
+workspace 25:6 output HDMI-2
+workspace 26:7 output HDMI-2
+workspace 27:8 output HDMI-2
 workspace 28:9 output eDP-1 # external media
 # workspace 28:9 output VGA1 # external media
-workspace 29:0 output HDMI-1
+workspace 29:0 output HDMI-2
 
 focus_follows_mouse no
 workspace_auto_back_and_forth yes
@@ -40,7 +40,9 @@ exec $HOME/.files/i3/start
 for_window [window_role="pop-up"] floating enable
 for_window [class="^Xfce4-notifyd$" instance="^xfce4-notifyd$"] floating enable
 for_window [class="google\-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating disable
+for_window [class="google\-chrome" instance="crx_mdpkiolbdkhdjpekfbkbmhigcaggjagi"] floating disable
 assign [class="google\-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] 11:I
+assign [class="google\-chrome" instance="crx_mdpkiolbdkhdjpekfbkbmhigcaggjagi"] 11:I
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -52,12 +54,12 @@ workspace_layout tabbed
 show_marks yes
 
 bar {
-	status_command /bin/luajit $HOME/.files/i3/panel.lua
+	status_command env LUAENV_VERSION=luajit-2.0.5 lua $HOME/.files/i3/panel.lua
 	strip_workspace_numbers yes
 	separator_symbol " "
 	position top
 	font pango:Misc Stlarch 11px
-	tray_output LVDS-1
+	tray_output eDP-1
 
 	# $i3-theme-bar
 }
