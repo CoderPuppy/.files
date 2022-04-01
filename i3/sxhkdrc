@@ -91,7 +91,7 @@ XF86Audio{Raise,Lower}Volume
 	volume {+,-}
 
 XF86AudioMute
-	volume m
+	volume mute=toggle
 
 XF86TouchpadToggle
 	touchpad toggle

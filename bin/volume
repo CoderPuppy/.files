@@ -2,47 +2,61 @@
 (
 flock -en 200 || exit
 
-sink=$(pacmd list-sinks | ag '\* index' | sed 's/^  \* index: //')
-mute=$(pacmd list-sinks | grep -A15 '* index' | ag '^\s*muted: ' | sed 's/^\s*muted:\s*//')
-volume=$(pacmd list-sinks | grep -A15 '* index' | ag '^\s*volume: ' | ag -o '\d+%' | ag -o '\d+' | tail -n1)
-volume=$(($volume / 2))
+sink="@DEFAULT_SINK@"
 
-case $1 in
-	+)
-		volume=$((volume + 1))
-		;;
+for cmd in $@; do
+	case $1 in
+		+)
+			pactl set-sink-volume "$sink" +2%
+			;;
 
-	-)
-		volume=$((volume - 1))
-		;;
+		-)
+			pactl set-sink-volume "$sink" -2%
+			;;
 
-	m)
-		if [[ "$mute" = "yes" ]]; then
-			pacmd set-sink-mute $sink 0
-			mute=no
-		else
-			pacmd set-sink-mute $sink 1
-			mute=yes
-		fi
-		;;
+		mt|mute=toggle|mute-toggle)
+			pactl set-sink-mute "$sink" toggle
+			;;
 
-	*)
-		if [[ "$1" != "" ]]; then
-			volume=$1
-		fi
-		;;
-esac
+		m|mute=true|mute)
+			pactl set-sink-mute "$sink" true
+			;;
+
+		um|mute=false|unmute)
+			pactl set-sink-mute "$sink" false
+			;;
+
+		[0-9]*)
+			pactl set-sink-volume "$sink" "$(("$1" * 2))%"
+			;;
+
+		[+-][0-9]*)
+			pactl set-sink-volume "$sink" "${1%%[0-9]*}$(("${1#[+-]}" * 2))%"
+			;;
+
+		*)
+			echo "Invalid command: $cmd" 1>&2
+	esac
+done
+
+mute="$(pactl get-sink-mute "$sink" | rg -or'$1' '^Mute: (yes|no)$')"
+
+volume="$(("$(pactl get-sink-volume "$sink" | rg -or'$1' '(\d+)%' | tail -n1)" / 2))"
 (( $volume > 50 )) && volume=50
 (( $volume < 0 )) && volume=0
-pactl set-sink-volume $sink $(($volume * 2))%
-out="Volume "
+pactl set-sink-volume "$sink" "$(("$volume" * 2))%"
+
 if [[ "$mute" = "yes" ]]; then
 	out="Muted "
+else
+	out="Volume "
 fi
 out="$out[$(bar 50 $volume)]"
 echo "$out"
+
 id=/run/user/$(id -u)/$DISPLAY-volume.notify-id
 [[ -f $id ]] || echo 0 > $id
-ag '^\d' $id || echo 0 > $id
+rg '^\d' $id > /dev/null || echo 0 > $id
 notify-send.sh -t 2000 -p -r $(cat $id) "$out" > $id
+
 ) 200>/run/user/$(id -u)/$DISPLAY-volume.lock
