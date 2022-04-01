@@ -1,0 +1,22 @@
+#!/bin/bash
+session_id="$(tmux new-session -s xbg -d -c "$HOME" -P -F '#{session_id}')"
+
+ssh_pane_id="$(tmux display-message -t "$session_id" -p '#{pane_id}')"
+tmux send-keys \
+	-t "$(tmux split-window -t "$ssh_pane_id" -d -h -c "$HOME" -P -F '#{pane_id}')" \
+	'print -s pkill -f -- -D4711' Enter
+tmux send-keys -t "$ssh_pane_id" 'ssh -D4711 cpup-dl380g6' Enter
+
+redshift_pane_id="$(tmux new-window -t "$session_id" -d -c "$HOME" -P -F '#{pane_id}')"
+tmux send-keys \
+	-t "$(tmux split-window -t "$redshift_pane_id" -h -b -c "$HOME" -P -F '#{pane_id}')" \
+	'/usr/lib/geoclue-2.0/demos/agent' Enter
+tmux send-keys -t "$redshift_pane_id" \
+	'sleep 1' Enter \
+	'redshift' Enter
+
+tmux send-keys \
+	-t "$(tmux new-window -t "$session_id" -d -c "$HOME" -P -F '#{pane_id}')" \
+	'sudo /var/guix/profiles/per-user/root/current-guix/bin/guix-daemon --build-users-group=guixbuild' Enter
+
+exec tmux attach-session -t "$session_id"

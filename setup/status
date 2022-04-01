@@ -1,0 +1,18 @@
+#!/bin/bash
+session_id="$(tmux new-session -s status -d -c "$HOME" -P -F '#{session_id}')"
+tmux send-keys -t "$session_id" 'sudo htop' Enter
+
+net_pane_id="$(tmux new-window -t "$session_id" -d -c "$HOME" -P -F '#{pane_id}')"
+tmux send-keys -t "$net_pane_id" 'ping 8.8.8.8' Enter
+tmux send-keys \
+	-t "$(tmux split-window -t "$net_pane_id" -h -c "$HOME" -P -F '#{pane_id}')" \
+	'print -s sudo netctl start eth; ' \
+	'print -s sudo netctl switch-to rit; ' \
+	'print -s sudo netctl switch-to park-point-5g; ' \
+	Enter
+
+tmux send-keys \
+	-t "$(tmux new-window -t "$session_id" -d -c "$HOME" -P -F '#{pane_id}')" \
+	'watch -n10 sensors' Enter
+
+exec tmux attach-session -t "$session_id"

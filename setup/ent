@@ -1,0 +1,10 @@
+#!/bin/bash
+dir="/w/my/data/media/video"
+
+session_id="$(tmux new-session -s ent -d -c "$dir" -P -F '#{session_id}')"
+
+tmux send-keys \
+	-t "$(tmux new-window -t "$session_id:99" -d -c "$dir" -P -F '#{pane_id}')" \
+	'print -s google-chrome-stable --user-data-dir=/w/my/data/tmp/chrome-rem --proxy-server=socks5://localhost:4711' Enter
+
+exec tmux attach-session -t "$session_id"
