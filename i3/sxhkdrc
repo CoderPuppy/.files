@@ -102,3 +102,15 @@ XF86ScreenSaver
 XF86Sleep
 	systemctl suspend;\
 	lock
+
+ctrl + space
+	dunstctl close
+
+ctrl + shift + space
+	dunstctl close-all
+
+ctrl + alt + space
+	dunstctl history-pop
+
+ctrl + shift + period
+	dunstctl context
