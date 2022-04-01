@@ -1,5 +1,5 @@
 #!/bin/bash
-file="$(date +%F-%T)"
+file="$(date +%F-%H-%M-%S)"
 while [[ -f "$HOME/screenshots/${file}.png" ]]; do
 	file="${file}-"
 done
