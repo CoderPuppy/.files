@@ -44,6 +44,9 @@ super + Down
 super + Up
 	i3-msg scratchpad show
 
+super + grave
+	i3-msg '[class="tabbed"]' scratchpad show
+
 super + n
 	pkill -USR1 -x sxhkd;\
 	i3-msg reload
@@ -70,9 +73,6 @@ super + shift + d
 super + shift + grave
 	daily-reminder-notify
 
-super + grave
-	i3-msg '[class="tabbed"]' scratchpad show
-
 Print
 	screenshot whole
 
@@ -82,13 +82,16 @@ super + Print
 super + shift + Print
 	gifify $(rec)
 
-# XF86MonBrightness{Up,Down}
-# 	brightness {+,-}
 XF86MonBrightness{Up,Down}
-	sleep 0.1; brightness
+	brightness {+,-}
+# XF86MonBrightness{Up,Down}
+# 	sleep 0.1; brightness
 
 XF86Audio{Raise,Lower}Volume
 	volume {+,-}
+
+XF86Audio{Play,Next,Prev}
+	playerctl {play-pause,next,prev}
 
 XF86AudioMute
 	volume mute=toggle
