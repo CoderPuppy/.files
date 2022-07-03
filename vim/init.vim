@@ -27,8 +27,8 @@
 		Plug 'jpalardy/vim-slime'
 		Plug 'rhysd/vim-grammarous' " grammar checker
 		Plug 'neovim/nvim-lspconfig'
-		Plug 'kyazdani42/nvim-tree.lua' " file tree
 		Plug 'kyazdani42/nvim-web-devicons' " icons for nvim-tree
+		Plug 'kyazdani42/nvim-tree.lua' " file tree
 		Plug 'nvim-treesitter/nvim-treesitter', { 'branch': '0.5-compat' }
 		Plug 'lukas-reineke/indent-blankline.nvim' " indent levels
 		Plug 'kana/vim-textobj-user'
@@ -190,6 +190,7 @@ function! AgdaFileType()
 	nnoremap <buffer> <localleader>e :CornelisTypeContext<CR>
 	nnoremap <buffer> <localleader>n :CornelisSolve<CR>
 	nnoremap <buffer> <localleader>m :CornelisGoals<CR>
+	nnoremap <buffer> <localleader>a :CornelisAuto<CR>
 	nnoremap <buffer> gd        :CornelisGoToDefinition<CR>
 	nnoremap <buffer> [/        :CornelisPrevGoal<CR>
 	nnoremap <buffer> ]/        :CornelisNextGoal<CR>
@@ -230,7 +231,7 @@ endfunction
 	nnoremap <C-p> :Denite -start-filter file/rec<cr>
 	nnoremap <C-[> :Denite buffer<cr>
 
-	nunmap <Esc>
+	" nunmap <Esc>
 
 	" completion stuff?
 	inoremap <expr> <Tab> pumvisible() ? "<C-n>" : "<Tab>"
