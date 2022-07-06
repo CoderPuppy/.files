@@ -22,7 +22,7 @@ done
 
 echo Installing vim-plug
 curl -fLo ~/.files/vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    git@raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # echo Installing Powerline Font
 # mkdir ~/.fonts 2> /dev/null
@@ -36,28 +36,28 @@ curl -fLo ~/.files/vim/autoload/plug.vim --create-dirs \
 # chmod +x ~/bin/nave 2> /dev/null
 
 echo Installing Nodenv
-git clone git://github.com/nodenv/nodenv.git ~/.nodenv
+git clone git@github.com:nodenv/nodenv.git ~/.nodenv
 
 echo Installing Node-Build
-git clone git://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
+git clone git@github.com:nodenv/node-build.git ~/.nodenv/plugins/node-build
 
 echo Installing Pyenv
-git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+git clone git@github.com:yyuu/pyenv.git ~/.pyenv
 
 echo Installing RBEnv
-git clone git://github.com/sstephenson/rbenv ~/.rbenv
+git clone git@github.com:sstephenson/rbenv ~/.rbenv
 
 echo Installing Ruby-Build
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone git@github.com:sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 echo Installing LuaEnv
-git clone https://github.com/cehoffman/luaenv.git ~/.luaenv
+git clone git@github.com:cehoffman/luaenv.git ~/.luaenv
 
 echo Install Lua-Build
-git clone git://github.com/cehoffman/lua-build.git ~/.luaenv/plugins/lua-build
+git clone git@github.com:cehoffman/lua-build.git ~/.luaenv/plugins/lua-build
 
 echo Install LuaEnv-Luarocks
-git clone git://github.com/xpol/luaenv-luarocks.git ~/.luaenv/plugins/luaenv-luarocks
+git clone git@github.com:xpol/luaenv-luarocks.git ~/.luaenv/plugins/luaenv-luarocks
 
 echo Linking config files
 mkdir ~/.config 2> /dev/null
