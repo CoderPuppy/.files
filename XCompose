@@ -426,6 +426,6 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <minus> <minus> <bar> : "⊣" # left tack (adjoint)
 <Multi_key> <braceleft> <braceleft> : "⦃" # left white curly bracket (left curly brace with bar)
 <Multi_key> <braceright> <braceright> : "⦄" # right white curly bracket (right curly brace with bar)
-
 <Multi_key> <less> <Multi_key> : "⟨" # math left angle bracket
 <Multi_key> <greater> <Multi_key> : "⟩" # math right angle bracket
+<Multi_key> <equal> <period> : "≐" # equals with dot above (aka "approaches the limit")
