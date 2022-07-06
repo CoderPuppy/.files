@@ -188,6 +188,7 @@ function! AgdaFileType()
 	nnoremap <buffer> <localleader>e :CornelisTypeContext<CR>
 	nnoremap <buffer> <localleader>n :CornelisSolve<CR>
 	nnoremap <buffer> <localleader>m :CornelisGoals<CR>
+	nnoremap <buffer> <localleader>a :CornelisAuto<CR>
 	nnoremap <buffer> gd        :CornelisGoToDefinition<CR>
 	nnoremap <buffer> [/        :CornelisPrevGoal<CR>
 	nnoremap <buffer> ]/        :CornelisNextGoal<CR>
@@ -228,7 +229,7 @@ endfunction
 	nnoremap <C-p> :Denite -start-filter file/rec<cr>
 	nnoremap <C-[> :Denite buffer<cr>
 
-	nunmap <Esc>
+	" nunmap <Esc>
 
 	" completion stuff?
 	inoremap <expr> <Tab> pumvisible() ? "<C-n>" : "<Tab>"
