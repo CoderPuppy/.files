@@ -16,7 +16,7 @@
 		Plug 'yamafaktory/lumberjack.vim' " colorscheme
 		Plug 'danro/rename.vim' " rename open files
 		" Plug 'scrooloose/syntastic' " live error checking
-		Plug 'w0rp/ale' " live error checking
+		Plug 'dense-analysis/ale' " live error checking
 		" Plug 'simnalamburt/vim-mundo' " undo tree
 		Plug 'mbbill/undotree' " undo tree
 		" Plug 'godlygeek/tabular' " alignment
@@ -27,8 +27,8 @@
 		Plug 'jpalardy/vim-slime'
 		Plug 'rhysd/vim-grammarous' " grammar checker
 		Plug 'neovim/nvim-lspconfig'
-		Plug 'kyazdani42/nvim-tree.lua' " file tree
 		Plug 'kyazdani42/nvim-web-devicons' " icons for nvim-tree
+		Plug 'kyazdani42/nvim-tree.lua' " file tree
 		Plug 'nvim-treesitter/nvim-treesitter', { 'branch': '0.5-compat' }
 		Plug 'lukas-reineke/indent-blankline.nvim' " indent levels
 		Plug 'kana/vim-textobj-user'
@@ -176,8 +176,6 @@ if executable('opam')
 endif
 
 let g:idris_allow_tabchar = 1
-
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 let g:rust_recommended_style = 0
 
