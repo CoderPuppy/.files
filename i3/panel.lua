@@ -11,7 +11,13 @@ print('[')
 local fg_icon = '#775759'
 local fg_urgent = '#d17b49'
 local function icon(icon)
-	return { full_text = icon, color = fg_icon, separator = false, separator_block_width = 4 };
+	return {
+		markup = 'pango';
+		full_text = '<span font_desc="Siji 10">' .. icon .. '</span>';
+		color = fg_icon;
+		separator = false;
+		separator_block_width = 4;
+	};
 end
 
 local function lpad(n, f, s)
