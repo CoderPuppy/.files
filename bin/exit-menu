@@ -1,6 +1,6 @@
-#!/bin/zsh
-WM_EXIT=${WM_EXIT:-i3-msg exit}
-opt="$( {echo lock && echo shutdown && echo reboot && echo suspend && echo logout && echo hibernate && echo sleep } | $HOME/.guix-profile/bin/rofi -dmenu -p Exit)" &&
+#!/bin/bash
+WM_EXIT="${WM_EXIT:-i3-msg exit}"
+opt="$( ( echo lock && echo shutdown && echo reboot && echo suspend && echo logout && echo hibernate && echo sleep ) | $HOME/.guix-profile/bin/rofi -dmenu -p Exit)" &&
 case "$opt" in
 	(lock) $HOME/.files/bin/lock;;
 	(shutdown) systemctl poweroff;;
