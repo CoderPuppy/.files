@@ -63,6 +63,7 @@
 		Plug 'jez/vim-better-sml'
 		Plug 'ziglang/zig.vim'
 		Plug 'tfnico/vim-gradle'
+		Plug 'tikhomirov/vim-glsl'
 	" }
 
 	call plug#end()
