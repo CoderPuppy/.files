@@ -180,6 +180,7 @@ let g:idris_allow_tabchar = 1
 
 let g:rust_recommended_style = 0
 
+autocmd BufNewFile,BufRead *.lagda.md set filetype=agda.markdown
 autocmd FileType agda call AgdaFileType()
 function! AgdaFileType()
 	setlocal expandtab
@@ -187,9 +188,12 @@ function! AgdaFileType()
 	nnoremap <buffer> <localleader>r :CornelisRefine<CR>
 	nnoremap <buffer> <localleader>c :CornelisMakeCase<CR>
 	nnoremap <buffer> <localleader>e :CornelisTypeContext<CR>
-	nnoremap <buffer> <localleader>n :CornelisSolve<CR>
+	nnoremap <buffer> <localleader>E :CornelisTypeContextInfer<CR>
 	nnoremap <buffer> <localleader>m :CornelisGoals<CR>
+	nnoremap <buffer> <localleader>n :CornelisNormalize<CR>
+	nnoremap <buffer> <localleader>s :CornelisSolve<CR>
 	nnoremap <buffer> <localleader>a :CornelisAuto<CR>
+	nnoremap <buffer> <localleader>q :CornelisQuestionToMeta<CR>
 	nnoremap <buffer> gd        :CornelisGoToDefinition<CR>
 	nnoremap <buffer> [/        :CornelisPrevGoal<CR>
 	nnoremap <buffer> ]/        :CornelisNextGoal<CR>
