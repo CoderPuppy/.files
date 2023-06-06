@@ -234,7 +234,7 @@ endfunction
 	nnoremap <C-p> :Denite -start-filter file/rec<cr>
 	nnoremap <C-[> :Denite buffer<cr>
 
-	" nunmap <Esc>
+	nunmap <Esc>
 
 	" completion stuff?
 	inoremap <expr> <Tab> pumvisible() ? "<C-n>" : "<Tab>"
