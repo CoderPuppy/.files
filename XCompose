@@ -371,6 +371,57 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <underscore> <x> : "ₓ" # subscript latin small letter x
 <Multi_key> <underscore> <minus> : "₋" # subscript minus
 
+# Superscripts
+<Multi_key> <asciicircum> <A> : "ᴬ" # superscript latin captial letter A
+<Multi_key> <asciicircum> <B> : "ᴮ" # superscript latin captial letter B
+<Multi_key> <asciicircum> <C> : "ꟲ" # superscript latin captial letter C
+<Multi_key> <asciicircum> <D> : "ᴰ" # superscript latin captial letter D
+<Multi_key> <asciicircum> <E> : "ᴱ" # superscript latin captial letter E
+<Multi_key> <asciicircum> <F> : "ꟳ" # superscript latin captial letter F
+<Multi_key> <asciicircum> <G> : "ᴳ" # superscript latin captial letter G
+<Multi_key> <asciicircum> <H> : "ᴴ" # superscript latin captial letter H
+<Multi_key> <asciicircum> <I> : "ᴵ" # superscript latin captial letter I
+<Multi_key> <asciicircum> <J> : "ᴶ" # superscript latin captial letter J
+<Multi_key> <asciicircum> <K> : "ᴷ" # superscript latin captial letter K
+<Multi_key> <asciicircum> <L> : "ᴸ" # superscript latin captial letter L
+<Multi_key> <asciicircum> <M> : "ᴹ" # superscript latin captial letter M
+<Multi_key> <asciicircum> <N> : "ᴺ" # superscript latin captial letter N
+<Multi_key> <asciicircum> <O> : "ᴼ" # superscript latin captial letter O
+<Multi_key> <asciicircum> <P> : "ᴾ" # superscript latin captial letter P
+<Multi_key> <asciicircum> <Q> : "ꟴ" # superscript latin captial letter Q
+<Multi_key> <asciicircum> <R> : "ᴿ" # superscript latin captial letter R
+<Multi_key> <asciicircum> <T> : "ᵀ" # superscript latin captial letter T
+<Multi_key> <asciicircum> <U> : "ᵁ" # superscript latin captial letter U
+<Multi_key> <asciicircum> <V> : "ⱽ" # superscript latin captial letter V
+<Multi_key> <asciicircum> <W> : "ᵂ" # superscript latin captial letter W
+<Multi_key> <asciicircum> <a> : "ᵃ" # superscript latin small letter a
+<Multi_key> <asciicircum> <b> : "ᵇ" # superscript latin small letter b
+<Multi_key> <asciicircum> <c> : "ᶜ" # superscript latin small letter c
+<Multi_key> <asciicircum> <d> : "ᵈ" # superscript latin small letter d
+<Multi_key> <asciicircum> <e> : "ᵉ" # superscript latin small letter e
+<Multi_key> <asciicircum> <f> : "ᶠ" # superscript latin small letter f
+<Multi_key> <asciicircum> <g> : "ᵍ" # superscript latin small letter g
+<Multi_key> <asciicircum> <h> : "ʰ" # superscript latin small letter h
+<Multi_key> <asciicircum> <i> : "ⁱ" # superscript latin small letter i
+<Multi_key> <asciicircum> <j> : "ʲ" # superscript latin small letter j
+<Multi_key> <asciicircum> <k> : "ᵏ" # superscript latin small letter k
+<Multi_key> <asciicircum> <l> : "ˡ" # superscript latin small letter l
+<Multi_key> <asciicircum> <m> : "ᵐ" # superscript latin small letter m
+<Multi_key> <asciicircum> <n> : "ⁿ" # superscript latin small letter n
+<Multi_key> <asciicircum> <o> : "ᵒ" # superscript latin small letter o
+<Multi_key> <asciicircum> <p> : "ᵖ" # superscript latin small letter p
+<Multi_key> <asciicircum> <q> : "𐞥" # superscript latin small letter q
+<Multi_key> <asciicircum> <r> : "ʳ" # superscript latin small letter r
+<Multi_key> <asciicircum> <s> : "ˢ" # superscript latin small letter s
+<Multi_key> <asciicircum> <t> : "ᵗ" # superscript latin small letter t
+<Multi_key> <asciicircum> <u> : "ᵘ" # superscript latin small letter u
+<Multi_key> <asciicircum> <v> : "ᵛ" # superscript latin small letter v
+<Multi_key> <asciicircum> <w> : "ʷ" # superscript latin small letter w
+<Multi_key> <asciicircum> <x> : "ˣ" # superscript latin small letter x
+<Multi_key> <asciicircum> <y> : "ʸ" # superscript latin small letter y
+<Multi_key> <asciicircum> <z> : "ᶻ" # superscript latin small letter z
+<Multi_key> <asciicircum> <minus> : "⁻" # superscript minus
+
 <Multi_key> <u> <plus> : "⊎"
 <Multi_key> <bar> <minus> <greater> : "↦"
 <Multi_key> <bar> <v> : "↓"
@@ -391,10 +442,6 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <o> <plus> : "⊕" # circled plus operator
 <Multi_key> <plus> <o> : "⊕" # circled plus operator
 <Multi_key> <asciicircum> <underscore> : "‾" # overline/overbar
-<Multi_key> <asciicircum> <minus> : "⁻" # superscript minus
-<Multi_key> <asciicircum> <T> : "ᵀ" # superscript latin capital letter T
-<Multi_key> <asciicircum> <r> : "ʳ" # superscript latin small letter r
-<Multi_key> <asciicircum> <l> : "ˡ" # superscript latin small letter l
 <Multi_key> <minus> <plus> : "∓" # minus plus
 <Multi_key> <3> <v> <slash> : "∛" # cube root
 <Multi_key> <asciitilde> <greater> : "⇝"
