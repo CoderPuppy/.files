@@ -27,16 +27,12 @@
 		Plug 'jpalardy/vim-slime'
 		Plug 'rhysd/vim-grammarous' " grammar checker
 		Plug 'neovim/nvim-lspconfig'
-		Plug 'kyazdani42/nvim-web-devicons' " icons for nvim-tree
-		Plug 'kyazdani42/nvim-tree.lua' " file tree
 		Plug 'nvim-treesitter/nvim-treesitter', { 'branch': '0.5-compat' }
 		Plug 'lukas-reineke/indent-blankline.nvim' " indent levels
 		Plug 'kana/vim-textobj-user'
 		Plug 'neovimhaskell/nvim-hs.vim'
-
-		Plug 'hrsh7th/nvim-cmp' " completion
-		Plug 'hrsh7th/cmp-buffer'
-		Plug 'hrsh7th/cmp-nvim-lsp'
+		Plug 'Shougo/deoplete.nvim'
+		Plug 'scrooloose/nerdtree'
 
 		Plug 'elixir-lang/vim-elixir'
 		Plug 'vim-scripts/nxc.vim'
@@ -131,23 +127,15 @@ function! s:denite_filter_my_settings() abort
 	imap <silent><buffer> <Esc> <Plug>(denite_filter_quit)
 endfunction
 
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#disable_auto_complete = 1
+
+let g:tcomment#commentstring_c = '// %s'
+
 lua << EOF
 	require 'lspconfig'.ocamllsp.setup {}
 	require 'lspconfig'.hls.setup {}
 	require 'lspconfig'.rust_analyzer.setup {}
-
-	local cmp = require'cmp'
-	cmp.setup({
-		mapping = {
-			['<C-y>'] = cmp.mapping.confirm({ select = true }),
-		},
-		sources = {
-			{ name = 'buffer' },
-			{ name = 'nvim_lsp' },
-		}
-	})
-
-	-- TODO: advertise cmp-nvim-lsp capabilities
 
 	require('indent_blankline').setup {
 		enabled = false;
@@ -155,9 +143,6 @@ lua << EOF
 		buftype_exclude = {'terminal'};
 		space_char_blankline = ' ';
 		show_end_of_line = true;
-	}
-
-	require 'nvim-tree'.setup {
 	}
 EOF
 
@@ -200,8 +185,8 @@ endfunction
 	vmap <leader>c gc
 
 	" nvim-tree
-	nnoremap <silent> <leader>n :NvimTreeToggle<cr>
-	nnoremap <silent> <leader>m :NvimTreeFindFile<cr>
+	nnoremap <silent> <leader>n :NERDTreeToggle<cr>
+	nnoremap <silent> <leader>m :NERDTreeFind<cr>
 
 	" Undotree
 	nmap <silent> <leader>u :UndotreeToggle<cr>
