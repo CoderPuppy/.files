@@ -19,7 +19,7 @@
 		Plug 'dense-analysis/ale' " live error checking
 		" Plug 'simnalamburt/vim-mundo' " undo tree
 		Plug 'mbbill/undotree' " undo tree
-		" Plug 'godlygeek/tabular' " alignment
+		Plug 'godlygeek/tabular' " alignment
 		" Plug 'junegunn/vim-easy-align' " alignment
 		Plug 'CoderPuppy/vim-diff-fold' " folding for diffs
 		" Plug 'floobits/floobits-neovim' " realtime collaboration
@@ -63,6 +63,7 @@
 		Plug 'jez/vim-better-sml'
 		Plug 'ziglang/zig.vim'
 		Plug 'tfnico/vim-gradle'
+		Plug 'dylon/vim-antlr'
 	" }
 
 	call plug#end()
@@ -107,6 +108,7 @@ hi LineNr ctermfg=darkgrey
 let g:ale_linters = {}
 let g:ale_linters.haskell = ['hdevtools']
 let g:ale_haskell_hdevtools_options = '-g -Wall -g -Wredundant-constraints -g -Wno-tabs -g -Wno-name-shadowing -g -Wno-type-defaults'
+let g:ale_linters.python = ['mypy', 'pylint']
 
 call denite#custom#var('file/rec', 'command', ['ag', '--hidden', '-g', '', '--nocolor', '--noaffinity'])
 call denite#custom#source('file/rec', 'matchers', ['matcher/fuzzy'])
@@ -227,7 +229,7 @@ endfunction
 		\ ? "<CR>?<C-r>/" : "<S-Tab>"
 
 	nnoremap <C-p> :Denite -start-filter file/rec<cr>
-	nnoremap <C-[> :Denite buffer<cr>
+	" nnoremap <C-[> :Denite buffer<cr>
 
 	" nunmap <Esc>
 
