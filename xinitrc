@@ -1,5 +1,6 @@
 #!/bin/sh
 
+systemctl --user --no-block start ssh-agent
 source ~/.files/profilerc
 #-xrandr-autoconfig &
 # xset dpms 0 0 900

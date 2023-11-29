@@ -335,7 +335,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <m> <i> <n> : "∩" # intersect, set conjunction
 <Multi_key> <m> <o> <r> : "∨" # or, boolean disjunction
 <Multi_key> <m> <a> <n> : "∧" # and, boolean conjunction
-<Multi_key> <m> <n> <t> : "¬" # not, negation
+<Multi_key> <m> <n> <t> : "¬" # not, negation (see also <Multi_key> <comma> <minus>)
 <Multi_key> <m> <b> <t> : "⊥" # false, bottom type
 <Multi_key> <m> <t> <t> : "⊤" # true, top type
 <Multi_key> <m> <c> <o> : "○" # compose
@@ -362,41 +362,22 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <underscore> <i> : "ᵢ" # subscript latin small letter i
 <Multi_key> <underscore> <j> : "ⱼ" # subscript latin small letter j
 <Multi_key> <underscore> <k> : "ₖ" # subscript latin small letter k
+<Multi_key> <underscore> <l> : "ₗ" # subscript latin small letter l
 <Multi_key> <underscore> <m> : "ₘ" # subscript latin small letter m
 <Multi_key> <underscore> <n> : "ₙ" # subscript latin small letter n
 <Multi_key> <underscore> <o> : "ₒ" # subscript latin small letter o
 <Multi_key> <underscore> <p> : "ₚ" # subscript latin small letter p
+<Multi_key> <underscore> <r> : "ᵣ" # subscript latin small letter r
 <Multi_key> <underscore> <s> : "ₛ" # subscript latin small letter s
 <Multi_key> <underscore> <t> : "ₜ" # subscript latin small letter t
+<Multi_key> <underscore> <v> : "ᵥ" # subscript latin small letter v
 <Multi_key> <underscore> <x> : "ₓ" # subscript latin small letter x
 <Multi_key> <underscore> <minus> : "₋" # subscript minus
 
 # Superscripts
-<Multi_key> <asciicircum> <A> : "ᴬ" # superscript latin captial letter A
-<Multi_key> <asciicircum> <B> : "ᴮ" # superscript latin captial letter B
-<Multi_key> <asciicircum> <C> : "ꟲ" # superscript latin captial letter C
-<Multi_key> <asciicircum> <D> : "ᴰ" # superscript latin captial letter D
-<Multi_key> <asciicircum> <E> : "ᴱ" # superscript latin captial letter E
-<Multi_key> <asciicircum> <F> : "ꟳ" # superscript latin captial letter F
-<Multi_key> <asciicircum> <G> : "ᴳ" # superscript latin captial letter G
-<Multi_key> <asciicircum> <H> : "ᴴ" # superscript latin captial letter H
-<Multi_key> <asciicircum> <I> : "ᴵ" # superscript latin captial letter I
-<Multi_key> <asciicircum> <J> : "ᴶ" # superscript latin captial letter J
-<Multi_key> <asciicircum> <K> : "ᴷ" # superscript latin captial letter K
-<Multi_key> <asciicircum> <L> : "ᴸ" # superscript latin captial letter L
-<Multi_key> <asciicircum> <M> : "ᴹ" # superscript latin captial letter M
-<Multi_key> <asciicircum> <N> : "ᴺ" # superscript latin captial letter N
-<Multi_key> <asciicircum> <O> : "ᴼ" # superscript latin captial letter O
-<Multi_key> <asciicircum> <P> : "ᴾ" # superscript latin captial letter P
-<Multi_key> <asciicircum> <Q> : "ꟴ" # superscript latin captial letter Q
-<Multi_key> <asciicircum> <R> : "ᴿ" # superscript latin captial letter R
-<Multi_key> <asciicircum> <T> : "ᵀ" # superscript latin captial letter T
-<Multi_key> <asciicircum> <U> : "ᵁ" # superscript latin captial letter U
-<Multi_key> <asciicircum> <V> : "ⱽ" # superscript latin captial letter V
-<Multi_key> <asciicircum> <W> : "ᵂ" # superscript latin captial letter W
 <Multi_key> <asciicircum> <a> : "ᵃ" # superscript latin small letter a
 <Multi_key> <asciicircum> <b> : "ᵇ" # superscript latin small letter b
-<Multi_key> <asciicircum> <c> : "ᶜ" # superscript latin small letter c
+<Multi_key> <asciicircum> <c> : "ᶜ" # superscript latin small letter c, modifier letter small c
 <Multi_key> <asciicircum> <d> : "ᵈ" # superscript latin small letter d
 <Multi_key> <asciicircum> <e> : "ᵉ" # superscript latin small letter e
 <Multi_key> <asciicircum> <f> : "ᶠ" # superscript latin small letter f
@@ -420,6 +401,28 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <asciicircum> <x> : "ˣ" # superscript latin small letter x
 <Multi_key> <asciicircum> <y> : "ʸ" # superscript latin small letter y
 <Multi_key> <asciicircum> <z> : "ᶻ" # superscript latin small letter z
+<Multi_key> <asciicircum> <A> : "ᴬ" # superscript latin capital letter a
+<Multi_key> <asciicircum> <B> : "ᴮ" # superscript latin capital letter b
+<Multi_key> <asciicircum> <C> : "ꟲ" # superscript latin capital letter c
+<Multi_key> <asciicircum> <D> : "ᴰ" # superscript latin capital letter d
+<Multi_key> <asciicircum> <E> : "ᴱ" # superscript latin capital letter e
+<Multi_key> <asciicircum> <F> : "ꟳ" # superscript latin capital letter f
+<Multi_key> <asciicircum> <G> : "ᴳ" # superscript latin capital letter g
+<Multi_key> <asciicircum> <H> : "ᴴ" # superscript latin capital letter h
+<Multi_key> <asciicircum> <I> : "ᴵ" # superscript latin capital letter i
+<Multi_key> <asciicircum> <J> : "ᴶ" # superscript latin capital letter j
+<Multi_key> <asciicircum> <K> : "ᴷ" # superscript latin capital letter k
+<Multi_key> <asciicircum> <L> : "ᴸ" # superscript latin capital letter l
+<Multi_key> <asciicircum> <M> : "ᴹ" # superscript latin capital letter m
+<Multi_key> <asciicircum> <N> : "ᴺ" # superscript latin capital letter n
+<Multi_key> <asciicircum> <O> : "ᴼ" # superscript latin capital letter o
+<Multi_key> <asciicircum> <P> : "ᴾ" # superscript latin capital letter p
+<Multi_key> <asciicircum> <Q> : "ꟴ" # superscript latin capital letter q
+<Multi_key> <asciicircum> <R> : "ᴿ" # superscript latin capital letter r
+<Multi_key> <asciicircum> <T> : "ᵀ" # superscript latin capital letter t
+<Multi_key> <asciicircum> <U> : "ᵁ" # superscript latin capital letter u
+<Multi_key> <asciicircum> <V> : "ⱽ" # superscript latin capital letter v
+<Multi_key> <asciicircum> <W> : "ᵂ" # superscript latin capital letter w
 <Multi_key> <asciicircum> <minus> : "⁻" # superscript minus
 
 <Multi_key> <u> <plus> : "⊎"
@@ -435,8 +438,8 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <c> <x> : "✗"
 <Multi_key> <equal> <less> <greater> : "⇔"
 <Multi_key> <minus> <less> <greater> : "↔"
-<Multi_key> <s> <u> : "⊔" # least upper bound
-<Multi_key> <s> <a> : "⊓" # greatest lower bound
+<Multi_key> <s> <u> <n> : "⊔" # least upper bound / square cup
+<Multi_key> <s> <i> <n> : "⊓" # greatest lower bound / square cap
 <Multi_key> <o> <period> : "⊙" # circled dot operator
 <Multi_key> <period> <o> : "⊙" # circled dot operator
 <Multi_key> <o> <plus> : "⊕" # circled plus operator
@@ -453,8 +456,9 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <x> <o> : "⊗" # circled times
 <Multi_key> <o> <x> : "⊗" # circled times
 <Multi_key> <p> <i> : "π"
-<Multi_key> <asciitilde> <equal> : "≈"
-<Multi_key> <equal> <asciitilde> : "≈"
+<Multi_key> <asciitilde> <asciitilde> : "≈"
+<Multi_key> <equal> <asciitilde> : "≃"
+<Multi_key> <asciitilde> <equal> : "≃"
 <Multi_key> <equal> <equal> <equal> : "≡"
 <Multi_key> <equal> <equal> <slash> : "≢"
 <Multi_key> <equal> <equal> <asciitilde> : "≅"
@@ -476,3 +480,25 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <less> <Multi_key> : "⟨" # math left angle bracket
 <Multi_key> <greater> <Multi_key> : "⟩" # math right angle bracket
 <Multi_key> <equal> <period> : "≐" # equals with dot above (aka "approaches the limit")
+<Multi_key> <bracketleft> <bracketleft> : "⟦" # mathematical left white square bracket (left square bracket with bar)
+<Multi_key> <bracketright> <bracketright> : "⟧" # mathematical right white square bracket (right square bracket with bar)
+<Multi_key> <m> <c> <u> <o> : "⋎" # curly or
+<Multi_key> <m> <c> <u> <a> : "⋏" # curly and
+<Multi_key> <d> <i> <a> : "◇" # diamond
+<Multi_key> <bar> <bar> : "∥" # parallel to, double bar, used for propositional truncation
+<Multi_key> <n> <s> <u> <m> : "∑" # n-ary summation
+<Multi_key> <n> <p> <r> : "∏" # n-ary product
+<Multi_key> <n> <o> <r> : "⋁" # n-ary logical or
+<Multi_key> <n> <a> <n> : "⨉" # n-ary times
+<Multi_key> <n> <x> <x> : "⨉" # n-ary times
+<Multi_key> <n> <u> <n> : "⋃" # n-ary union
+<Multi_key> <n> <i> <n> : "⋂" # n-ary intersection
+<Multi_key> <n> <s> <i> <n> : "⨅" # n-ary square intersection
+<Multi_key> <n> <s> <u> <n> : "⨆" # n-ary square union
+<Multi_key> <n> <u> <plus> : "⨄" # n-ary union with plus
+<Multi_key> <n> <u> <period> : "⨃" # n-ary union with dot
+<Multi_key> <n> <o> <x> : "⨂" # n-ary circled times
+<Multi_key> <n> <o> <period> : "⨀" # n-ary circled dot
+<Multi_key> <n> <o> <plus> : "⨁" # n-ary circled plus
+<Multi_key> <n> <c> <o> <p> : "⨆" # n-ary coproduct
+<Multi_key> <bar> <greater> : "▹" # white right-pointing small triangle

@@ -58,7 +58,8 @@ bar {
 	strip_workspace_numbers yes
 	separator_symbol " "
 	position top
-	font pango:Misc Stlarch 11px
+	font pango:Fira Code 11px
+	# font -wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1
 	tray_output eDP-1
 
 	# $i3-theme-bar

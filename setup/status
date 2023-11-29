@@ -7,7 +7,7 @@ tmux send-keys -t "$net_pane_id" 'ping 8.8.8.8' Enter
 tmux send-keys \
 	-t "$(tmux split-window -t "$net_pane_id" -h -c "$HOME" -P -F '#{pane_id}')" \
 	'print -s sudo netctl start eth; ' \
-	'print -s sudo netctl switch-to rit; ' \
+	'print -s sudo netctl switch-to eduroam-rit; ' \
 	'print -s sudo netctl switch-to park-point-5g; ' \
 	Enter
 

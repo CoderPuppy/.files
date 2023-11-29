@@ -5,7 +5,7 @@ ssh_pane_id="$(tmux display-message -t "$session_id" -p '#{pane_id}')"
 tmux send-keys \
 	-t "$(tmux split-window -t "$ssh_pane_id" -d -h -c "$HOME" -P -F '#{pane_id}')" \
 	'print -s pkill -f -- -D4711' Enter
-tmux send-keys -t "$ssh_pane_id" 'ssh -D4711 cpup-dl380g6' Enter
+tmux send-keys -t "$ssh_pane_id" 'ssh -D4711 cpup-pablo' Enter
 
 redshift_pane_id="$(tmux new-window -t "$session_id" -d -c "$HOME" -P -F '#{pane_id}')"
 tmux send-keys \
