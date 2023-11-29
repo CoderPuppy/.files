@@ -121,8 +121,7 @@ export PATH="$HOME/.cabal/bin:$PATH"
 	}
 }
 
-# ruby
-{
+{ # ruby
 	export PATH="$HOME/.rbenv/bin:$PATH:$HOME/.gem:$HOME/.gem/ruby/2.3.0/bin"
 	export PATH="$HOME/.rbenv/shims:${PATH}"
 	export RBENV_SHELL=zsh
@@ -140,6 +139,10 @@ export PATH="$HOME/.cabal/bin:$PATH"
 			command rbenv "$command" "$@";;
 		esac
 	}
+}
+
+{ # rust
+	export PATH="$HOME/.cargo/bin:$PATH"
 }
 
 mcd() {
