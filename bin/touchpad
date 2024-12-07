@@ -1,6 +1,6 @@
 #!/bin/bash
-id=`xinput list | ag -o 'TouchPad\s*id\=[0-9]+' | ag -o '[0-9]+'`
-if xinput list-props $id | ag 'Device Enabled \([0-9]+\):\s*1' > /dev/null; then
+id=`xinput list | rg -o 'TouchPad\s*id\=[0-9]+' | rg -o '[0-9]+'`
+if xinput list-props $id | rg 'Device Enabled \([0-9]+\):\s*1' > /dev/null; then
 	enabled=on
 else
 	enabled=off
