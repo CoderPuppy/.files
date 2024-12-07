@@ -170,6 +170,7 @@ autocmd FileType lua setlocal commentstring=--\ %s
 autocmd BufNewFile,BufRead *.ti setlocal filetype=lua
 autocmd BufNewFile,BufRead *.slua setlocal filetype=lua
 autocmd FileType sml setlocal tabstop=3 softtabstop=3 shiftwidth=3 textwidth=0
+autocmd BufNewFile,BufRead *.nasm setlocal filetype=nasm
 
 " load Merlin for OCaml if available
 if executable('opam')
