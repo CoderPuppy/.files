@@ -72,10 +72,10 @@
 	out="☀ [$(bar $max $current)]"
 	echo "$out"
 
-	id=/run/user/$(id -u)/$DISPLAY-backlight.notify-id
-	[[ -f $id ]] || echo 0 > $id
-	ag '^\d' $id > /dev/null || echo 0 > $id
-	notify-send.sh -t 2000 -p -r "$(cat $id)" "$out" > $id
+	dunstify "☀ Brightness ☀" \
+		-t 2000 \
+		-h string:x-canonical-private-synchronous:brightness \
+		-h int:value:"$(lua -e "print(math.floor($current/$max * 100))")"
 
 	if [[ $(get) != $current ]]; then
 		echo $(get) $current
