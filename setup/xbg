@@ -19,4 +19,8 @@ tmux send-keys \
 	-t "$(tmux new-window -t "$session_id" -d -c "$HOME" -P -F '#{pane_id}')" \
 	'sudo /var/guix/profiles/per-user/root/current-guix/bin/guix-daemon --build-users-group=guixbuild' Enter
 
+tmux send-keys \
+	-t "$(tmux new-window -t "$session_id" -d -c "$HOME" -P -F '#{pane_id}')" \
+	'picom' Enter
+
 exec tmux attach-session -t "$session_id"

@@ -8,7 +8,8 @@ tmux send-keys \
 	-t "$(tmux split-window -t "$net_pane_id" -h -c "$HOME" -P -F '#{pane_id}')" \
 	'print -s sudo netctl start eth; ' \
 	'print -s sudo netctl switch-to eduroam-rit; ' \
-	'print -s sudo netctl switch-to park-point-5g; ' \
+	'print -s sudo netctl switch-to home-wifi-5g; ' \
+	'print -s sudo netctl switch-to culver-5g; ' \
 	Enter
 
 tmux send-keys \
