@@ -295,7 +295,9 @@ do -- battery
 				local line = h:read('*l')
 				if not line then break end
 				local k, v = line:match('^POWER_SUPPLY_([^=]+)=(.*)$')
-				t[k:lower()] = v
+				if k then
+					t[k:lower()] = v
+				end
 			end
 			h:close()
 
