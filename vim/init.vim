@@ -29,7 +29,7 @@
 		Plug 'neovim/nvim-lspconfig'
 		Plug 'kyazdani42/nvim-web-devicons' " icons for nvim-tree
 		Plug 'kyazdani42/nvim-tree.lua' " file tree
-		Plug 'nvim-treesitter/nvim-treesitter', { 'branch': '0.5-compat' }
+		Plug 'nvim-treesitter/nvim-treesitter'
 		Plug 'lukas-reineke/indent-blankline.nvim' " indent levels
 		Plug 'kana/vim-textobj-user'
 		Plug 'neovimhaskell/nvim-hs.vim'
@@ -150,12 +150,16 @@ lua << EOF
 
 	-- TODO: advertise cmp-nvim-lsp capabilities
 
-	require('indent_blankline').setup {
+	require('ibl').setup {
 		enabled = false;
-		char = '│';
-		buftype_exclude = {'terminal'};
-		space_char_blankline = ' ';
-		show_end_of_line = true;
+		indent = {
+			char = '│';
+		};
+		exclude = {
+			buftypes = {'terminal'};
+		};
+		-- space_char_blankline = ' ';
+		-- show_end_of_line = true;
 	}
 
 	require 'nvim-tree'.setup {
