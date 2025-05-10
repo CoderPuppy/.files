@@ -331,6 +331,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <m> <e> <q> : "∃" # existential quantification
 <Multi_key> <m> <e> <l> : "∈" # membership, element
 <Multi_key> <m> <slash> <e> <l> : "∉"
+<Multi_key> <m> <h> <a> <s> : "∋"
 <Multi_key> <m> <u> <n> : "∪" # union, set disjunction
 <Multi_key> <m> <i> <n> : "∩" # intersect, set conjunction
 <Multi_key> <m> <o> <r> : "∨" # or, boolean disjunction
@@ -338,7 +339,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <m> <n> <t> : "¬" # not, negation (see also <Multi_key> <comma> <minus>)
 <Multi_key> <m> <b> <t> : "⊥" # false, bottom type
 <Multi_key> <m> <t> <t> : "⊤" # true, top type
-<Multi_key> <m> <c> <o> : "○" # compose
+<Multi_key> <m> <c> <o> : "○" # compose, white circle
 <Multi_key> <m> <apostrophe> : "′" # prime
 <Multi_key> <m> <asciitilde> <equal> : "≅" # approximately equal to
 <Multi_key> <m> <S> : "∫" # integral
@@ -451,7 +452,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <minus> <minus> : "⊢" # right tack (implies), turnstile
 <Multi_key> <equal> <less> <equal> : "⟸" # long leftwards double arrow
 <Multi_key> <less> <bar> <equal> : "⊴"
-<Multi_key> <bar> <bar> <v> : "⇓" # downwards double arrow
+<Multi_key> <bar> <v> <bar> : "⇓" # downwards double arrow
 <Multi_key> <e> <l> <l> : "ℓ" # script small l (ell) (see also above)
 <Multi_key> <x> <o> : "⊗" # circled times
 <Multi_key> <o> <x> : "⊗" # circled times
@@ -504,3 +505,31 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <bar> <greater> : "▹" # white right-pointing small triangle
 <Multi_key> <p> <a> <r> : "⅋" # turned ampersand, par
 <Multi_key> <e> <o> <p> : "∎" # end of proof
+<Multi_key> <bracketleft> <less> : "⊏" # square image of
+<Multi_key> <bracketleft> <equal> : "⊑" # square image of or equal to
+<Multi_key> <slash> <bracketleft> <equal> : "⋢" # not square image of or equal to
+<Multi_key> <bracketright> <greater> : "⊐" # square original of
+<Multi_key> <bracketright> <equal> : "⊒" # square original of or equal to
+<Multi_key> <slash> <bracketright> <equal> : "⋣" # not square original of or equal to
+<Multi_key> <l> <k> : "🔒" # closed lock, locked
+<Multi_key> <u> <l> <k> : "🔓" # open lock, unlocked
+<Multi_key> <c> <c> : "●" # black circle, closed circle
+<Multi_key> <underscore> <bar> <bar> : "⫫" # double up tack
+<Multi_key> <f> <ampersand> : "⅋"
+
+<Multi_key> <minus> <Up> : "↑" # upwards arrow, north arrow
+<Multi_key> <minus> <Down> : "↓" # downwards arrow, south arrow
+<Multi_key> <minus> <Left> : "←" # leftwards arrow, west arrow
+<Multi_key> <minus> <Right> : "→" # rightwards arrow, east arrow
+<Multi_key> <Left> <minus> <Right> : "↔" # # left right arrow, east-west arrow
+<Multi_key> <Down> <minus> <Up> : "↕" # up down arrow, north-south arrow
+<Multi_key> <backslash> <Up> : "↖" # north west arrow
+<Multi_key> <backslash> <Left> : "↖" # north west arrow
+<Multi_key> <slash> <Up> : "↗" # north east arrow
+<Multi_key> <slash> <Right> : "↗" # north east arrow
+<Multi_key> <backslash> <Right> : "↘" # south east arrow
+<Multi_key> <backslash> <Down> : "↘" # south east arrow
+<Multi_key> <slash> <Left> : "↙" # south west arrow
+<Multi_key> <slash> <Down> : "↙" # south west arrow
+
+<Multi_key> <plus> <1> : "👍"

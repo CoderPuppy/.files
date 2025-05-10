@@ -29,7 +29,7 @@
 		Plug 'neovim/nvim-lspconfig'
 		Plug 'kyazdani42/nvim-web-devicons' " icons for nvim-tree
 		Plug 'kyazdani42/nvim-tree.lua' " file tree
-		Plug 'nvim-treesitter/nvim-treesitter', { 'branch': '0.5-compat' }
+		Plug 'nvim-treesitter/nvim-treesitter'
 		Plug 'lukas-reineke/indent-blankline.nvim' " indent levels
 		Plug 'kana/vim-textobj-user'
 		Plug 'neovimhaskell/nvim-hs.vim'
@@ -154,7 +154,7 @@ lua << EOF
 
 	require('ibl').setup {
 		enabled = false;
-		scope = {
+		indent = {
 			char = '│';
 		};
 		exclude = {
@@ -172,6 +172,7 @@ autocmd FileType lua setlocal commentstring=--\ %s
 autocmd BufNewFile,BufRead *.ti setlocal filetype=lua
 autocmd BufNewFile,BufRead *.slua setlocal filetype=lua
 autocmd FileType sml setlocal tabstop=3 softtabstop=3 shiftwidth=3 textwidth=0
+autocmd BufNewFile,BufRead *.nasm setlocal filetype=nasm
 
 " load Merlin for OCaml if available
 if executable('opam')
@@ -239,8 +240,6 @@ endfunction
 
 	nnoremap <C-p> :Denite -start-filter file/rec<cr>
 	" nnoremap <C-[> :Denite buffer<cr>
-
-	nunmap <Esc>
 
 	" completion stuff?
 	inoremap <expr> <Tab> pumvisible() ? "<C-n>" : "<Tab>"

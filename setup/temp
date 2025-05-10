@@ -7,7 +7,7 @@ tmux send-keys \
 	'print -s brightness 5; ' \
 	'print -s brightness max; ' \
 	'print -s "volume 5; volume m"; ' \
-	'print -s "xrandr --output HDMI-2 --mode 1920x1200 --right-of eDP-1; xrandr --output eDP-1 --pos 0x120"; ' \
+	'print -s "xrandr --output HDMI-2 --mode 1920x1200 --left-of eDP-1; xrandr --output eDP-1 --pos 1920x120"; ' \
 	'print -s "xrandr --output HDMI-2 --off"; ' \
 	Enter \
 	'sudo udevadm control --reload; sudo udevadm trigger; sleep 2; xmodmap ~/.xmodmaprc; sudo tlp setcharge 60 70' Enter
