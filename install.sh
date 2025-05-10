@@ -65,8 +65,7 @@ ln -sT ~/.files/tmux.conf ~/.tmux.conf 2> /dev/null
 ln -sT ~/.files/vim ~/.config/nvim 2> /dev/null
 echo source ~/.files/bashrc > ~/.bashrc 2>/dev/null
 ln -sT ~/.files/i3 ~/.config/i3 2> /dev/null
-mkdir ~/.config/sway 2> /dev/null
-ln -sT ~/.files/sway.conf ~/.config/sway/config 2> /dev/null
+ln -sT ~/.files/sway ~/.config/sway 2> /dev/null
 mkdir ~/.config/dunst 2> /dev/null
 ln -sT ~/.files/dunstrc ~/.files/dunstrc 2> /dev/null
 mkdir ~/.config/rofi 2> /dev/null

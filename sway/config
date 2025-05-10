@@ -1,0 +1,179 @@
+set $HOME /home/cpup
+set $GUIX $HOME/.guix-profile
+
+output eDP-1 {
+	mode 2880x1800@60Hz
+	scale 1.5
+	pos 1920 0
+}
+
+output "Hewlett Packard HP LP2475w CNC0510PV3" {
+	mode 1920x1200@60Hz
+	scale 1
+	pos 0 0
+}
+
+workspace 99:C output eDP-1
+workspace 10:A output HDMI-A-1
+workspace 11:I output HDMI-A-1
+workspace 12:T output HDMI-A-1
+
+workspace 20:1 output eDP-1
+
+workspace 21:2 output HDMI-A-1
+workspace 22:3 output HDMI-A-1
+workspace 23:4 output HDMI-A-1
+workspace 24:5 output HDMI-A-1
+workspace 25:6 output HDMI-A-1
+workspace 26:7 output HDMI-A-1
+workspace 27:8 output HDMI-A-1
+workspace 28:9 output eDP-1
+workspace 29:0 output HDMI-A-1
+
+focus_follows_mouse no
+workspace_auto_back_and_forth yes
+workspace_layout tabbed
+
+# exec mako
+# exec REMIND_INSTANT=0 rem -z -k'notify-send -t 86400000 %s'
+exec dunst -config $HOME/.config/i3/dunstrc
+exec wlsunset -l 43.1 -L -77.5
+exec swayidle -w \
+	before-sleep '$HOME/.files/bin/lock' \
+	lock '$HOME/.files/bin/lock'
+
+# for_window [class="Google\-chrome" instance="crx"] floating enable
+# for_window [window_role="pop-up"] floating enable
+for_window [class="^Xfce4-notifyd$" instance="^xfce4-notifyd$"] floating enable
+for_window [class="google\-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating disable
+assign [class="google\-chrome" instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] 11:I
+
+font pango: Source Code Pro 8
+
+# use Mouse+Super to drag floating windows to their wanted position
+floating_modifier Super
+
+workspace_layout tabbed
+show_marks yes
+
+bar {
+	status_command $HOME/.luaenv/versions/luajit-2.1-dev/bin/luajit $HOME/.files/i3/panel.lua
+	strip_workspace_numbers yes
+	separator_symbol " "
+	position top
+	# font pango:Misc Stlarch 11px
+	font pango:Fira Code 11px
+	tray_output eDP-1
+
+	colors {
+		background #1f1f1f
+		statusline #c0b18b
+
+		focused_workspace  #af865a #1f1f1f #af865a
+		inactive_workspace #1f1f1f #1f1f1f #c0b18b
+		urgent_workspace   #d17b49 #1f1f1f #d17b49
+	}
+}
+
+
+# class                 title border  background  text     indicator  client border
+client.focused          #5A3637       #2f1f1f     #ededed  #dddddd    #5A3637
+client.focused_inactive #333333       #1f1f1f     #c0b18b  #292d2e    #333333
+client.unfocused        #333333       #1f1f1f     #c0b18b  #292d2e    #333333
+client.urgent           #d17b49       #3f1f1f     #ffffff  #900000    #d17b49
+
+bindswitch lid:on output eDP-1 disable
+bindswitch lid:off output eDP-1 enable
+
+bindsym Super+Shift+q  kill
+bindsym Super+Space  floating toggle
+bindsym Super+f  fullscreen
+bindsym Super+Tab  workspace next_on_output
+bindsym Super+Shift+Tab  workspace prev_on_output
+bindsym Super+j  focus left
+bindsym Super+k  focus down
+bindsym Super+l  focus up
+bindsym Super+semicolon  focus right
+bindsym Super+Shift+j  move left
+bindsym Super+Shift+k  move down
+bindsym Super+Shift+l  move up
+bindsym Super+Shift+semicolon  move right
+bindsym Super+Shift+v  focus parent
+bindsym Alt+Tab  focus right
+bindsym Alt+Shift+Tab  focus left
+bindsym Super+1  workspace 20:1
+bindsym Super+2  workspace 21:2
+bindsym Super+3  workspace 22:3
+bindsym Super+4  workspace 23:4
+bindsym Super+5  workspace 24:5
+bindsym Super+6  workspace 25:6
+bindsym Super+7  workspace 26:7
+bindsym Super+8  workspace 27:8
+bindsym Super+9  workspace 28:9
+bindsym Super+0  workspace 29:0
+bindsym Super+Shift+1  move container to workspace 20:1
+bindsym Super+Shift+2  move container to workspace 21:2
+bindsym Super+Shift+3  move container to workspace 22:3
+bindsym Super+Shift+4  move container to workspace 23:4
+bindsym Super+Shift+5  move container to workspace 24:5
+bindsym Super+Shift+6  move container to workspace 25:6
+bindsym Super+Shift+7  move container to workspace 26:7
+bindsym Super+Shift+8  move container to workspace 27:8
+bindsym Super+Shift+9  move container to workspace 28:9
+bindsym Super+Shift+0  move container to workspace 29:0
+bindsym Super+a  workspace 10:A
+bindsym Super+w  workspace 11:I
+bindsym Super+e  workspace 12:T
+bindsym Super+c  workspace 99:C
+bindsym Super+Shift+a  move container to workspace 10:A
+bindsym Super+Shift+w  move container to workspace 11:I
+bindsym Super+Shift+e  move container to workspace 12:T
+bindsym Super+Shift+c  move container to workspace 99:C
+bindsym Super+backslash  split vertical
+bindsym Super+Shift+backslash  split horizontal
+bindsym Super+Down  move to scratchpad
+bindsym Super+Up  scratchpad show
+bindsym Super+grave  [con_mark="dropin"] scratchpad show
+bindsym Super+Ctrl+Alt+grave  mark --add dropin
+bindsym Super+n  reload
+
+#
+# wm independent hotkeys
+#
+
+bindsym Super+q  exec $HOME/.files/bin/exit-menu
+bindsym Super+Return  exec sh -c "cd $HOME; kitty"
+# bindsym Super+Shift+Return exec sh -c "cd $HOME; tabbed -r 2 st -w ''"
+# bindsym Super+Shift+Return exec sh -c "cd $HOME; kitty"
+bindsym Super+d exec wofi --show drun
+bindsym Super+Shift+d exec wofi --show run
+bindsym Print exec $HOME/.files/bin/screenshot whole
+bindsym Super+Print exec $HOME/.files/bin/screenshot sel
+bindsym XF86MonBrightnessUp exec $HOME/.files/bin/brightness +
+bindsym XF86MonBrightnessDown exec $HOME/.files/bin/brightness -
+bindsym XF86AudioRaiseVolume exec $HOME/.files/bin/volume +
+bindsym XF86AudioLowerVolume exec $HOME/.files/bin/volume -
+bindsym XF86AudioMute exec $HOME/.files/bin/volume m
+# bindsym XF86TouchpadToggle exec $HOME/.files/bin/touchpad toggle
+# bindsym XF86ScreenSaver exec $HOME/.files/bin/lock
+bindsym XF86Sleep exec sh -c "$HOME/.files/bin/lock &; systemctl suspend; wait"
+bindsym Control+space exec dunstctl close
+bindsym Control+Shift+space exec dunstctl close-all
+bindsym Control+Alt+space exec dunstctl history-pop
+bindsym Control+Shift+period exec dunstctl context
+
+input * xkb_options ctrl:nocaps
+
+input 1:1:AT_Translated_Set_2_keyboard {
+	xkb_layout us
+	xkb_options ctrl:nocaps,shift:both_capslock,compose:menu
+}
+
+# input 2:7:SynPS/2_Synaptics_TouchPad {
+# 	pointer_accel 0.5
+# 	tap enabled
+# }
+
+input 2:10:TPPS/2_Elan_TrackPoint {
+	pointer_accel 0.01
+}
