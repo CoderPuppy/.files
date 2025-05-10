@@ -19,7 +19,7 @@ e=$?
 if [ $e -ne 0 ]; then
 	exit $e
 fi
-notify-send "Saved ~/screenshots/${file}.png"
+dunstify "Saved ~/screenshots/${file}.png"
 if test "x$WAYLAND_DISPLAY" != "x" ]]; then
 	echo -n "$HOME/screenshots/${file}.png" | wl-copy
 else
