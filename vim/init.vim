@@ -51,7 +51,7 @@
 		Plug 'cespare/vim-toml'
 		Plug 'wavded/vim-stylus'
 		" Plug 'derekelkins/agda-vim'
-		Plug 'isovector/cornelis'
+		Plug 'agda/cornelis'
 		Plug 'wlangstroth/vim-racket'
 		Plug 'vito-c/jq.vim'
 		Plug 'fsharp/vim-fsharp', {
