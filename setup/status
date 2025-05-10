@@ -1,6 +1,6 @@
 #!/bin/bash
 session_id="$(tmux new-session -s status -d -c "$HOME" -P -F '#{session_id}')"
-tmux send-keys -t "$session_id" 'sudo htop' Enter
+tmux send-keys -t "$session_id" 'sudo btop' Enter
 
 net_pane_id="$(tmux new-window -t "$session_id" -d -c "$HOME" -P -F '#{pane_id}')"
 tmux send-keys -t "$net_pane_id" 'ping 8.8.8.8' Enter
