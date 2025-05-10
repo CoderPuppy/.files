@@ -54,7 +54,12 @@ fi
 out="$out[$(bar 50 $volume)]"
 echo "$out"
 
-dunstify "🔊 Volume 🔊" \
+if test "$mute" = "yes"; then
+	mute_text=" [Muted]"
+else
+	mute_text=""
+fi
+dunstify "🔊 Volume$mute_text 🔊" \
 	-t 2000 \
 	-h string:x-canonical-private-synchronous:volume \
 	-h int:value:"$((volume * 2))"
