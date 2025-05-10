@@ -23,6 +23,7 @@
 	# separator_color # default auto
 	# sort # default true
 	idle_threshold = 120 # default 0
+	layer = overlay
 	font = Source Code Pro 9
 	# line_height # default 0
 	format = "<b>%s</b>\n%b" # default "%s %b"
