@@ -152,12 +152,16 @@ lua << EOF
 
 	-- TODO: advertise cmp-nvim-lsp capabilities
 
-	require('indent_blankline').setup {
+	require('ibl').setup {
 		enabled = false;
-		char = '│';
-		buftype_exclude = {'terminal'};
-		space_char_blankline = ' ';
-		show_end_of_line = true;
+		scope = {
+			char = '│';
+		};
+		exclude = {
+			buftypes = {'terminal'};
+		};
+		-- space_char_blankline = ' ';
+		-- show_end_of_line = true;
 	}
 
 	require 'nvim-tree'.setup {
