@@ -70,22 +70,14 @@ super + d
 super + shift + d
 	launcher shell
 
-super + shift + grave
-	daily-reminder-notify
-
 Print
 	screenshot whole
 
 super + Print
 	screenshot sel
 
-super + shift + Print
-	gifify $(rec)
-
 XF86MonBrightness{Up,Down}
 	brightness {+,-}
-# XF86MonBrightness{Up,Down}
-# 	sleep 0.1; brightness
 
 XF86Audio{Raise,Lower}Volume
 	volume {+,-}
