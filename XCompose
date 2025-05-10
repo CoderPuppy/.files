@@ -448,7 +448,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <minus> <plus> : "∓" # minus plus
 <Multi_key> <3> <v> <slash> : "∛" # cube root
 <Multi_key> <asciitilde> <greater> : "⇝"
-<Multi_key> <bar> <minus> <minus> : "⊢" # right tack (implies)
+<Multi_key> <bar> <minus> <minus> : "⊢" # right tack (implies), turnstile
 <Multi_key> <equal> <less> <equal> : "⟸" # long leftwards double arrow
 <Multi_key> <less> <bar> <equal> : "⊴"
 <Multi_key> <bar> <bar> <v> : "⇓" # downwards double arrow
@@ -502,3 +502,5 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <n> <o> <plus> : "⨁" # n-ary circled plus
 <Multi_key> <n> <c> <o> <p> : "⨆" # n-ary coproduct
 <Multi_key> <bar> <greater> : "▹" # white right-pointing small triangle
+<Multi_key> <p> <a> <r> : "⅋" # turned ampersand, par
+<Multi_key> <e> <o> <p> : "∎" # end of proof
