@@ -36,7 +36,7 @@ workspace_layout tabbed
 
 # exec mako
 # exec REMIND_INSTANT=0 rem -z -k'notify-send -t 86400000 %s'
-exec dunst -config $HOME/.config/i3/dunstrc
+exec dunst
 exec wlsunset -l 43.1 -L -77.5
 exec swayidle -w \
 	before-sleep '$HOME/.files/bin/lock' \
