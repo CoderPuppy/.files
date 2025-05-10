@@ -78,3 +78,5 @@ ln -sT ~/.files/xinitrc ~/.xinitrc 2> /dev/null
 ln -sT ~/.files/xmodmaprc ~/.xmodmaprc 2> /dev/null
 ln -sT ~/.files/XCompose ~/.XCompose 2> /dev/null
 ln -sT ~/.files/agignore ~/.agignore 2> /dev/null
+mkdir ~/.config/kitty 2> /dev/null
+ln -sT ~/.files/kitty.conf ~/.config/kitty/kitty.conf 2> /dev/null
