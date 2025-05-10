@@ -20,7 +20,7 @@ export LIBVA_DRIVER_NAME=iHD
 { # ssh
 	export SSH_ASKPASS=/usr/lib/ssh/ssh-askpass
 	mkdir /run/user/$(id -u)/keyring 2>/dev/null
-	export SSH_AUTH_SOCK=/run/user/$(id -u)/keyring/ssh
+	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 }
 
 { # ssl
