@@ -5,7 +5,7 @@
 	# height
 	notification_limit = 5 # default 0
 	# origin # default top-right
-	offset = 0x14
+	offset = (0, 14)
 	# scale # default 0
 	# progress_bar # default true
 	# progress_bar_height # default 10
