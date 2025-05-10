@@ -12,4 +12,14 @@ tmux send-keys \
 	Enter \
 	'sudo udevadm control --reload; sudo udevadm trigger; sleep 2; xmodmap ~/.xmodmaprc; sudo tlp setcharge 60 70' Enter
 
+bt_pane_id="$(tmux new-window -t "$session_id" -d -c /w/my/data/notes -n BT -P -F '#{pane_id}')"
+tmux send-keys \
+	-t "$(tmux split-window -t "$bt_pane_id" -v -b -c /w/my/data/notes -P -F '#{pane_id}')" \
+	'bluetoothctl' Enter
+tmux send-keys \
+	-t "$bt_pane_id" \
+	'print -s pactl list sinks' Enter
+
+tmux new-window -t "$session_id" -d -c /w/my/data/media/books/downloaded -n books
+
 exec tmux attach-session -t "$session_id"
